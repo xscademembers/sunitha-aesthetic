@@ -1,6 +1,70 @@
 import type { ProcedureSectionData } from "@/types/content";
 
+// Order follows the site's category order: Body → (Breast, Gynecomastia have
+// dedicated service pages) → Reconstructive → Face → Skin → (Hair). imageSide
+// alternates right/left so the layout keeps its zigzag rhythm.
 export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
+  {
+    id: "body-procedures",
+    eyebrow: "Surgical Procedure",
+    title: "Body Procedures",
+    imageSide: "right",
+    image: "/images/procedures/body.webp",
+    imageAlt: "Operation theater",
+    imageSize: [455, 455],
+    circleCrop: true,
+    cards: [
+      {
+        title: "Liposuction",
+        slug: "liposuction",
+        icon: "/icons/check-circle.svg",
+        description:
+          "Enhance your body's natural contours and get your desired shape with liposuction.",
+      },
+      {
+        title: "Tummy Tuck",
+        slug: "tummy-tuck",
+        icon: "/icons/check-circle.svg",
+        description: "Tighten and flatten your abdomen by removing excess skin and fat.",
+      },
+      {
+        title: "Mommy Makeover",
+        slug: "mommy-makeover",
+        icon: "/icons/mommy-makeover.svg",
+        description: "Restore your pre-pregnancy body with a combination of procedures.",
+      },
+      {
+        title: "Lower Body Sculpting",
+        slug: "lower-body-sculpting",
+        icon: "/icons/check-circle.svg",
+        description:
+          "Refine your body shape with contouring techniques designed for natural results.",
+      },
+    ],
+  },
+  {
+    id: "reconstructive-surgeries",
+    eyebrow: "Surgical Procedure",
+    title: "Reconstructive Surgeries",
+    imageSide: "left",
+    image: "/images/procedures/reconstructive.webp",
+    imageAlt: "Reconstructive surgery",
+    imageSize: [681, 707],
+    cards: [
+      {
+        title: "Chest Reconstruction",
+        slug: "chest-reconstruction",
+        icon: "/icons/check-circle.svg",
+        description: "Restore chest shape and symmetry following mastectomy or injury.",
+      },
+      {
+        title: "Cleft Lip & Palate Surgery",
+        slug: "cleft-lip-palate-surgery",
+        icon: "/icons/cleft-lip.svg",
+        description: "Correct cleft lip and palate for improved appearance and function.",
+      },
+    ],
+  },
   {
     id: "facial-procedures",
     eyebrow: "Surgical Procedure",
@@ -49,39 +113,10 @@ export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
     ],
   },
   {
-    id: "laser-treatments",
-    eyebrow: "Non - Surgical Procedure",
-    title: "Laser Treatments",
-    imageSide: "left",
-    image: "/images/procedures/laser.webp",
-    imageAlt: "Laser treatment",
-    imageSize: [681, 699],
-    cards: [
-      {
-        title: "Laser Hair Reduction",
-        slug: "laser-hair-reduction",
-        icon: "/icons/laser-hair.svg",
-        description: "For smooth, hair-free skin with advanced laser technology.",
-      },
-      {
-        title: "Laser Toning",
-        slug: "laser-toning",
-        icon: "/icons/laser-toning.svg",
-        description: "For Improve skin tone and texture with gentle laser treatments.",
-      },
-      {
-        title: "Laser for Pigmentation",
-        slug: "laser-for-pigmentation",
-        icon: "/icons/laser-pigmentation.svg",
-        description: "To Reduce skin pigmentation with targeted laser treatments.",
-      },
-    ],
-  },
-  {
     id: "face-treatment",
     eyebrow: "Non - Surgical Procedure",
     title: "Face Treatment",
-    imageSide: "right",
+    imageSide: "left",
     image: "/images/procedures/face-treatment.webp",
     imageAlt: "Face treatment",
     imageSize: [506, 506],
@@ -108,63 +143,20 @@ export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
     ],
   },
   {
-    id: "body-procedures",
-    eyebrow: "Surgical Procedure",
-    title: "Body Procedures",
-    imageSide: "left",
-    image: "/images/procedures/body.webp",
-    imageAlt: "Operation theater",
-    imageSize: [455, 455],
-    circleCrop: true,
-    cards: [
-      {
-        title: "Liposuction",
-        slug: "liposuction",
-        icon: "/icons/check-circle.svg",
-        description:
-          "Enhance your body's natural contours and get your desired shape with liposuction.",
-      },
-      {
-        title: "Tummy Tuck",
-        slug: "tummy-tuck",
-        icon: "/icons/check-circle.svg",
-        description: "Tighten and flatten your abdomen by removing excess skin and fat.",
-      },
-      {
-        title: "Mommy Makeover",
-        slug: "mommy-makeover",
-        icon: "/icons/mommy-makeover.svg",
-        description: "Restore your pre-pregnancy body with a combination of procedures.",
-      },
-      {
-        title: "Lower Body Sculpting",
-        slug: "lower-body-sculpting",
-        icon: "/icons/check-circle.svg",
-        description:
-          "Refine your body shape with contouring techniques designed for natural results.",
-      },
-    ],
-  },
-  {
-    id: "reconstructive-surgeries",
-    eyebrow: "Surgical Procedure",
-    title: "Reconstructive Surgeries",
+    id: "morpheus8",
+    eyebrow: "Non - Surgical Procedure",
+    title: "Morpheus8",
     imageSide: "right",
-    image: "/images/procedures/reconstructive.webp",
-    imageAlt: "Reconstructive surgery",
-    imageSize: [681, 707],
+    image: "/images/procedures/laser.webp",
+    imageAlt: "Morpheus8 treatment",
+    imageSize: [681, 699],
     cards: [
       {
-        title: "Chest Reconstruction",
-        slug: "chest-reconstruction",
-        icon: "/icons/check-circle.svg",
-        description: "Restore chest shape and symmetry following mastectomy or injury.",
-      },
-      {
-        title: "Cleft Lip & Palate Surgery",
-        slug: "cleft-lip-palate-surgery",
-        icon: "/icons/cleft-lip.svg",
-        description: "Correct cleft lip and palate for improved appearance and function.",
+        title: "Scar Treatment",
+        slug: "morpheus8",
+        icon: "/icons/morpheus8.svg",
+        description:
+          "Smooth acne scars and improve skin texture with Morpheus8 RF microneedling.",
       },
     ],
   },

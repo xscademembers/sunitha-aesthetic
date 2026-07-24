@@ -105,7 +105,7 @@ export default function AboutPage() {
     <>
       <SiteHeader />
       <main>
-        <section className="relative overflow-hidden bg-[#f8f1e8] px-6 py-16 lg:px-[72px] lg:py-24">
+        <section className="relative overflow-hidden bg-white px-6 py-16 lg:px-[72px] lg:py-24">
           <div className="pointer-events-none absolute -right-28 -top-32 size-[480px] rounded-full bg-maroon/10 blur-3xl" />
           <div className="relative mx-auto grid max-w-[1320px] items-center gap-12 lg:grid-cols-[1fr_0.82fr] lg:gap-20">
             <div>
@@ -115,7 +115,7 @@ export default function AboutPage() {
               <h1 className="mt-5 max-w-[760px] font-serif text-[43px] leading-[1.13] text-black sm:text-[58px] lg:text-[70px]">
                 Precision in practice. Compassion in every conversation.
               </h1>
-              <p className="mt-7 max-w-[710px] font-sans text-[18px] leading-8 text-[#535353] lg:text-[20px]">
+              <p className="mt-7 max-w-[710px] font-sans text-[18px] leading-8 text-black lg:text-[20px]">
                 Dr. Sunita Ghanta is a plastic, aesthetic and reconstructive surgeon in
                 Visakhapatnam. Her work brings together surgical judgement, an eye for proportion
                 and a thoughtful understanding of what each patient hopes to change.
@@ -127,19 +127,19 @@ export default function AboutPage() {
               <dl className="mt-10 grid max-w-[650px] grid-cols-2 gap-5 border-t border-maroon/20 pt-7 sm:grid-cols-3">
                 <div>
                   <dt className="font-serif text-[34px] text-maroon">17+</dt>
-                  <dd className="mt-1 font-sans text-[12px] uppercase tracking-[0.12em] text-[#666]">
+                  <dd className="mt-1 font-sans text-[12px] uppercase tracking-[0.12em] text-black">
                     Years of experience
                   </dd>
                 </div>
                 <div>
                   <dt className="font-serif text-[34px] text-maroon">2,450+</dt>
-                  <dd className="mt-1 font-sans text-[12px] uppercase tracking-[0.12em] text-[#666]">
+                  <dd className="mt-1 font-sans text-[12px] uppercase tracking-[0.12em] text-black">
                     Procedures performed
                   </dd>
                 </div>
                 <div className="col-span-2 sm:col-span-1">
                   <dt className="font-serif text-[25px] leading-[1.35] text-maroon">MBBS, DNB, MCh</dt>
-                  <dd className="mt-1 font-sans text-[12px] uppercase tracking-[0.12em] text-[#666]">
+                  <dd className="mt-1 font-sans text-[12px] uppercase tracking-[0.12em] text-black">
                     Surgical qualifications
                   </dd>
                 </div>
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
             <div className="relative mx-auto w-full max-w-[540px]">
               <div className="absolute -bottom-5 -left-5 h-[80%] w-[72%] rounded-[32px] bg-maroon/15" />
-              <div className="relative aspect-[2/3] overflow-hidden rounded-[32px] bg-[#ddd] shadow-[0_35px_70px_-35px_rgba(75,33,29,0.6)]">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-[32px] bg-white shadow-[0_35px_70px_-35px_rgba(161,83,78,0.6)]">
                 <Image
                   src="/images/about/dr-sunita-ghanta.jpg"
                   alt="Dr. Sunita Ghanta, plastic and aesthetic surgeon"
@@ -178,7 +178,7 @@ export default function AboutPage() {
                 Surgery begins with listening
               </h2>
             </div>
-            <div className="space-y-6 font-sans text-[18px] leading-[1.85] text-[#555]">
+            <div className="space-y-6 font-sans text-[18px] leading-[1.85] text-black">
               <p>
                 For Dr. Sunita, a good outcome is not defined by a procedure alone. It begins with
                 understanding why a concern matters to the patient, what a natural result means to
@@ -199,7 +199,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#f3f0ec] px-6 py-20 lg:px-[72px] lg:py-24">
+        <section className="bg-white px-6 py-20 lg:px-[72px] lg:py-24">
           <div className="mx-auto max-w-[1180px]">
             <div className="text-center">
               <p className="font-sans text-[13px] font-bold uppercase tracking-[0.22em] text-maroon">
@@ -216,10 +216,10 @@ export default function AboutPage() {
                   className="rounded-[24px] border border-black/10 bg-white p-7 shadow-[0_18px_40px_-32px_rgba(0,0,0,0.45)] sm:p-9"
                 >
                   <p className="font-serif text-[44px] text-maroon">{qualification.degree}</p>
-                  <p className="mt-3 font-sans text-[12px] font-bold uppercase tracking-[0.15em] text-[#777]">
+                  <p className="mt-3 font-sans text-[12px] font-bold uppercase tracking-[0.15em] text-black">
                     {qualification.label}
                   </p>
-                  <p className="mt-5 font-sans text-[16px] leading-7 text-[#555]">
+                  <p className="mt-5 font-sans text-[16px] leading-7 text-black">
                     {qualification.description}
                   </p>
                 </article>
@@ -237,7 +237,7 @@ export default function AboutPage() {
               <h2 className="mt-4 font-serif text-[36px] leading-[1.25] text-black sm:text-[48px]">
                 Comprehensive care, individually planned
               </h2>
-              <p className="mt-5 font-sans text-[17px] leading-8 text-[#666]">
+              <p className="mt-5 font-sans text-[17px] leading-8 text-black">
                 Treatment recommendations are tailored to the patient&rsquo;s anatomy, priorities and
                 medical suitability.
               </p>
@@ -247,11 +247,11 @@ export default function AboutPage() {
                 <Link
                   key={area.title}
                   href={area.href}
-                  className="group min-h-[270px] bg-[#fcfaf7] p-7 transition-colors duration-300 hover:bg-[#f8f1e8] sm:p-9"
+                  className="group min-h-[270px] bg-white p-7 transition-colors duration-300 hover:bg-maroon/5 sm:p-9"
                 >
                   <span className="font-serif text-[34px] text-maroon/30">{area.number}</span>
                   <h3 className="mt-7 font-serif text-[27px] text-black">{area.title}</h3>
-                  <p className="mt-4 font-sans text-[15px] leading-7 text-[#666]">
+                  <p className="mt-4 font-sans text-[15px] leading-7 text-black">
                     {area.description}
                   </p>
                   <span className="mt-7 inline-flex font-sans text-[12px] font-bold uppercase tracking-[0.13em] text-maroon">
@@ -283,7 +283,7 @@ export default function AboutPage() {
                   key={value.title}
                   className="rounded-[22px] border border-white/20 bg-white/10 p-6 backdrop-blur-sm sm:p-7"
                 >
-                  <span className="block size-2 rounded-full bg-[#fabd4f]" />
+                  <span className="block size-2 rounded-full bg-white" />
                   <h3 className="mt-5 font-serif text-[23px] leading-[1.35]">{value.title}</h3>
                   <p className="mt-3 font-sans text-[15px] leading-7 text-white/75">
                     {value.description}
@@ -304,7 +304,7 @@ export default function AboutPage() {
                 <h2 className="mt-4 font-serif text-[36px] leading-[1.25] text-black sm:text-[48px]">
                   Private, modern care in Visakhapatnam
                 </h2>
-                <p className="mt-6 font-sans text-[17px] leading-8 text-[#606060]">
+                <p className="mt-6 font-sans text-[17px] leading-8 text-black">
                   Dr. Sunita Aesthetics is designed to make every stage—from the first conversation
                   to follow-up—feel calm, private and well supported. The clinic combines modern
                   equipment with rigorous hygiene, trained staff and structured postoperative care.
@@ -318,7 +318,7 @@ export default function AboutPage() {
                     "Clear emergency protocols",
                     "Private consultation spaces",
                   ].map((item) => (
-                    <li key={item} className="flex gap-3 font-sans text-[14px] leading-6 text-[#444]">
+                    <li key={item} className="flex gap-3 font-sans text-[14px] leading-6 text-black">
                       <span className="mt-[9px] size-1.5 shrink-0 rounded-full bg-maroon" />
                       {item}
                     </li>
@@ -326,7 +326,7 @@ export default function AboutPage() {
                 </ul>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="relative col-span-2 aspect-[16/8] overflow-hidden rounded-[24px] bg-[#eee]">
+                <div className="relative col-span-2 aspect-[16/8] overflow-hidden rounded-[24px] bg-white">
                   <Image
                     src="/images/clinic/clinic-reception.webp"
                     alt="Reception at Dr. Sunita Aesthetics"
@@ -335,7 +335,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="relative aspect-square overflow-hidden rounded-[24px] bg-[#eee]">
+                <div className="relative aspect-square overflow-hidden rounded-[24px] bg-white">
                   <Image
                     src="/images/clinic/clinic-interior-2.webp"
                     alt="Consultation room at Dr. Sunita Aesthetics"
@@ -344,7 +344,7 @@ export default function AboutPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="relative aspect-square overflow-hidden rounded-[24px] bg-[#eee]">
+                <div className="relative aspect-square overflow-hidden rounded-[24px] bg-white">
                   <Image
                     src="/images/clinic/clinic-outdoor.webp"
                     alt="Dr. Sunita Aesthetics clinic exterior"
@@ -358,14 +358,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-[#f8f1e8] px-6 py-20 text-center lg:px-[72px]">
+        <section className="bg-white px-6 py-20 text-center lg:px-[72px]">
           <p className="font-sans text-[13px] font-bold uppercase tracking-[0.22em] text-maroon">
             A conversation is the first step
           </p>
           <h2 className="mx-auto mt-4 max-w-[820px] font-serif text-[36px] leading-[1.28] text-black sm:text-[48px]">
             Understand your options before deciding what comes next
           </h2>
-          <p className="mx-auto mt-5 max-w-[690px] font-sans text-[17px] leading-8 text-[#666]">
+          <p className="mx-auto mt-5 max-w-[690px] font-sans text-[17px] leading-8 text-black">
             Meet Dr. Sunita for an individual assessment, clear answers and a treatment plan built
             around you.
           </p>

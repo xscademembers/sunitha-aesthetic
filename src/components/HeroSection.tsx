@@ -1,7 +1,25 @@
 import Image from "next/image";
 import { AutoGallery, type AutoGalleryImage } from "@/components/AutoGallery";
 import { CallNowButton, GetAppointmentButton } from "@/components/BrandButtons";
+import { HeroPhotoCarousel, type HeroPhoto } from "@/components/HeroPhotoCarousel";
 import { TestimonialSlider } from "@/components/TestimonialSlider";
+
+// Mobile-only hero carousel. Add/replace { src, alt } entries here to change slides.
+// NOTE: the 2nd & 3rd images are placeholders for reference — swap them later.
+const HERO_PHOTOS: HeroPhoto[] = [
+  {
+    src: "/images/doctor-hero.webp",
+    alt: "Dr Sunita Ghanta - Founder of Dr. Sunita Aesthetics - Cosmetic Surgeon in Vizag",
+  },
+  {
+    src: "/images/clinic/clinic-reception.webp",
+    alt: "Dr. Sunita Aesthetics Clinic - reception (placeholder)",
+  },
+  {
+    src: "/images/clinic/clinic-interior-1.webp",
+    alt: "Dr. Sunita Aesthetics Clinic - interior (placeholder)",
+  },
+];
 
 export const CLINIC_IMAGES: AutoGalleryImage[] = [
   { src: "/images/clinic/clinic-outdoor.webp", alt: "Dr. Sunita Aesthetics Clinic - outdoor" },
@@ -70,16 +88,19 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Sticky doctor photo — on mobile it sits between the top block and the Art section */}
+      {/* Doctor photo — on mobile it sits between the top block and the Art section */}
       <div className="mt-10 bg-hero-gray lg:mt-0 lg:col-start-2 lg:row-span-2 lg:row-start-1">
-        <div className="lg:sticky lg:top-0">
+        {/* Mobile: swipeable carousel */}
+        <HeroPhotoCarousel images={HERO_PHOTOS} className="lg:hidden" />
+        {/* Desktop: sticky single photo */}
+        <div className="hidden lg:sticky lg:top-0 lg:block">
           <Image
             src="/images/doctor-hero.webp"
             alt="Dr Sunita Ghanta - Founder of Dr. Sunita Aesthetics - Cosmetic Surgeon in Vizag"
             width={1440}
             height={1690}
             priority
-            sizes="(max-width: 1023px) 100vw, 50vw"
+            sizes="50vw"
             className="h-auto w-full object-cover lg:h-[845px] lg:w-[720px]"
           />
         </div>

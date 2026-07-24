@@ -116,7 +116,7 @@ export function SiteFooter() {
                 <li key={l.label}>
                   <a
                     href={l.href}
-                    className="font-sans text-[14px] text-[#333333] transition-colors hover:text-maroon"
+                    className="font-sans text-[14px] text-black transition-colors hover:text-maroon"
                   >
                     {l.label}
                   </a>

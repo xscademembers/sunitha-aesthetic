@@ -73,9 +73,9 @@ export function StarIcon(props: IconProps) {
   );
 }
 
-/* ---------- Brand iconography (dual-tone: white stroke + gold accent) ---------- */
+/* ---------- Brand iconography (monotone: uses currentColor to stay in palette) ---------- */
 
-const GOLD = "#FABD4F";
+const GOLD = "currentColor";
 
 /** Globe with sparkle — "World-class surgery". */
 export function SparkGlobeIcon(props: IconProps) {

@@ -131,6 +131,7 @@ export function SiteHeader() {
                   height={22}
                   loading="eager"
                   unoptimized
+                  className="brightness-0 invert"
                 />
               </a>
             ))}
@@ -154,7 +155,7 @@ export function SiteHeader() {
               <a
                 key={l.label}
                 href={l.href}
-                className="rounded-full px-3 py-2 font-sans text-[15px] text-black transition-colors duration-200 hover:bg-cream xl:px-4 xl:text-[16px]"
+                className="rounded-full px-3 py-2 font-sans text-[15px] text-black transition-colors duration-200 hover:bg-maroon/10 xl:px-4 xl:text-[16px]"
               >
                 {l.label}
               </a>
@@ -193,7 +194,7 @@ export function SiteHeader() {
               type="button"
               aria-label="Close menu"
               onClick={closeMobileMenu}
-              className="flex size-11 items-center justify-center rounded-[12px] border border-black/10 text-black transition-colors hover:bg-cream"
+              className="flex size-11 items-center justify-center rounded-[12px] border border-black/10 text-black transition-colors hover:bg-maroon/10"
             >
               <CloseIcon className="size-[20px]" />
             </button>
@@ -216,7 +217,7 @@ export function SiteHeader() {
                         aria-expanded={mobileServicesOpen}
                         aria-controls="mobile-services-tree"
                         onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                        className="flex min-h-12 w-full items-center gap-2.5 rounded-[11px] px-2 text-left font-sans text-[16px] font-medium text-black transition-colors hover:bg-cream"
+                        className="flex min-h-12 w-full items-center gap-2.5 rounded-[11px] px-2 text-left font-sans text-[16px] font-medium text-black transition-colors hover:bg-maroon/10"
                       >
                         <ChevronDownIcon
                           className={`size-2.5 shrink-0 -rotate-90 transition-transform duration-200 ${mobileServicesOpen ? "rotate-0" : ""}`}
@@ -242,7 +243,7 @@ export function SiteHeader() {
                       <a
                         href={link.href}
                         onClick={closeMobileMenu}
-                        className="flex min-h-12 items-center gap-2.5 rounded-[11px] px-2 pl-[22px] font-sans text-[16px] text-black/80 transition-colors hover:bg-cream hover:text-maroon"
+                        className="flex min-h-12 items-center gap-2.5 rounded-[11px] px-2 pl-[22px] font-sans text-[16px] text-black/80 transition-colors hover:bg-maroon/10 hover:text-maroon"
                       >
                         <MobileFileIcon className="size-[18px] shrink-0 text-maroon/65" />
                         <span>{link.label}</span>

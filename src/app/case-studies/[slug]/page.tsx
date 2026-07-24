@@ -56,7 +56,7 @@ export default async function CaseStudyPage({ params }: Props) {
       />
       <SiteHeader />
       <main className="bg-white">
-        <section className="bg-[#f8f1e8] px-6 pb-16 pt-10 lg:px-[72px] lg:pb-24 lg:pt-14">
+        <section className="bg-white px-6 pb-16 pt-10 lg:px-[72px] lg:pb-24 lg:pt-14">
           <div className="mx-auto max-w-[1320px]">
             <Link
               href="/case-studies"
@@ -71,7 +71,7 @@ export default async function CaseStudyPage({ params }: Props) {
                   <span className="rounded-full bg-maroon px-4 py-2 font-sans text-[11px] font-bold uppercase tracking-[0.13em] text-white">
                     Case {study.number}
                   </span>
-                  <span className="font-sans text-[12px] font-bold uppercase tracking-[0.14em] text-[#666]">
+                  <span className="font-sans text-[12px] font-bold uppercase tracking-[0.14em] text-black">
                     {study.category} · {study.location}
                   </span>
                 </div>
@@ -81,12 +81,12 @@ export default async function CaseStudyPage({ params }: Props) {
                 <p className="mt-5 font-serif text-[20px] leading-[1.55] text-maroon sm:text-[23px]">
                   {study.subtitle}
                 </p>
-                <p className="mt-6 max-w-[650px] font-sans text-[17px] leading-8 text-[#555]">
+                <p className="mt-6 max-w-[650px] font-sans text-[17px] leading-8 text-black">
                   {study.excerpt}
                 </p>
                 <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-maroon/20 pt-7 sm:grid-cols-3">
                   <div>
-                    <dt className="font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-[#777]">
+                    <dt className="font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-black">
                       Procedure
                     </dt>
                     <dd className="mt-2 font-sans text-[14px] leading-6 text-black">
@@ -95,14 +95,14 @@ export default async function CaseStudyPage({ params }: Props) {
                   </div>
                   {study.age && (
                     <div>
-                      <dt className="font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-[#777]">
+                      <dt className="font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-black">
                         Patient age
                       </dt>
                       <dd className="mt-2 font-sans text-[14px] text-black">{study.age}</dd>
                     </div>
                   )}
                   <div>
-                    <dt className="font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-[#777]">
+                    <dt className="font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-black">
                       Journey
                     </dt>
                     <dd className="mt-2 font-sans text-[14px] text-black">
@@ -112,7 +112,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 </dl>
               </div>
 
-              <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] bg-[#eee] shadow-[0_30px_70px_-35px_rgba(75,33,29,0.55)] lg:aspect-[5/4]">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-[30px] bg-white shadow-[0_30px_70px_-35px_rgba(161,83,78,0.55)] lg:aspect-[5/4]">
                 <Image
                   src={study.heroImage}
                   alt={`${study.procedure} patient journey`}
@@ -157,18 +157,18 @@ export default async function CaseStudyPage({ params }: Props) {
                       {section.paragraphs.map((paragraph) => (
                         <p
                           key={paragraph}
-                          className="font-sans text-[17px] leading-8 text-[#555]"
+                          className="font-sans text-[17px] leading-8 text-black"
                         >
                           {paragraph}
                         </p>
                       ))}
                     </div>
                     {section.points && (
-                      <ul className="mt-8 grid gap-3 rounded-[20px] bg-[#f8f1e8] p-6 sm:grid-cols-2 sm:p-8">
+                      <ul className="mt-8 grid gap-3 rounded-[20px] bg-white p-6 sm:grid-cols-2 sm:p-8">
                         {section.points.map((point) => (
                           <li
                             key={point}
-                            className="flex gap-3 font-sans text-[15px] leading-6 text-[#444]"
+                            className="flex gap-3 font-sans text-[15px] leading-6 text-black"
                           >
                             <span className="mt-[9px] size-1.5 shrink-0 rounded-full bg-maroon" />
                             {point}
@@ -183,7 +183,7 @@ export default async function CaseStudyPage({ params }: Props) {
           </div>
         </article>
 
-        <section className="bg-[#f3f0ec] px-6 py-16 lg:px-[72px] lg:py-24">
+        <section className="bg-white px-6 py-16 lg:px-[72px] lg:py-24">
           <div className="mx-auto max-w-[1180px]">
             <div className="text-center">
               <p className="font-sans text-[13px] font-bold uppercase tracking-[0.2em] text-maroon">
@@ -192,7 +192,7 @@ export default async function CaseStudyPage({ params }: Props) {
               <h2 className="mt-3 font-serif text-[34px] leading-[1.3] text-black sm:text-[44px]">
                 Before and after treatment
               </h2>
-              <p className="mx-auto mt-4 max-w-[700px] font-sans text-[15px] leading-7 text-[#666]">
+              <p className="mx-auto mt-4 max-w-[700px] font-sans text-[15px] leading-7 text-black">
                 Images are shared with patient consent. Healing and outcomes are individual, and
                 results vary from person to person.
               </p>
@@ -200,7 +200,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
             <div className="mt-10 grid gap-5 sm:grid-cols-2">
               <figure className="overflow-hidden rounded-[24px] bg-white shadow-sm">
-                <div className="relative aspect-square bg-[#ddd]">
+                <div className="relative aspect-square bg-white">
                   <Image
                     src={study.beforeImage}
                     alt={`Before ${study.procedure}`}
@@ -214,7 +214,7 @@ export default async function CaseStudyPage({ params }: Props) {
                 </div>
               </figure>
               <figure className="overflow-hidden rounded-[24px] bg-white shadow-sm">
-                <div className="relative aspect-square bg-[#ddd]">
+                <div className="relative aspect-square bg-white">
                   <Image
                     src={study.afterImage}
                     alt={`After ${study.procedure}`}
@@ -283,9 +283,9 @@ export default async function CaseStudyPage({ params }: Props) {
                 <Link
                   key={item.slug}
                   href={`/case-studies/${item.slug}`}
-                  className="card-lift group grid overflow-hidden rounded-[22px] border border-black/10 bg-[#fcfaf7] sm:grid-cols-[180px_1fr]"
+                  className="card-lift group grid overflow-hidden rounded-[22px] border border-black/10 bg-white sm:grid-cols-[180px_1fr]"
                 >
-                  <div className="relative min-h-[210px] bg-[#eee] sm:min-h-full">
+                  <div className="relative min-h-[210px] bg-white sm:min-h-full">
                     <Image
                       src={item.heroImage}
                       alt={item.title}

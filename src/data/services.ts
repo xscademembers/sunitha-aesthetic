@@ -236,6 +236,7 @@ function makeService(seed: ServiceSeed): ServiceData {
 const SURGICAL_FACE = "Surgical Procedure — Face";
 const SURGICAL_BODY = "Surgical Procedure — Body";
 const SURGICAL_BREAST = "Surgical Procedure — Breast";
+const SURGICAL_GYNECOMASTIA = "Surgical Procedure — Gynecomastia";
 const NONSURGICAL_FACE = "Non-Surgical — Face";
 const NONSURGICAL_LASER = "Non-Surgical — Laser";
 const NONSURGICAL_ANTIAGING = "Non-Surgical — Anti-Aging";
@@ -381,12 +382,6 @@ const SEEDS: ServiceSeed[] = [
     category: SURGICAL_BODY,
     video: "https://video.wixstatic.com/video/2139b1_ae4a94e496b440dc97911268b8532051/1080p/mp4/file.mp4",
   },
-  {
-    slug: "gynecomastia-treatment-in-visakhapatnam",
-    title: "Gynecomastia Surgery",
-    category: SURGICAL_BODY,
-    youtubeVideoId: "xglfMidbq8I",
-  },
 
   // ---- Face (surgical) ----
   {
@@ -423,6 +418,193 @@ const SEEDS: ServiceSeed[] = [
     title: "Breast Reduction",
     category: SURGICAL_BREAST,
     video: "https://video.wixstatic.com/video/2139b1_0addbbe11e294c958d5de74c175e686e/1080p/mp4/file.mp4",
+  },
+
+  // ---- Gynecomastia (male chest — "men's breast") ----
+  {
+    slug: "gynecomastia-treatment-in-visakhapatnam",
+    title: "Gynecomastia Surgery",
+    category: SURGICAL_GYNECOMASTIA,
+    youtubeVideoId: "xglfMidbq8I",
+    metaDescription:
+      "Gynecomastia surgery (male breast reduction) in Visakhapatnam by Dr. Sunita Ghanta — remove excess glandular tissue and fat for a flatter, firmer, more masculine chest. Board-certified plastic surgeon, 17+ years of experience.",
+    heroDescription:
+      "Gynecomastia — enlarged male breast tissue — is common and treatable. Dr. Sunita Ghanta combines gland excision with precision liposuction to flatten and re-contour the chest for a natural, masculine result, with discreetly placed incisions and a comfortable recovery.",
+    facts: [
+      { label: "Procedure Time", value: "1–2 Hrs" },
+      { label: "Anaesthesia", value: "General / Sedation" },
+      { label: "Recovery", value: "1–2 Weeks" },
+      { label: "Final Results", value: "3–6 Months" },
+    ],
+    benefits: [
+      {
+        title: "Flatter, Firmer Chest",
+        description:
+          "Excess gland and fat are removed to create a flat, toned chest contour that looks and feels masculine.",
+      },
+      {
+        title: "Confidence, Shirt On or Off",
+        description:
+          "Feel at ease at the pool, the gym, or in fitted shirts without self-consciousness about your chest.",
+      },
+      {
+        title: "Long-Lasting Results",
+        description:
+          "Once glandular tissue is removed it does not return, so results are permanent with a stable weight and lifestyle.",
+      },
+    ],
+    whoIsItFor: [
+      "You have enlarged or puffy male breast tissue that has not resolved on its own",
+      "Diet and exercise have not flattened your chest",
+      "You feel self-conscious wearing fitted shirts or going shirtless",
+      "Your gynecomastia has been stable and is not due to a treatable medication or condition",
+      "You are in good general health with realistic expectations",
+    ],
+    steps: [
+      {
+        title: "Consultation & Assessment",
+        description:
+          "A private evaluation of your chest, the amount of gland versus fat, skin quality, and any underlying causes with Dr. Sunita.",
+      },
+      {
+        title: "Personalised Plan",
+        description:
+          "A tailored plan — liposuction, gland excision, or both — with incisions mapped discreetly around the areola.",
+      },
+      {
+        title: "The Procedure",
+        description:
+          "Performed under anaesthesia in a fully equipped surgical facility, typically as a day-care procedure.",
+      },
+      {
+        title: "Recovery & Aftercare",
+        description:
+          "A compression vest supports healing; most men return to desk work within a week with clear aftercare guidance.",
+      },
+      {
+        title: "Enjoy the Results",
+        description:
+          "Swelling settles over the following weeks, revealing a flatter, firmer chest contour by 3–6 months.",
+      },
+    ],
+    beforeAfter: [
+      { label: "Glandular Gynecomastia" },
+      { label: "Fatty (Pseudo) Gynecomastia" },
+      { label: "Puffy Nipple Correction" },
+    ],
+    faqs: [
+      {
+        question: "What causes gynecomastia?",
+        answer:
+          "Gynecomastia is enlarged male breast tissue, usually caused by a hormonal imbalance between oestrogen and testosterone. It can appear during puberty, with weight gain, with certain medications or supplements, or with no clear cause. Dr. Sunita reviews possible causes before recommending surgery.",
+      },
+      {
+        question: "What is the difference between glandular and fatty gynecomastia?",
+        answer:
+          "Fatty (pseudo) gynecomastia is mostly excess fat and often responds to liposuction alone. Glandular gynecomastia involves firm breast tissue that must be surgically excised. Most men have a combination, treated with liposuction plus gland excision in one procedure.",
+      },
+      {
+        question: "Will diet and exercise fix gynecomastia?",
+        answer:
+          "Weight loss can reduce fatty fullness, but true glandular tissue will not disappear with diet or exercise. If a firm disc of tissue remains under the nipple despite being fit, surgery is the reliable way to flatten the chest.",
+      },
+      {
+        question: "Are the scars noticeable?",
+        answer:
+          "Incisions are small and placed discreetly — usually along the lower edge of the areola where the colour change hides them. Liposuction access points are tiny. Scars are cared for to fade as inconspicuously as possible.",
+      },
+      {
+        question: "Will the gynecomastia come back after surgery?",
+        answer:
+          "Once glandular tissue is removed it does not grow back. Results are long-lasting, though significant weight gain, steroid use, or certain medications can affect the chest. Maintaining a stable weight and lifestyle keeps results looking their best.",
+      },
+      {
+        question: "How soon can I return to the gym?",
+        answer:
+          "Most men return to desk work within a week and light cardio in about two weeks. Chest and upper-body weight training is usually resumed around 4–6 weeks, once cleared at your follow-up.",
+      },
+    ],
+  },
+  {
+    slug: "male-chest-liposuction",
+    title: "Male Chest Liposuction",
+    category: SURGICAL_GYNECOMASTIA,
+    metaDescription:
+      "Male chest liposuction in Visakhapatnam by Dr. Sunita Ghanta — remove stubborn chest fat for a flatter, more defined, masculine chest. Board-certified plastic surgeon, 17+ years of experience.",
+    heroDescription:
+      "For men whose chest fullness is mainly excess fat rather than firm gland, targeted liposuction removes fat through tiny incisions to reveal a flatter, more defined chest — with minimal scarring and a quick recovery.",
+    facts: [
+      { label: "Procedure Time", value: "45–90 Min" },
+      { label: "Anaesthesia", value: "LA + Sedation / GA" },
+      { label: "Recovery", value: "3–7 Days" },
+      { label: "Final Results", value: "2–4 Months" },
+    ],
+    whoIsItFor: [
+      "Your chest fullness is mainly soft fat rather than firm glandular tissue",
+      "You have good skin elasticity that will re-drape after fat removal",
+      "Diet and exercise have not removed the last bit of chest fat",
+      "You want the least-invasive option with tiny incisions",
+      "You are at a stable weight and in good general health",
+    ],
+    beforeAfter: [
+      { label: "Chest Contouring" },
+      { label: "Fatty Gynecomastia" },
+      { label: "Athletic Chest Definition" },
+    ],
+  },
+  {
+    slug: "glandular-gynecomastia-correction",
+    title: "Glandular Gynecomastia Correction",
+    category: SURGICAL_GYNECOMASTIA,
+    metaDescription:
+      "Glandular gynecomastia correction in Visakhapatnam by Dr. Sunita Ghanta — surgical excision of firm male breast tissue for a flat, masculine chest. Board-certified plastic surgeon, 17+ years of experience.",
+    heroDescription:
+      "When a firm disc of breast tissue sits beneath the nipple, liposuction alone is not enough. Dr. Sunita Ghanta precisely excises the glandular tissue through a discreet incision at the edge of the areola, delivering a permanently flat, masculine chest.",
+    facts: [
+      { label: "Procedure Time", value: "1–2 Hrs" },
+      { label: "Anaesthesia", value: "General / Sedation" },
+      { label: "Recovery", value: "1–2 Weeks" },
+      { label: "Final Results", value: "3–6 Months" },
+    ],
+    whoIsItFor: [
+      "You can feel a firm, rubbery disc of tissue under the nipple",
+      "Your chest stays full despite being lean or losing weight",
+      "You want a permanent solution to true glandular gynecomastia",
+      "You are bothered by the shape or projection of your chest",
+      "You are in good general health with realistic expectations",
+    ],
+    beforeAfter: [
+      { label: "Glandular Excision" },
+      { label: "Gland + Liposuction" },
+      { label: "Nipple Flattening" },
+    ],
+  },
+  {
+    slug: "puffy-nipple-correction",
+    title: "Puffy Nipple Correction",
+    category: SURGICAL_GYNECOMASTIA,
+    metaDescription:
+      "Puffy nipple correction in Visakhapatnam by Dr. Sunita Ghanta — flatten protruding or puffy male nipples caused by localised gland tissue. Board-certified plastic surgeon, 17+ years of experience.",
+    heroDescription:
+      "Puffy or protruding nipples are usually caused by a small amount of glandular tissue directly behind the areola. Dr. Sunita Ghanta removes this tissue through a tiny, well-hidden incision to flatten the nipple and restore a natural chest contour.",
+    facts: [
+      { label: "Procedure Time", value: "45–60 Min" },
+      { label: "Anaesthesia", value: "LA + Sedation" },
+      { label: "Recovery", value: "3–7 Days" },
+      { label: "Final Results", value: "2–3 Months" },
+    ],
+    whoIsItFor: [
+      "Your nipples look puffy or cone-shaped, especially through thin shirts",
+      "There is a small amount of tissue directly behind the areola",
+      "Your chest is otherwise flat but the nipples still protrude",
+      "You want a quick, minimally invasive correction",
+      "You are in good general health with realistic expectations",
+    ],
+    beforeAfter: [
+      { label: "Puffy Nipple" },
+      { label: "Areolar Flattening" },
+      { label: "Bilateral Correction" },
+    ],
   },
 
   // ---- Laser (non-surgical) ----

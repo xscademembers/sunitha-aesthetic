@@ -8,8 +8,23 @@ import { SERVICES } from "@/data/services";
 
 export const AI_DIAGNOSIS_URL = "https://ai.drsunitaesthetics.com/";
 
-type Group = "Hair" | "Face" | "Breast" | "Body" | "Skin" | "Reconstructive";
-const GROUP_ORDER: Group[] = ["Hair", "Face", "Breast", "Body", "Skin", "Reconstructive"];
+type Group =
+  | "Body"
+  | "Breast"
+  | "Gynecomastia"
+  | "Reconstructive"
+  | "Face"
+  | "Skin"
+  | "Hair";
+const GROUP_ORDER: Group[] = [
+  "Body",
+  "Breast",
+  "Gynecomastia",
+  "Reconstructive",
+  "Face",
+  "Skin",
+  "Hair",
+];
 
 /** Menu category per service slug. Unmapped services fall into "Body". */
 const GROUP_OF: Record<string, Group> = {
@@ -28,7 +43,13 @@ const GROUP_OF: Record<string, Group> = {
 
   "breast-augmentation": "Breast",
   "breast-reduction": "Breast",
-  "gynecomastia-treatment-in-visakhapatnam": "Breast",
+
+  // Gynecomastia — the male chest ("men's breast") is medically called
+  // gynecomastia, so it lives in its own category, not under Breast.
+  "gynecomastia-treatment-in-visakhapatnam": "Gynecomastia",
+  "puffy-nipple-correction": "Gynecomastia",
+  "glandular-gynecomastia-correction": "Gynecomastia",
+  "male-chest-liposuction": "Gynecomastia",
 
   liposuction: "Body",
   "tummy-tuck": "Body",
@@ -98,6 +119,15 @@ function GroupIcon({ group, className }: { group: Group; className?: string }) {
         <svg {...common}>
           <path d="M10 21c-2.5-4-4-7-4-10a6 6 0 0 1 12 0c0 3-1.5 6-4 10" />
           <path d="M9 8c1.5 2 4.5 2 6 0" />
+        </svg>
+      );
+    case "Gynecomastia":
+      // Male symbol over a chest contour — men's chest sculpting
+      return (
+        <svg {...common}>
+          <path d="M4 20c1.5-3 4-4.5 8-4.5s6.5 1.5 8 4.5" />
+          <circle cx="10" cy="8.5" r="3" />
+          <path d="M13 6.5 17 3m0 0h-3.2M17 3v3.2" />
         </svg>
       );
     case "Body":
@@ -170,12 +200,12 @@ function AiDiagnosisLink({ className, onClick }: { className?: string; onClick?:
       )}
     >
       <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/15">
-        <AiIcon className="size-6 text-gold" />
+        <AiIcon className="size-6 text-white" />
       </span>
       <span className="flex-1">
         <span className="flex items-center gap-2 font-marcellus text-[17px]">
           AI Diagnosis
-          <span className="rounded-full bg-gold px-2 py-0.5 font-sans text-[10px] font-bold uppercase tracking-wide text-black">
+          <span className="rounded-full bg-white px-2 py-0.5 font-sans text-[10px] font-bold uppercase tracking-wide text-maroon">
             New
           </span>
         </span>
@@ -257,7 +287,7 @@ export function ServicesMegaMenu() {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 rounded-full px-4 py-2 font-sans text-[16px] text-black transition-colors duration-200 hover:bg-cream"
+        className="flex items-center gap-1.5 rounded-full px-4 py-2 font-sans text-[16px] text-black transition-colors duration-200 hover:bg-maroon/10"
       >
         Our Services
         <ChevronDownIcon className={cn("size-2.5 transition-transform duration-200", open && "rotate-180")} />
@@ -266,12 +296,12 @@ export function ServicesMegaMenu() {
       {open && (
         <div className="absolute left-0 right-0 top-full z-50 px-6 lg:px-[88px]">
           <div className="mt-2 overflow-hidden rounded-[20px] border border-black/5 bg-white shadow-[0_32px_64px_-24px_rgba(0,0,0,0.28)]">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-8 px-8 py-8 md:grid-cols-3 xl:grid-cols-6">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-8 px-8 py-8 md:grid-cols-4 xl:grid-cols-7">
               {COLUMNS.map(([group, items]) => (
                 <Column key={group} group={group} items={items} onNavigate={close} />
               ))}
             </div>
-            <div className="border-t border-black/5 bg-cream/40 px-8 py-4">
+            <div className="border-t border-black/5 bg-maroon/5 px-8 py-4">
               <AiDiagnosisLink onClick={close} />
             </div>
           </div>
@@ -309,7 +339,7 @@ export function ServicesMobileMenu({ onNavigate }: { onNavigate: () => void }) {
                 aria-expanded={open}
                 aria-controls={panelId}
                 onClick={() => toggleGroup(group)}
-                className="flex min-h-11 w-full items-center gap-2 rounded-[10px] px-2 text-left font-sans text-[15px] font-medium text-black/85 transition-colors hover:bg-cream"
+                className="flex min-h-11 w-full items-center gap-2 rounded-[10px] px-2 text-left font-sans text-[15px] font-medium text-black/85 transition-colors hover:bg-maroon/10"
               >
                 <ChevronDownIcon
                   className={cn(
@@ -334,7 +364,7 @@ export function ServicesMobileMenu({ onNavigate }: { onNavigate: () => void }) {
                       <Link
                         href={`/services/${item.slug}`}
                         onClick={onNavigate}
-                        className="flex min-h-10 items-center gap-2.5 rounded-[9px] px-2 font-sans text-[14px] leading-[19px] text-black/75 transition-colors hover:bg-cream hover:text-maroon"
+                        className="flex min-h-10 items-center gap-2.5 rounded-[9px] px-2 font-sans text-[14px] leading-[19px] text-black/75 transition-colors hover:bg-maroon/10 hover:text-maroon"
                       >
                         <FileIcon className="size-4 shrink-0 text-maroon/60" />
                         <span>{item.title}</span>

@@ -3,6 +3,7 @@ import { AutoGallery, type AutoGalleryImage } from "@/components/AutoGallery";
 const SERVICES: AutoGalleryImage[] = [
   { src: "/images/services/service-surgical.webp", alt: "Surgical procedures", label: "Surgical procedures" },
   { src: "/images/services/service-breast.webp", alt: "Breast surgeries", label: "Breast surgeries" },
+  { src: "/images/services/service-gynecomastia.webp", alt: "Gynecomastia (male chest) surgery", label: "Gynecomastia (Men's Chest)" },
   { src: "/images/services/service-hair.webp", alt: "Hair treatments", label: "Hair treatments" },
   { src: "/images/services/service-facial.webp", alt: "Facial procedures", label: "Facial procedures" },
   { src: "/images/services/service-nonsurgical.webp", alt: "Non-surgical treatments", label: "Non-surgical treatments" },

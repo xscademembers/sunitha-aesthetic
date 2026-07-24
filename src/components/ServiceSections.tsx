@@ -126,7 +126,7 @@ export function KeyBenefits({ service }: { service: ServiceData }) {
             className="card-lift rounded-[20px] border border-black/5 bg-white p-8 shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
           >
             <div className="flex size-12 items-center justify-center rounded-2xl bg-cream">
-              <StarIcon className="size-6 text-gold" />
+              <StarIcon className="size-6 text-maroon" />
             </div>
             <h3 className="mt-6 font-marcellus text-[21px] leading-[30px] text-black">{b.title}</h3>
             <p className="mt-3 font-sans text-[15px] leading-[24px] text-gray-text">
@@ -294,7 +294,7 @@ export function PatientStories({ service }: { service: ServiceData }) {
               </div>
               <div className="flex gap-1">
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon key={i} className="size-[18px] text-gold" />
+                  <StarIcon key={i} className="size-[18px] text-maroon" />
                 ))}
               </div>
             </div>
@@ -352,7 +352,7 @@ export function FinalCTA({ service }: { service: ServiceData }) {
           {service.title.toLowerCase()} goals — honestly, privately, and with no pressure.
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-[26px]">
-          <GetAppointmentButton className="w-full border-white bg-white text-maroon-hover-text hover:border-white hover:bg-cream sm:w-[203px]" />
+          <GetAppointmentButton className="w-full border-white bg-white text-maroon-hover-text hover:border-white hover:bg-white/90 sm:w-[203px]" />
           <CallNowButton />
         </div>
       </div>

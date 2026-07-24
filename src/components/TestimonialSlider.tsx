@@ -144,7 +144,7 @@ export function TestimonialSlider() {
                     aria-hidden
                     className={cn(
                       "size-[31px]",
-                      starIndex < Math.round(review.rating) ? "text-gold" : "text-white/20",
+                      starIndex < Math.round(review.rating) ? "text-white" : "text-white/20",
                     )}
                   />
                 ))}
