@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="xMidYMid meet" data-bbox="37.875 38.168 299.25 299.25" height="500" viewBox="37.875 38.168 299.25 299.25" width="500" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true" aria-label="">
+  <g fill="none" stroke="#a1534e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M132 118c16-8 36-12 55.5-12s39.5 4 55.5 12"/>
+    <path d="M132 118c-4 16-6 32-6 48v28"/>
+    <path d="M243 118c4 16 6 32 6 48v28"/>
+    <path d="M126 194h123"/>
+    <path d="M138 194c-3 28-5 52-5 72v28"/>
+    <path d="M237 194c3 28 5 52 5 72v28"/>
+    <path d="M133 294h109"/>
+    <path d="M142 152c10 6 20 9 32 9"/>
+    <path d="M233 152c-10 6-20 9-32 9"/>
+    <path d="M136 222c16-6 30-9 45.5-9s29.5 3 45.5 9"/>
+    <path d="M138 252c14-4 26-6 41.5-6s27.5 2 41.5 6"/>
+    <path d="M140 278c12-3 24-5 37.5-5s25.5 2 37.5 5"/>
+    <path d="M122 210c6-10 12-15 18-15"/>
+    <path d="M253 210c-6-10-12-15-18-15"/>
+    <path d="M132 238c4 8 7 14 7 20"/>
+    <path d="M243 238c-4 8-7 14-7 20"/>
+  </g>
+</svg>

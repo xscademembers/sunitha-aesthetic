@@ -211,16 +211,22 @@ export function WhatToExpect({ service }: { service: ServiceData }) {
 
 /* ---------- Before & After ---------- */
 
-function BeforeAfterPanel({ label, src }: { label: "Before" | "After"; src?: string }) {
+function BeforeAfterPlaceholder() {
+  return (
+    <div className="flex aspect-[4/3] w-full items-center justify-center bg-gradient-to-br from-cream to-belt">
+      <p className="font-serif text-[18px] text-maroon/40">Photo coming soon</p>
+    </div>
+  );
+}
+
+function BeforeAfterSplitPanel({ label, src }: { label: "Before" | "After"; src?: string }) {
   return (
     <div className="relative aspect-[3/4] w-full overflow-hidden">
       {src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img src={src} alt={label} className="h-full w-full object-cover" />
       ) : (
-        <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-cream to-belt">
-          <p className="font-serif text-[18px] text-maroon/40">Photo coming soon</p>
-        </div>
+        <BeforeAfterPlaceholder />
       )}
       <span className="absolute left-3 top-3 rounded-full bg-black/70 px-3 py-1 font-sans text-[12px] font-bold uppercase tracking-wide text-white">
         {label}
@@ -243,18 +249,26 @@ export function BeforeAfterGallery({ service }: { service: ServiceData }) {
         results.
       </p>
       <div className="mx-auto mt-12 grid max-w-[1200px] gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {service.beforeAfter.map((c) => (
+        {service.beforeAfter.map((c, index) => (
           <figure
-            key={c.label}
+            key={`${c.label}-${index}`}
             className="overflow-hidden rounded-[20px] border border-black/5 shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
           >
-            <div className="grid grid-cols-2 gap-px bg-black/10">
-              <BeforeAfterPanel label="Before" src={c.before} />
-              <BeforeAfterPanel label="After" src={c.after} />
-            </div>
-            <figcaption className="bg-white px-5 py-4 text-center font-marcellus text-[17px] text-black">
-              {c.label}
-            </figcaption>
+            {c.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={c.image}
+                alt={`${service.title} before and after — ${c.label}`}
+                className="aspect-[4/3] w-full object-contain"
+              />
+            ) : c.before || c.after ? (
+              <div className="grid grid-cols-2 gap-px bg-black/10">
+                <BeforeAfterSplitPanel label="Before" src={c.before} />
+                <BeforeAfterSplitPanel label="After" src={c.after} />
+              </div>
+            ) : (
+              <BeforeAfterPlaceholder />
+            )}
           </figure>
         ))}
       </div>

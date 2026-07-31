@@ -1,3 +1,5 @@
+import { beforeAfterCasesForSlug } from "@/data/beforeAfterImages";
+
 export interface ServiceFact {
   label: string;
   value: string;
@@ -15,7 +17,9 @@ export interface ServiceStep {
 
 export interface BeforeAfterCase {
   label: string;
-  /** Optional real images under /public. When absent a styled placeholder renders. */
+  /** Combined before/after image (side-by-side in one file). */
+  image?: string;
+  /** Legacy split images — used only when `image` is absent. */
   before?: string;
   after?: string;
 }
@@ -227,7 +231,10 @@ function makeService(seed: ServiceSeed): ServiceData {
     benefits: seed.benefits ?? GENERIC_BENEFITS,
     whoIsItFor: seed.whoIsItFor ?? GENERIC_WHO,
     steps: seed.steps ?? GENERIC_STEPS,
-    beforeAfter: seed.beforeAfter ?? GENERIC_BEFORE_AFTER,
+    beforeAfter: beforeAfterCasesForSlug(
+      seed.slug,
+      seed.beforeAfter ?? GENERIC_BEFORE_AFTER,
+    ),
     stories: seed.stories ?? GENERIC_STORIES,
     faqs: seed.faqs ?? genericFaqs(seed.title),
   };

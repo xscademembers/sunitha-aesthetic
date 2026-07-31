@@ -1,0 +1,20 @@
+<svg preserveAspectRatio="xMidYMid meet" data-bbox="37.875 38.168 299.25 299.25" height="500" viewBox="37.875 38.168 299.25 299.25" width="500" xmlns="http://www.w3.org/2000/svg" data-type="color" role="presentation" aria-hidden="true" aria-label="">
+  <g fill="none" stroke="#a1534e" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="187.5" cy="76" r="18"/>
+    <path d="M174 94v12"/>
+    <path d="M201 94v12"/>
+    <path d="M132 124c16-9 36-13 55.5-13s39.5 4 55.5 13"/>
+    <path d="M132 124c-5 26-8 52-8 78v48"/>
+    <path d="M243 124c5 26 8 52 8 78v48"/>
+    <path d="M124 250h127"/>
+    <path d="M150 154c-6 12-9 24-9 34s3 22 9 34"/>
+    <path d="M225 154c6 12 9 24 9 34s-3 22-9 34"/>
+    <path d="M150 154c8-5 16-7 24-7"/>
+    <path d="M225 154c-8-5-16-7-24-7"/>
+    <path d="M187.5 147v16"/>
+    <path d="M187.5 172v12"/>
+    <path d="M164 188c8 5 16 8 23.5 8s15.5-3 23.5-8"/>
+    <path d="M176 220l11.5 9 11.5-9"/>
+    <path d="M187.5 208v12"/>
+  </g>
+</svg>
