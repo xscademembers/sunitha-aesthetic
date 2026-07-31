@@ -47,7 +47,7 @@ export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
     eyebrow: "Surgical Procedure",
     title: "Reconstructive Surgeries",
     imageSide: "left",
-    image: "/images/procedures/reconstructive-clean.webp",
+    image: "/images/procedures/reconstructive.webp",
     imageAlt: "Reconstructive surgery",
     imageSize: [681, 707],
     cards: [
@@ -70,7 +70,7 @@ export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
     eyebrow: "Surgical Procedure",
     title: "Facial Procedures",
     imageSide: "right",
-    image: "/images/procedures/facial-clean.webp",
+    image: "/images/procedures/facial.webp",
     imageAlt: "Facial procedure planning",
     imageSize: [650, 650],
     cards: [
@@ -147,7 +147,7 @@ export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
     eyebrow: "Non - Surgical Procedure",
     title: "Morpheus8",
     imageSide: "right",
-    image: "/images/procedures/laser-clean.webp",
+    image: "/images/procedures/laser.webp",
     imageAlt: "Morpheus8 treatment",
     imageSize: [681, 699],
     cards: [
@@ -165,7 +165,7 @@ export const PROCEDURE_SECTIONS: ProcedureSectionData[] = [
     eyebrow: "Non - Surgical Procedure",
     title: "Anti-Aging",
     imageSide: "left",
-    image: "/images/procedures/anti-aging-clean.webp",
+    image: "/images/procedures/anti-aging.webp",
     imageAlt: "Anti-aging treatment",
     imageSize: [681, 620],
     cards: [

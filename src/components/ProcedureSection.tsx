@@ -36,6 +36,9 @@ function Card({ card }: { card: ProcedureCard }) {
   );
 }
 
+/** Matches the shadow baked into the composite (non-circleCrop) artwork. */
+const CIRCLE_SHADOW = "shadow-[0_10px_28px_-4px_rgba(0,0,0,0.22)]";
+
 export function ProcedureSection({ data }: { data: ProcedureSectionData }) {
   const [imgW, imgH] = data.imageSize;
   const imageFirst = data.imageSide === "left";
@@ -55,7 +58,7 @@ export function ProcedureSection({ data }: { data: ProcedureSectionData }) {
               loading="eager"
               className={cn(
                 "mx-auto h-auto object-cover",
-                data.circleCrop && "aspect-square rounded-full",
+                data.circleCrop && ["aspect-square rounded-full", CIRCLE_SHADOW],
               )}
               style={{ maxWidth: `min(100%, ${imgW}px)` }}
             />
@@ -80,7 +83,7 @@ export function ProcedureSection({ data }: { data: ProcedureSectionData }) {
             loading="eager"
             className={cn(
               "mx-auto mt-6 h-auto w-full max-w-[420px] object-cover lg:hidden",
-              data.circleCrop && "aspect-square rounded-full",
+              data.circleCrop && ["aspect-square rounded-full", CIRCLE_SHADOW],
             )}
           />
           <div className="mt-6 flex flex-col gap-[22px] lg:mt-[38px]">
