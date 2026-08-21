@@ -57,15 +57,17 @@ export interface FooterLinkGroup {
 }
 
 export const TREATMENT_OPTIONS = [
-  "Breast Surgeries",
-  "Face Surgeries",
-  "Body Procedures",
-  "Face Treatments",
-  "Hair Treatments",
+  "Face Surgery",
+  "Breast Surgery",
+  "Body Contouring Surgery",
+  "Men's Cosmetic Surgery",
+  "Hair Surgery",
+  "Reconstructive Surgery",
+  "Injectables",
+  "Skin Rejuvenation",
   "Laser Treatments",
-  "Anti-Aging",
-  "Reconstructive Surgeries",
-  "Genital Surgeries",
+  "Hair Treatments",
+  "Anti-Aging & Aesthetic Procedures",
 ] as const;
 
 export const CONTACT = {

@@ -1,4 +1,5 @@
 import { beforeAfterCasesForSlug } from "@/data/beforeAfterImages";
+import { CATALOG_ITEMS } from "@/data/serviceCatalog";
 
 export interface ServiceFact {
   label: string;
@@ -240,28 +241,9 @@ function makeService(seed: ServiceSeed): ServiceData {
   };
 }
 
-const SURGICAL_FACE = "Surgical Procedure — Face";
-const SURGICAL_BODY = "Surgical Procedure — Body";
-const SURGICAL_BREAST = "Surgical Procedure — Breast";
-const SURGICAL_GYNECOMASTIA = "Surgical Procedure — Gynecomastia";
-const NONSURGICAL_FACE = "Non-Surgical — Face";
-const NONSURGICAL_LASER = "Non-Surgical — Laser";
-const NONSURGICAL_ANTIAGING = "Non-Surgical — Anti-Aging";
-const RECONSTRUCTIVE = "Reconstructive Surgery";
-const HAIR = "Hair Treatment";
-
-/* ---------------------------------------------------------------------------
-   All service pages. Add a seed here to publish a new page at /services/<slug>.
-   Only lower-body-sculpting has fully written content today; the rest use
-   placeholder defaults and will be populated service by service.
---------------------------------------------------------------------------- */
-
-const SEEDS: ServiceSeed[] = [
-  // ---- Body (surgical) ----
-  {
-    slug: "lower-body-sculpting",
-    title: "Lower Body Sculpting",
-    category: SURGICAL_BODY,
+/** Extra copy, videos and FAQs for services that already have dedicated content. */
+const OVERRIDES: Record<string, Omit<Partial<ServiceSeed>, "slug" | "title" | "category">> = {
+  "lower-body-sculpting": {
     metaDescription:
       "Lower body sculpting in Visakhapatnam by Dr. Sunita Ghanta — targeted reshaping of the thighs, hips, and buttocks for smoother, more defined contours. Board certified plastic surgeon, 17+ years of experience.",
     heroDescription:
@@ -371,67 +353,31 @@ const SEEDS: ServiceSeed[] = [
       },
     ],
   },
-  {
-    slug: "liposuction",
-    title: "Liposuction",
-    category: SURGICAL_BODY,
+  liposuction: {
     video: "https://video.wixstatic.com/video/2139b1_59e0f0efcf504580b64214b96f05eae1/1080p/mp4/file.mp4",
   },
-  {
-    slug: "tummy-tuck",
-    title: "Tummy Tuck",
-    category: SURGICAL_BODY,
+  "tummy-tuck": {
     video: "https://video.wixstatic.com/video/2139b1_d37b3212afb64bd684eb946a5910a201/1080p/mp4/file.mp4",
   },
-  {
-    slug: "mommy-makeover",
-    title: "Mommy Makeover",
-    category: SURGICAL_BODY,
+  "mommy-makeover": {
     video: "https://video.wixstatic.com/video/2139b1_ae4a94e496b440dc97911268b8532051/1080p/mp4/file.mp4",
   },
-
-  // ---- Face (surgical) ----
-  {
-    slug: "nose-surgery",
-    title: "Nose Surgery (Rhinoplasty)",
-    category: SURGICAL_FACE,
+  "nose-surgery": {
     video: "https://video.wixstatic.com/video/2139b1_5b016c1c304f485ea624cfb27a032241/1080p/mp4/file.mp4",
   },
-  {
-    slug: "eyelid-surgery",
-    title: "Eyelid Surgery (Blepharoplasty)",
-    category: SURGICAL_FACE,
+  "eyelid-surgery": {
     video: "https://video.wixstatic.com/video/2139b1_7f0c28b76d2742e289cc635a2099c1bf/1080p/mp4/file.mp4",
   },
-  {
-    slug: "ear-surgery",
-    title: "Ear Surgery (Otoplasty)",
-    category: SURGICAL_FACE,
+  "ear-surgery": {
     video: "https://video.wixstatic.com/video/2139b1_7d6a2f1c4edc41ae95106ed7634da8b3/1080p/mp4/file.mp4",
   },
-  { slug: "lip-surgery", title: "Lip Surgery", category: SURGICAL_FACE },
-  { slug: "face-lift", title: "Face Lift", category: SURGICAL_FACE },
-  { slug: "double-chin-correction", title: "Double Chin Correction", category: SURGICAL_FACE },
-
-  // ---- Breast (surgical) ----
-  {
-    slug: "breast-augmentation",
-    title: "Breast Augmentation (Implants)",
-    category: SURGICAL_BREAST,
+  "breast-augmentation": {
     video: "https://video.wixstatic.com/video/2139b1_f696a39cf25141c78752458f66ec7fe2/1080p/mp4/file.mp4",
   },
-  {
-    slug: "breast-reduction",
-    title: "Breast Reduction",
-    category: SURGICAL_BREAST,
+  "breast-reduction": {
     video: "https://video.wixstatic.com/video/2139b1_0addbbe11e294c958d5de74c175e686e/1080p/mp4/file.mp4",
   },
-
-  // ---- Gynecomastia (male chest — "men's breast") ----
-  {
-    slug: "gynecomastia-treatment-in-visakhapatnam",
-    title: "Gynecomastia Surgery",
-    category: SURGICAL_GYNECOMASTIA,
+  "gynecomastia-treatment-in-visakhapatnam": {
     youtubeVideoId: "xglfMidbq8I",
     metaDescription:
       "Gynecomastia surgery (male breast reduction) in Visakhapatnam by Dr. Sunita Ghanta — remove excess glandular tissue and fat for a flatter, firmer, more masculine chest. Board-certified plastic surgeon, 17+ years of experience.",
@@ -532,14 +478,11 @@ const SEEDS: ServiceSeed[] = [
       },
     ],
   },
-  {
-    slug: "male-chest-liposuction",
-    title: "Male Chest Liposuction",
-    category: SURGICAL_GYNECOMASTIA,
+  "male-chest-liposuction": {
     metaDescription:
-      "Male chest liposuction in Visakhapatnam by Dr. Sunita Ghanta — remove stubborn chest fat for a flatter, more defined, masculine chest. Board-certified plastic surgeon, 17+ years of experience.",
+      "Male liposuction in Visakhapatnam by Dr. Sunita Ghanta — remove stubborn chest, abdomen or flank fat for a flatter, more defined physique. Board-certified plastic surgeon, 17+ years of experience.",
     heroDescription:
-      "For men whose chest fullness is mainly excess fat rather than firm gland, targeted liposuction removes fat through tiny incisions to reveal a flatter, more defined chest — with minimal scarring and a quick recovery.",
+      "For men whose fullness is mainly excess fat rather than firm gland, targeted liposuction removes fat through tiny incisions to reveal a flatter, more defined contour — with minimal scarring and a quick recovery.",
     facts: [
       { label: "Procedure Time", value: "45–90 Min" },
       { label: "Anaesthesia", value: "LA + Sedation / GA" },
@@ -547,9 +490,9 @@ const SEEDS: ServiceSeed[] = [
       { label: "Final Results", value: "2–4 Months" },
     ],
     whoIsItFor: [
-      "Your chest fullness is mainly soft fat rather than firm glandular tissue",
+      "Your fullness is mainly soft fat rather than firm glandular tissue",
       "You have good skin elasticity that will re-drape after fat removal",
-      "Diet and exercise have not removed the last bit of chest fat",
+      "Diet and exercise have not removed stubborn fat on the chest, abdomen or flanks",
       "You want the least-invasive option with tiny incisions",
       "You are at a stable weight and in good general health",
     ],
@@ -559,128 +502,33 @@ const SEEDS: ServiceSeed[] = [
       { label: "Athletic Chest Definition" },
     ],
   },
-  {
-    slug: "glandular-gynecomastia-correction",
-    title: "Glandular Gynecomastia Correction",
-    category: SURGICAL_GYNECOMASTIA,
-    metaDescription:
-      "Glandular gynecomastia correction in Visakhapatnam by Dr. Sunita Ghanta — surgical excision of firm male breast tissue for a flat, masculine chest. Board-certified plastic surgeon, 17+ years of experience.",
-    heroDescription:
-      "When a firm disc of breast tissue sits beneath the nipple, liposuction alone is not enough. Dr. Sunita Ghanta precisely excises the glandular tissue through a discreet incision at the edge of the areola, delivering a permanently flat, masculine chest.",
-    facts: [
-      { label: "Procedure Time", value: "1–2 Hrs" },
-      { label: "Anaesthesia", value: "General / Sedation" },
-      { label: "Recovery", value: "1–2 Weeks" },
-      { label: "Final Results", value: "3–6 Months" },
-    ],
-    whoIsItFor: [
-      "You can feel a firm, rubbery disc of tissue under the nipple",
-      "Your chest stays full despite being lean or losing weight",
-      "You want a permanent solution to true glandular gynecomastia",
-      "You are bothered by the shape or projection of your chest",
-      "You are in good general health with realistic expectations",
-    ],
-    beforeAfter: [
-      { label: "Glandular Excision" },
-      { label: "Gland + Liposuction" },
-      { label: "Nipple Flattening" },
-    ],
-  },
-  {
-    slug: "puffy-nipple-correction",
-    title: "Puffy Nipple Correction",
-    category: SURGICAL_GYNECOMASTIA,
-    metaDescription:
-      "Puffy nipple correction in Visakhapatnam by Dr. Sunita Ghanta — flatten protruding or puffy male nipples caused by localised gland tissue. Board-certified plastic surgeon, 17+ years of experience.",
-    heroDescription:
-      "Puffy or protruding nipples are usually caused by a small amount of glandular tissue directly behind the areola. Dr. Sunita Ghanta removes this tissue through a tiny, well-hidden incision to flatten the nipple and restore a natural chest contour.",
-    facts: [
-      { label: "Procedure Time", value: "45–60 Min" },
-      { label: "Anaesthesia", value: "LA + Sedation" },
-      { label: "Recovery", value: "3–7 Days" },
-      { label: "Final Results", value: "2–3 Months" },
-    ],
-    whoIsItFor: [
-      "Your nipples look puffy or cone-shaped, especially through thin shirts",
-      "There is a small amount of tissue directly behind the areola",
-      "Your chest is otherwise flat but the nipples still protrude",
-      "You want a quick, minimally invasive correction",
-      "You are in good general health with realistic expectations",
-    ],
-    beforeAfter: [
-      { label: "Puffy Nipple" },
-      { label: "Areolar Flattening" },
-      { label: "Bilateral Correction" },
-    ],
-  },
-
-  // ---- Laser (non-surgical) ----
-  {
-    slug: "laser-hair-reduction",
-    title: "Laser Hair Reduction",
-    category: NONSURGICAL_LASER,
+  "laser-hair-reduction": {
     video: "https://video.wixstatic.com/video/2139b1_cec11bc2e9a44adb9722c435aa6005d1/1080p/mp4/file.mp4",
   },
-  { slug: "laser-toning", title: "Laser Toning", category: NONSURGICAL_LASER },
-  { slug: "laser-for-pigmentation", title: "Laser for Pigmentation", category: NONSURGICAL_LASER },
-  {
-    slug: "co2-laser",
-    title: "CO2 Laser Resurfacing",
-    category: NONSURGICAL_LASER,
+  "co2-laser": {
     video: "https://video.wixstatic.com/video/2139b1_b87f08c997f94d18a2e38b587cd489b3/1080p/mp4/file.mp4",
   },
-
-  // ---- Face treatments (non-surgical) ----
-  { slug: "lip-enhancement", title: "Lip Enhancement", category: NONSURGICAL_FACE },
-  { slug: "non-surgical-rhinoplasty", title: "Non-Surgical Rhinoplasty", category: NONSURGICAL_FACE },
-  { slug: "power-shots", title: "Power Shots", category: NONSURGICAL_FACE },
-  {
-    slug: "microblading",
-    title: "Microblading",
-    category: NONSURGICAL_FACE,
-    video: "https://video.wixstatic.com/video/2139b1_5a45baa641e64bcf87cd46ae7e4dd2f7/1080p/mp4/file.mp4",
-  },
-
-  // ---- Anti-aging (non-surgical) ----
-  {
-    slug: "vampire-facelift",
-    title: "Vampire Facelift (PRP / GFC)",
-    category: NONSURGICAL_ANTIAGING,
+  "vampire-facelift": {
     video: "https://video.wixstatic.com/video/2139b1_12630743c332423e8c4c96c65800a00d/1080p/mp4/file.mp4",
   },
-  {
-    slug: "morpheus8",
-    title: "Morpheus8",
-    category: NONSURGICAL_ANTIAGING,
+  morpheus8: {
     video: "https://video.wixstatic.com/video/2139b1_d0a1b35e11b3476daaa0001e499d629b/1080p/mp4/file.mp4",
   },
-  {
-    slug: "anti-wrinkle-injections",
-    title: "Anti-Wrinkle Injections (Botox)",
-    category: NONSURGICAL_ANTIAGING,
+  "anti-wrinkle-injections": {
     video: "https://video.wixstatic.com/video/2139b1_115b8333c7bc4b77b642734dd669e1a6/1080p/mp4/file.mp4",
   },
-  {
-    slug: "dermal-fillers",
-    title: "Dermal Fillers",
-    category: NONSURGICAL_ANTIAGING,
+  "dermal-fillers": {
     video: "https://video.wixstatic.com/video/2139b1_cfe87843b9fb472a881a671e9b1e0c90/1080p/mp4/file.mp4",
   },
-  {
-    slug: "forma",
-    title: "Forma Skin Tightening",
-    category: NONSURGICAL_ANTIAGING,
-    video: "https://video.wixstatic.com/video/2139b1_ca6bb2f8e17a4f609444cc138ca8cc55/1080p/mp4/file.mp4",
-  },
+};
 
-  // ---- Hair ----
-  { slug: "hair-treatments", title: "Hair Treatments", category: HAIR },
-
-  // ---- Reconstructive ----
-  { slug: "chest-reconstruction", title: "Chest Reconstruction", category: RECONSTRUCTIVE },
-  { slug: "cleft-lip-palate-surgery", title: "Cleft Lip & Palate Surgery", category: RECONSTRUCTIVE },
-  { slug: "scar-revision", title: "Scar Revision", category: RECONSTRUCTIVE },
-  { slug: "post-burn-reconstruction", title: "Post-Burn Reconstruction", category: RECONSTRUCTIVE },
-];
+const SEEDS: ServiceSeed[] = CATALOG_ITEMS.map((item) => ({
+  slug: item.slug,
+  title: item.title,
+  category: item.category.categoryLabel,
+  heroDescription: `${item.description} Performed in Visakhapatnam by Dr. Sunita Ghanta, a board-certified plastic surgeon with 17+ years of experience.`,
+  ...OVERRIDES[item.slug],
+}));
 
 export const SERVICES: ServiceData[] = SEEDS.map(makeService);
+

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CallNowButton, GetAppointmentButton } from "@/components/BrandButtons";
 import { QuoteIcon, StarIcon } from "@/components/icons";
 import type { ServiceData } from "@/data/services";
+import { getCatalogItem } from "@/data/serviceCatalog";
 
 function CheckBadge() {
   return (
@@ -348,6 +349,37 @@ export function ServiceFAQs({ service }: { service: ServiceData }) {
           </details>
         ))}
       </div>
+    </section>
+  );
+}
+
+/* ---------- Related procedures in the same category ---------- */
+
+export function RelatedServices({ service }: { service: ServiceData }) {
+  const current = getCatalogItem(service.slug);
+  const related = current?.category.items.filter((item) => item.slug !== service.slug) ?? [];
+  if (!related.length) return null;
+
+  return (
+    <section className="bg-belt px-6 py-[72px] lg:px-[72px]">
+      <p className="text-center font-sans text-[18px] font-bold leading-[25.2px] text-maroon">
+        {current?.category.title}
+      </p>
+      <h2 className="mt-1 text-center font-serif text-[28px] leading-[1.4] text-black lg:text-[32px] lg:leading-[44.8px]">
+        Related Procedures
+      </h2>
+      <ul className="mx-auto mt-10 grid max-w-[1100px] grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map((item) => (
+          <li key={item.slug}>
+            <Link
+              href={`/services/${item.slug}`}
+              className="flex min-h-[72px] items-center rounded-[16px] border border-maroon/10 bg-white px-5 py-4 font-sans text-[15px] font-medium text-black/80 shadow-[0_8px_24px_-16px_rgba(161,83,78,0.35)] transition-all hover:-translate-y-0.5 hover:text-maroon hover:shadow-[0_16px_28px_-18px_rgba(161,83,78,0.45)]"
+            >
+              {item.title}
+            </Link>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

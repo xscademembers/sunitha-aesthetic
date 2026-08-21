@@ -9,6 +9,7 @@ import {
   FinalCTA,
   KeyBenefits,
   PatientStories,
+  RelatedServices,
   ServiceFAQs,
   ServiceHero,
   WhatToExpect,
@@ -67,6 +68,7 @@ export default async function ServicePage({ params }: Props) {
         <BeforeAfterGallery service={service} />
         <PatientStories service={service} />
         <ServiceFAQs service={service} />
+        <RelatedServices service={service} />
         <section id="reviews" className="bg-white px-6 pb-[72px] lg:px-[72px]">
           <p className="text-center font-sans text-[18px] font-bold leading-[25.2px] text-maroon">
             Trusted across Andhra Pradesh

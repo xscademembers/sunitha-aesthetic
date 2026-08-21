@@ -32,13 +32,13 @@ const LINK_GROUPS: FooterLinkGroup[] = [
   {
     heading: "Treatments",
     links: [
-      { label: "Aesthetics", href: "/#services" },
-      { label: "Face Surgeries", href: "/#facial-procedures" },
-      { label: "Hair Treatments", href: "/services/hair-treatments" },
+      { label: "Face Surgery", href: "/#face-surgery" },
+      { label: "Breast Surgery", href: "/#breast-surgery" },
+      { label: "Body Contouring", href: "/#body-contouring-surgery" },
+      { label: "Hair Treatments", href: "/#hair-treatments" },
       { label: "Laser Treatments", href: "/#laser-treatments" },
-      { label: "Anti Aging", href: "/#anti-aging" },
-      { label: "Trauma", href: "/#reconstructive-surgeries" },
-      { label: "Body & Chest", href: "/#body-procedures" },
+      { label: "Injectables", href: "/#injectables" },
+      { label: "Reconstructive Surgery", href: "/#reconstructive-surgery" },
     ],
   },
 ];

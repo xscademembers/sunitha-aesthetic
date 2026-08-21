@@ -29,9 +29,14 @@ export const BEFORE_AFTER_BY_SLUG: Record<string, string[]> = {
     "/images/before-after/gynecomastia-treatment-in-visakhapatnam/35.png",
     "/images/before-after/gynecomastia-treatment-in-visakhapatnam/49.png",
   ],
-  "hair-treatments": ["/images/before-after/hair-treatments/33.png"],
-  "laser-for-pigmentation": ["/images/before-after/laser-for-pigmentation/8.png"],
-  "lip-surgery": [
+  "prp-hair-treatment": ["/images/before-after/hair-treatments/33.png"],
+  "pigmentation-treatment": ["/images/before-after/laser-for-pigmentation/8.png"],
+  "lip-lift": [
+    "/images/before-after/lip-surgery/51.png",
+    "/images/before-after/lip-surgery/58.png",
+    "/images/before-after/lip-surgery/59.png",
+  ],
+  "lip-enhancement": [
     "/images/before-after/lip-surgery/51.png",
     "/images/before-after/lip-surgery/58.png",
     "/images/before-after/lip-surgery/59.png",

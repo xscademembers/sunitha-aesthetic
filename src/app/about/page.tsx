@@ -43,25 +43,25 @@ const EXPERTISE = [
     number: "01",
     title: "Facial surgery",
     description: "Rhinoplasty, eyelid surgery, facial rejuvenation and profile-balancing procedures.",
-    href: "/#facial-procedures",
+    href: "/#face-surgery",
   },
   {
     number: "02",
     title: "Body contouring",
     description: "Liposuction, tummy tuck, mommy makeover and personalised body-sculpting plans.",
-    href: "/#body-procedures",
+    href: "/#body-contouring-surgery",
   },
   {
     number: "03",
     title: "Breast surgery",
     description: "Breast augmentation, reduction, lift, asymmetry correction and revision surgery.",
-    href: "/#services",
+    href: "/#breast-surgery",
   },
   {
     number: "04",
     title: "Non-surgical aesthetics",
     description: "Injectables, energy-based treatments and minimally invasive facial rejuvenation.",
-    href: "/#anti-aging",
+    href: "/#injectables",
   },
   {
     number: "05",
@@ -73,7 +73,7 @@ const EXPERTISE = [
     number: "06",
     title: "Reconstructive surgery",
     description: "Scar revision, cleft care and reconstruction following trauma or previous surgery.",
-    href: "/#reconstructive-surgeries",
+    href: "/#reconstructive-surgery",
   },
 ];
 
