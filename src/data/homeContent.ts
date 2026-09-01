@@ -15,7 +15,7 @@ export type TreatmentGroup = {
 
 const LIBRARY_IMAGES: Record<string, { src: string; alt: string }> = {
   "face-surgery": {
-    src: "/images/services/service-facial.webp",
+    src: "/images/procedures/face-treatment.webp",
     alt: "Facial surgery consultation",
   },
   "breast-surgery": {
@@ -43,7 +43,7 @@ const LIBRARY_IMAGES: Record<string, { src: string; alt: string }> = {
     alt: "Injectable aesthetic treatment",
   },
   "skin-rejuvenation": {
-    src: "/images/services/service-nonsurgical.webp",
+    src: "/images/services/service-facial.webp",
     alt: "Skin rejuvenation treatment",
   },
   "laser-treatments": {
@@ -93,8 +93,8 @@ export const HOME_STATS = [
 
 export const HOME_COPY = {
   heroKicker: "Visakhapatnam · Board-certified · Since 2009",
-  ivoryHeroTitle: "Look like you.",
-  ivoryHeroAccent: "Only more confident.",
+  ivoryHeroTitle: "Natural results.",
+  ivoryHeroAccent: "Honest advice.",
   editorialHeroTitle: "Natural results.",
   editorialHeroAccent: "Honest advice.",
   heroBody:
@@ -231,8 +231,8 @@ export const CLINIC_PHOTOS = [
 ] as const;
 
 export const HOME_IMAGES = {
-  hero: "/images/doctor-hero.webp",
-  surgeon: "/images/about/dr-sunita-ghanta.jpg",
+  hero: "/images/about/dr-sunita-ghanta.jpg",
+  surgeon: "/images/doctor-hero.webp",
   outdoor: "/images/clinic/clinic-outdoor.webp",
 } as const;
 
@@ -245,13 +245,6 @@ export const HOME_CONTACT = {
   sunday: "Sunday · by appointment",
   addressLines: ["Sunita Nursing Home, TPT Colony,", "Seethammadara, Visakhapatnam 530013"],
 } as const;
-
-export const HOME_SOCIALS = [
-  { label: "In", name: "LinkedIn", href: "#" },
-  { label: "Ig", name: "Instagram", href: "#" },
-  { label: "Yt", name: "YouTube", href: "#" },
-  { label: "Fb", name: "Facebook", href: "#" },
-] as const;
 
 export const BOOK_LABEL = "Book a Consultation";
 export const REVIEW_COUNT_LABEL = "240+ Google reviews";

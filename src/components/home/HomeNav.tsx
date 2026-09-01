@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { HomeDropdown, HomeMobileLinks } from "@/components/HomeDropdown";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
 import { useBook } from "./BookProvider";
@@ -41,15 +41,8 @@ export function HomeNav() {
   return (
     <header className="sticky top-0 z-50 bg-white py-3 lg:py-[18px]">
       <div className="home-wrap">
-        <div className="neo flex items-center gap-2 rounded-full py-2 pr-2 pl-3.5 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-6">
-          <Link href="/" className="flex min-w-0 shrink-0 flex-col gap-0.5 no-underline">
-            <span className="home-display truncate text-[16px] leading-none tracking-[0.01em] text-maroon sm:text-[20px]">
-              Sunita Aesthetics
-            </span>
-            <span className="hidden font-ui text-[8px] uppercase tracking-[0.3em] text-maroon sm:block">
-              Plastic &amp; cosmetic surgery
-            </span>
-          </Link>
+        <div className="neo flex items-center gap-3 rounded-full py-2 pr-2 pl-4 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
+          <BrandLogo />
 
           <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex" aria-label="Main">
             <HomeDropdown

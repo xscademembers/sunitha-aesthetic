@@ -8,7 +8,6 @@ import {
   HOME_COPY,
   HOME_IMAGES,
   HOME_REVIEWS,
-  HOME_SOCIALS,
   HOME_STATS,
   HOME_VIDEOS,
   MAP_EMBED_SRC,
@@ -17,6 +16,8 @@ import {
   SURGICAL_GROUPS,
   VIDEO_PLAYLIST_URL,
 } from "@/data/homeContent";
+import { BrandLogo } from "@/components/BrandLogo";
+import { SocialLinks } from "@/components/SocialLinks";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
 import { EditorialFaq } from "./EditorialFaq";
@@ -55,8 +56,8 @@ function EditorialPage() {
       <EditorialNav />
 
       <section className="atelier-band-white">
-        <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:min-h-[min(86vh,800px)]">
-          <div className="flex flex-col justify-center px-[max(20px,env(safe-area-inset-left))] py-10 sm:px-10 lg:px-[clamp(48px,6vw,88px)] lg:py-16">
+        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-stretch">
+          <div className="flex flex-col justify-center px-[max(20px,env(safe-area-inset-left))] py-8 sm:px-10 lg:px-[clamp(40px,5vw,72px)] lg:py-12">
             <div className="mb-5 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.26em] text-maroon">
               <span>01</span>
               <span className="h-px w-8 bg-maroon/50" />
@@ -87,8 +88,8 @@ function EditorialPage() {
               ))}
             </div>
           </div>
-          <div className="atelier-media relative h-[min(78vw,520px)] lg:h-full lg:min-h-[min(86vh,800px)]">
-            <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta" priority />
+          <div className="atelier-media relative aspect-[4/5] max-h-[420px] lg:aspect-auto lg:h-full lg:max-h-none lg:min-h-0">
+            <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta" priority className="object-[center_12%]" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
             <span className="atelier-spine absolute top-1/2 left-5 hidden -translate-y-1/2 lg:block">
               Sunita Aesthetics · Visakhapatnam
@@ -109,10 +110,10 @@ function EditorialPage() {
       </section>
 
       <section id="why-choose-us" className="atelier-band-white py-10 lg:py-14">
-        <div id="surgeon" className="atelier-wrap grid items-center gap-7 lg:grid-cols-[0.85fr_1.15fr] lg:gap-12">
-          <div className="relative max-w-[420px]">
-            <div className="atelier-media relative h-[min(82vw,420px)] overflow-hidden sm:h-[340px] lg:h-[420px]">
-              <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta, plastic surgeon" />
+        <div id="surgeon" className="atelier-wrap grid items-stretch gap-6 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:gap-10">
+          <div className="relative h-full max-w-[400px]">
+            <div className="atelier-media relative aspect-[4/5] max-h-[380px] h-full overflow-hidden lg:aspect-auto lg:max-h-none lg:min-h-[280px]">
+              <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial treatment" className="object-[center_18%]" />
             </div>
             <div className="absolute inset-x-0 bottom-0 bg-[#A1534E] px-5 py-3.5 text-white lg:inset-x-auto lg:left-0 lg:w-auto lg:min-w-[240px]">
               <div className="text-[9px] font-medium uppercase tracking-[0.2em] text-white/75">Consultant plastic surgeon</div>
@@ -258,9 +259,9 @@ function EditorialPage() {
               href={`https://www.youtube.com/watch?v=${HOME_VIDEOS[0].videoId}`}
               target="_blank"
               rel="noreferrer"
-              className="atelier-media relative block h-[min(68vw,360px)] overflow-hidden sm:h-[280px] lg:h-[360px]"
+              className="atelier-media relative block h-[min(62vw,320px)] overflow-hidden sm:h-[280px] lg:h-[340px]"
             >
-              <FillImage src={HOME_VIDEOS[0].poster} alt={HOME_VIDEOS[0].title} />
+              <FillImage src={HOME_VIDEOS[0].poster} alt={HOME_VIDEOS[0].title} className="object-[center_18%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/25 to-transparent" />
               <PlayMark />
               <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
@@ -281,7 +282,7 @@ function EditorialPage() {
                   className="grid min-h-0 flex-1 grid-cols-1 overflow-hidden border border-white/20 sm:grid-cols-[160px_minmax(0,1fr)]"
                 >
                   <div className="atelier-media relative h-[160px] sm:h-full sm:min-h-[140px]">
-                    <FillImage src={video.poster} alt={video.title} />
+                    <FillImage src={video.poster} alt={video.title} className="object-[center_18%]" />
                     <PlayMark size="sm" />
                   </div>
                   <div className="flex flex-col justify-center px-4 py-4 sm:px-5">
@@ -385,25 +386,16 @@ function EditorialFooter() {
       <div className="atelier-wrap">
         <div className="grid grid-cols-1 gap-8 border-b border-white/20 pb-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="atelier-display text-[26px] leading-none">Sunita Aesthetics</div>
-            <div className="mt-2 text-[9px] font-medium uppercase tracking-[0.28em] text-white/70">
-              Plastic &amp; cosmetic surgery
+            <div className="inline-flex bg-white px-3 py-2">
+              <BrandLogo href="/home-2" className="h-[52px] w-[158px]" />
             </div>
             <p className="mt-5 mb-6 max-w-[260px] text-[15px] leading-[1.7] text-white/90">
               {HOME_COPY.footerBlurb}
             </p>
-            <div className="flex gap-2">
-              {HOME_SOCIALS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  aria-label={social.name}
-                  className="flex size-10 items-center justify-center border border-white/30 text-[11px] tracking-[0.08em] text-white transition-colors hover:bg-white hover:text-maroon"
-                >
-                  {social.label}
-                </a>
-              ))}
-            </div>
+            <SocialLinks
+              className="gap-2"
+              itemClassName="flex size-10 items-center justify-center border border-white/30 text-white transition-colors hover:bg-white hover:text-maroon"
+            />
           </div>
           <div>
             <div className="mb-5 text-[10px] font-medium uppercase tracking-[0.22em] text-white/65">Quick links</div>

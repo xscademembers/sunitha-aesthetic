@@ -66,8 +66,8 @@ export function EditorialTreatments() {
         </div>
 
         <article className="grid items-start gap-5 lg:grid-cols-[260px_minmax(0,1fr)] lg:gap-8" aria-live="polite">
-          <div className="atelier-media relative h-[200px] overflow-hidden sm:h-[240px] lg:h-[300px]">
-            <FillImage src={active.image} alt={active.imageAlt} className="object-top" />
+          <div className="atelier-media relative aspect-[4/5] max-h-[240px] overflow-hidden lg:aspect-auto lg:h-[280px] lg:max-h-none">
+            <FillImage src={active.image} alt={active.imageAlt} className="object-[center_18%]" />
           </div>
           <div className="min-w-0">
             <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">

@@ -22,11 +22,11 @@ html:has(.home-atelier) body {
 }
 
 html:has(.home-atelier) {
-  scroll-padding-top: 72px;
+  scroll-padding-top: 80px;
 }
 
 .home-atelier [id] {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 80px;
 }
 
 .atelier-wrap {

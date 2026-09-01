@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
+import { BrandLogo } from "@/components/BrandLogo";
 import { HomeDropdown, HomeMobileLinks } from "@/components/HomeDropdown";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
 import { useBook } from "./BookProvider";
@@ -41,14 +41,7 @@ export function EditorialNav() {
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-white">
       <div className="atelier-wrap flex h-[72px] items-center gap-4">
-        <Link href="/home-2" className="flex min-w-0 shrink-0 flex-col no-underline">
-          <span className="atelier-display truncate text-[16px] leading-none tracking-[0.02em] text-black sm:text-[20px]">
-            Sunita Aesthetics
-          </span>
-          <span className="mt-1 hidden text-[9px] font-medium uppercase tracking-[0.28em] text-maroon sm:block">
-            Plastic surgery · Vizag
-          </span>
-        </Link>
+        <BrandLogo href="/home-2" />
 
         <nav className="hidden min-w-0 flex-1 items-center justify-center lg:flex" aria-label="Main">
           <HomeDropdown

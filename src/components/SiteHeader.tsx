@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GetAppointmentButton } from "@/components/BrandButtons";
+import { BrandLogo } from "@/components/BrandLogo";
 import { HomeDropdown, HomeMobileLinks } from "@/components/HomeDropdown";
 import { ChevronDownIcon, CloseIcon, MenuIcon } from "@/components/icons";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
@@ -83,11 +83,8 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex h-[70px] items-center justify-between border-b border-black/5 bg-white px-6 shadow-[0_6px_20px_-12px_rgba(0,0,0,0.15)] lg:px-[88px]">
-        <Link href="/" aria-label="Dr. Sunita Aesthetics home">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/logo.svg" alt="Dr. Sunita Aesthetics" className="h-[55px] w-[166px]" />
-        </Link>
+      <header className="sticky top-0 z-50 flex h-[72px] items-center justify-between border-b border-black/5 bg-white px-6 shadow-[0_6px_20px_-12px_rgba(0,0,0,0.15)] lg:px-[88px]">
+        <BrandLogo />
         <nav className="hidden flex-1 items-center justify-evenly px-7 xl:px-12 lg:flex" aria-label="Main">
           <HomeDropdown />
           {NAV_LINKS.map((l) =>

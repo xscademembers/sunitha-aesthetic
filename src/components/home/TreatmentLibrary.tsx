@@ -67,8 +67,8 @@ function ServiceCard({ group }: { group: TreatmentGroup }) {
       id={group.id}
       className="neo mt-4 grid grid-cols-1 items-stretch gap-4 rounded-[24px] p-3.5 sm:mt-6 sm:rounded-[36px] sm:gap-5 sm:p-5 md:grid-cols-[minmax(220px,280px)_minmax(0,1fr)] md:gap-7 md:p-6 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-10 lg:p-7"
     >
-      <div className="neo-media relative h-[200px] overflow-hidden rounded-[18px] sm:h-[280px] md:h-full md:min-h-[280px] lg:rounded-[28px]">
-        <FillImage src={group.image} alt={group.imageAlt} className="object-top" />
+      <div className="neo-media relative aspect-[4/5] max-h-[240px] overflow-hidden rounded-[18px] md:aspect-auto md:h-full md:max-h-none md:min-h-[240px] lg:rounded-[28px]">
+        <FillImage src={group.image} alt={group.imageAlt} className="object-[center_18%]" />
       </div>
       <div className="flex min-w-0 flex-col justify-center py-1">
         <h4 className="home-display mt-0 mb-1.5 text-[clamp(24px,6vw,36px)] font-light leading-[1.12] tracking-[-0.02em] text-maroon">

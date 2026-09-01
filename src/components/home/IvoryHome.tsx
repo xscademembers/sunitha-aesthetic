@@ -8,7 +8,6 @@ import {
   HOME_COPY,
   HOME_IMAGES,
   HOME_REVIEWS,
-  HOME_SOCIALS,
   HOME_STATS,
   HOME_VIDEOS,
   MAP_EMBED_SRC,
@@ -17,6 +16,8 @@ import {
   SURGICAL_GROUPS,
   VIDEO_PLAYLIST_URL,
 } from "@/data/homeContent";
+import { BrandLogo } from "@/components/BrandLogo";
+import { SocialLinks } from "@/components/SocialLinks";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
 import { FaqAccordion } from "./FaqAccordion";
@@ -45,18 +46,18 @@ function IvoryPage() {
 
       <div className="home-band-white">
       <div className="home-wrap pt-3 pb-6 sm:pt-4 sm:pb-8 lg:pt-6 lg:pb-10">
-        <section className="neo rounded-[24px] p-5 sm:rounded-[44px] sm:p-8 lg:p-[58px]">
-          <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
-            <div>
-              <div className="home-kicker mb-4 font-ui sm:mb-[26px]">
+        <section className="neo rounded-[24px] p-5 sm:rounded-[40px] sm:p-7 lg:px-12 lg:py-9">
+          <div className="grid items-stretch gap-5 lg:grid-cols-2 lg:gap-10">
+            <div className="flex flex-col justify-center">
+              <div className="home-kicker mb-4 font-ui sm:mb-5">
                 {HOME_COPY.heroKicker}
               </div>
-              <h1 className="home-display mb-4 text-[clamp(36px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-6">
+              <h1 className="home-display mb-4 text-[clamp(36px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
                 {HOME_COPY.ivoryHeroTitle}
                 <br />
                 <em className="font-light italic text-maroon">{HOME_COPY.ivoryHeroAccent}</em>
               </h1>
-              <p className="home-display mb-6 max-w-[430px] text-[16px] font-light leading-[1.62] text-pretty text-black sm:mb-[34px] sm:text-[19px]">
+              <p className="home-display mb-6 max-w-[430px] text-[16px] font-light leading-[1.62] text-pretty text-black sm:mb-7 sm:text-[19px]">
                 {HOME_COPY.heroBody}
               </p>
               <div className="flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
@@ -68,8 +69,8 @@ function IvoryPage() {
                 </a>
               </div>
             </div>
-            <div className="neo neo-media relative h-[min(78vw,420px)] overflow-hidden rounded-[22px] sm:h-[clamp(340px,32vw,440px)] sm:rounded-[38px]">
-              <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta" priority />
+            <div className="neo neo-media relative aspect-[4/5] max-h-[340px] overflow-hidden rounded-[22px] sm:max-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:max-h-none lg:min-h-0">
+              <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta" priority className="object-[center_12%]" />
             </div>
           </div>
           <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-10 sm:grid-cols-4 sm:gap-4">
@@ -86,13 +87,13 @@ function IvoryPage() {
       </div>
       </div>
 
-      <section id="why-choose-us" className="home-band-white py-12 lg:py-20">
+      <section id="why-choose-us" className="home-band-white py-10 lg:py-14">
         <div id="surgeon" className="home-wrap">
-        <div className="neo grid items-start gap-6 rounded-[24px] p-5 sm:rounded-[44px] sm:p-8 lg:grid-cols-2 lg:gap-12 lg:p-[58px]">
-          <div className="neo neo-media relative h-[min(86vw,440px)] overflow-hidden rounded-[22px] sm:h-[clamp(360px,34vw,470px)] sm:rounded-[36px]">
-            <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta, plastic surgeon" />
+        <div className="neo grid items-stretch gap-5 rounded-[24px] p-5 sm:rounded-[40px] sm:p-7 lg:grid-cols-2 lg:gap-10 lg:px-12 lg:py-9">
+          <div className="neo neo-media relative aspect-[4/5] max-h-[360px] overflow-hidden rounded-[22px] sm:max-h-[420px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:max-h-none lg:min-h-0">
+            <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial treatment" className="object-[center_18%]" />
           </div>
-          <div>
+          <div className="flex flex-col justify-center">
             <div className="home-kicker font-ui">{HOME_COPY.surgeonKicker}</div>
             <h2 className="home-display mt-4 mb-0 text-[clamp(34px,6vw,58px)] font-extralight leading-[1.02] tracking-[-0.025em] text-black">
               {HOME_COPY.surgeonName}
@@ -197,8 +198,8 @@ function IvoryPage() {
             rel="noreferrer"
             className="neo neo-press block overflow-hidden rounded-[28px] sm:rounded-[36px]"
           >
-            <div className="relative h-[min(88vw,460px)] lg:h-full lg:min-h-[480px]">
-              <FillImage src={HOME_VIDEOS[0].poster} alt={HOME_VIDEOS[0].title} />
+            <div className="relative h-[min(72vw,380px)] lg:h-full lg:min-h-[380px]">
+              <FillImage src={HOME_VIDEOS[0].poster} alt={HOME_VIDEOS[0].title} className="object-[center_18%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
               <span className="pointer-events-none absolute top-1/2 left-1/2 flex size-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] sm:size-[72px]">
                 <span className="ml-1 border-y-[11px] border-l-[18px] border-y-transparent border-l-maroon" />
@@ -225,8 +226,8 @@ function IvoryPage() {
                 rel="noreferrer"
                 className="neo neo-press grid min-h-0 flex-1 grid-cols-1 overflow-hidden rounded-[28px] sm:grid-cols-[minmax(180px,42%)_1fr] sm:rounded-[32px]"
               >
-                <div className="neo-media relative h-[180px] sm:h-full sm:min-h-[200px]">
-                  <FillImage src={video.poster} alt={video.title} />
+                <div className="neo-media relative h-[180px] sm:h-full sm:min-h-[180px]">
+                  <FillImage src={video.poster} alt={video.title} className="object-[center_18%]" />
                   <span className="pointer-events-none absolute top-1/2 left-1/2 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white">
                     <span className="ml-0.5 border-y-[8px] border-l-[13px] border-y-transparent border-l-maroon" />
                   </span>
@@ -340,25 +341,15 @@ function IvoryFooter() {
       <div className="home-wrap">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="home-display text-[24px] leading-none text-white">Sunita Aesthetics</div>
-            <div className="mt-2 font-ui text-[8px] uppercase tracking-[0.3em] text-white/70">
-              Plastic &amp; cosmetic surgery
+            <div className="inline-flex rounded-[16px] bg-white px-3 py-2">
+              <BrandLogo className="h-[52px] w-[158px]" />
             </div>
             <p className="home-display mt-5 mb-6 max-w-[260px] text-[15px] font-light leading-[1.65] text-pretty text-white">
               {HOME_COPY.footerBlurb}
             </p>
-            <div className="flex gap-2.5">
-              {HOME_SOCIALS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  aria-label={social.name}
-                  className="neo neo-press flex size-[38px] items-center justify-center rounded-full font-ui text-[11px] tracking-[0.06em] text-maroon"
-                >
-                  {social.label}
-                </a>
-              ))}
-            </div>
+            <SocialLinks
+              itemClassName="neo neo-press flex size-[38px] items-center justify-center rounded-full text-maroon"
+            />
           </div>
           <div>
             <div className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Quick links</div>
