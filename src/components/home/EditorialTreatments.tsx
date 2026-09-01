@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import {
+  HOME_COPY,
   NONSURGICAL_COUNT,
   NONSURGICAL_GROUPS,
   SURGICAL_COUNT,
@@ -39,13 +40,13 @@ export function EditorialTreatments() {
       <div className="atelier-wrap">
         <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <div className="atelier-kicker mb-2">Treatments &amp; services</div>
+            <div className="atelier-kicker mb-2">{HOME_COPY.treatmentsKicker}</div>
             <h2 className="atelier-display m-0 text-[clamp(28px,4vw,42px)] leading-[1.05] tracking-[-0.03em] text-black">
-              The full <em className="italic text-maroon">library.</em>
+              {HOME_COPY.treatmentsTitle}
             </h2>
           </div>
           <p className="m-0 max-w-[340px] text-[14px] leading-[1.55] text-black">
-            {TOTAL_TREATMENT_COUNT} procedures. Choose a category, then open any treatment.
+            {TOTAL_TREATMENT_COUNT} procedures. {HOME_COPY.treatmentsBody}
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent } from "react";
+import { createPortal } from "react-dom";
 import { ALL_TREATMENT_GROUPS } from "@/data/homeContent";
 import { cn } from "@/lib/utils";
 import { useBook } from "./BookProvider";
@@ -8,7 +9,7 @@ import { useBook } from "./BookProvider";
 export function BookModal() {
   const { open, sent, closeBook, markSent } = useBook();
 
-  if (!open) return null;
+  if (!open || typeof document === "undefined") return null;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,15 +18,15 @@ export function BookModal() {
 
   const fieldClass = "neo-inset w-full rounded-full px-5 py-[15px] font-ui text-[14px] text-black outline-none";
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[80] flex items-end justify-center overflow-auto bg-black/40 p-4 home-fade sm:items-center sm:p-8"
+      className="home-ivory font-ui fixed inset-0 z-[1100] flex items-end justify-center overflow-auto bg-black/50 p-4 home-fade sm:items-center sm:p-8"
       role="dialog"
       aria-modal="true"
       aria-label="Appointment request"
     >
       <button type="button" className="absolute inset-0 cursor-default" onClick={closeBook} aria-label="Close" />
-      <div className="neo relative w-full max-w-[600px] rounded-[28px] p-6 home-rise sm:rounded-[40px] sm:p-10">
+      <div className="neo relative z-10 w-full max-w-[600px] rounded-[28px] p-6 home-rise sm:rounded-[40px] sm:p-10">
         <button
           type="button"
           onClick={closeBook}
@@ -86,6 +87,7 @@ export function BookModal() {
           </form>
         )}
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

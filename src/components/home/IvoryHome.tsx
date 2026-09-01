@@ -5,6 +5,7 @@ import {
   BOOK_LABEL,
   CLINIC_PHOTOS,
   HOME_CONTACT,
+  HOME_COPY,
   HOME_IMAGES,
   HOME_REVIEWS,
   HOME_SOCIALS,
@@ -48,23 +49,22 @@ function IvoryPage() {
           <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
             <div>
               <div className="home-kicker mb-4 font-ui sm:mb-[26px]">
-                Visakhapatnam · Since 2009
+                {HOME_COPY.heroKicker}
               </div>
               <h1 className="home-display mb-4 text-[clamp(36px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-6">
-                Quietly
+                {HOME_COPY.ivoryHeroTitle}
                 <br />
-                <em className="font-light italic text-maroon">remarkable.</em>
+                <em className="font-light italic text-maroon">{HOME_COPY.ivoryHeroAccent}</em>
               </h1>
               <p className="home-display mb-6 max-w-[430px] text-[16px] font-light leading-[1.62] text-pretty text-black sm:mb-[34px] sm:text-[19px]">
-                Plastic, cosmetic and reconstructive surgery with Dr. Sunita. Seventeen years of
-                work built on listening first and operating second.
+                {HOME_COPY.heroBody}
               </p>
               <div className="flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
                 <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
                   {BOOK_LABEL} <span className="text-[15px]">→</span>
                 </button>
                 <a href="#treatments" className="home-text-link self-center text-center font-ui text-[12px] uppercase tracking-[0.1em] text-black sm:self-auto sm:text-[13px]">
-                  View treatments
+                  {HOME_COPY.viewTreatments}
                 </a>
               </div>
             </div>
@@ -93,10 +93,13 @@ function IvoryPage() {
             <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta, plastic surgeon" />
           </div>
           <div>
-            <div className="home-kicker font-ui">Meet the surgeon</div>
+            <div className="home-kicker font-ui">{HOME_COPY.surgeonKicker}</div>
             <h2 className="home-display mt-4 mb-0 text-[clamp(34px,6vw,58px)] font-extralight leading-[1.02] tracking-[-0.025em] text-black">
-              Dr. Sunita
+              {HOME_COPY.surgeonName}
             </h2>
+            <p className="home-display mt-3 mb-0 max-w-[470px] text-[20px] font-light italic leading-[1.35] text-maroon sm:text-[24px]">
+              {HOME_COPY.ivorySurgeonTitle}
+            </p>
             <div className="mt-5 flex flex-wrap gap-2 sm:mt-[22px]">
               {["MBBS", "DNB", "MCh", "17+ years"].map((tag) => (
                 <span
@@ -108,21 +111,19 @@ function IvoryPage() {
               ))}
             </div>
             <p className="home-display mt-6 mb-0 max-w-[470px] text-[16px] font-light leading-[1.7] text-pretty text-black sm:mt-[26px] sm:text-[17px]">
-              Consultant plastic surgeon practising across face, body and breast surgery, non-surgical
-              aesthetics and reconstructive care. Every plan begins with an unhurried assessment and an
-              honest account of what surgery can and cannot do.
+              {HOME_COPY.surgeonBody}
             </p>
             <div className="neo-inset mt-7 rounded-[28px] px-6 py-5 sm:mt-[30px] sm:px-[30px] sm:py-[26px]">
               <p className="home-display m-0 text-[clamp(18px,3vw,26px)] font-light italic leading-[1.42] text-maroon">
-                “Every transformation begins with understanding.”
+                “{HOME_COPY.surgeonQuote}”
               </p>
             </div>
             <div className="mt-7 flex flex-col items-stretch gap-4 sm:mt-[30px] sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
               <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
-                Book with Dr. Sunita
+                {HOME_COPY.bookWithSurgeon}
               </button>
               <Link href="/about" className="home-text-link self-center text-center font-ui text-[13px] uppercase tracking-[0.1em] text-black sm:self-auto">
-                Read her full story
+                {HOME_COPY.readStory}
               </Link>
             </div>
           </div>
@@ -134,13 +135,13 @@ function IvoryPage() {
         <div className="home-wrap">
         <div className="home-on-maroon mb-7 flex flex-col gap-4 sm:mb-[30px] sm:flex-row sm:flex-wrap sm:items-end sm:justify-between sm:gap-5">
           <div>
-            <div className="home-kicker mb-3 font-ui sm:mb-4">The clinic</div>
+            <div className="home-kicker mb-3 font-ui sm:mb-4">{HOME_COPY.clinicKicker}</div>
             <h2 className="home-display m-0 text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em]">
-              What a visit <em className="italic">feels like.</em>
+              {HOME_COPY.clinicTitle}
             </h2>
           </div>
           <p className="home-display m-0 max-w-[330px] text-[16px] font-light leading-[1.65] text-pretty">
-            Quiet rooms, private entry, and time that is genuinely yours — from reception to recovery.
+            {HOME_COPY.clinicBody}
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-6">
@@ -174,9 +175,9 @@ function IvoryPage() {
         <div className="home-wrap">
         <div className="home-on-maroon mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
           <div>
-            <div className="home-kicker mb-3 font-ui sm:mb-4">Patient stories</div>
+            <div className="home-kicker mb-3 font-ui sm:mb-4">{HOME_COPY.storiesKicker}</div>
             <h2 className="home-display m-0 text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em]">
-              In their <em className="italic">own words.</em>
+              {HOME_COPY.storiesTitle}
             </h2>
           </div>
           <a
@@ -185,7 +186,7 @@ function IvoryPage() {
             rel="noreferrer"
             className="home-text-link self-start font-ui text-[12px] uppercase tracking-[0.12em]"
           >
-            All stories
+            {HOME_COPY.allStories}
           </a>
         </div>
 
@@ -290,15 +291,15 @@ function IvoryPage() {
         <div className="home-wrap">
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
           <div className="home-on-maroon">
-            <div className="home-kicker mb-4 font-ui">Before you begin</div>
+            <div className="home-kicker mb-4 font-ui">{HOME_COPY.faqKicker}</div>
             <h2 className="home-display mt-0 mb-5 text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em]">
-              Questions, <em className="italic">answered plainly.</em>
+              {HOME_COPY.faqTitle}
             </h2>
             <p className="home-display mb-6 max-w-[330px] text-[16px] font-light leading-[1.65] text-pretty sm:mb-[26px]">
-              If something here is still unclear, ask it in your consultation — no question is too small.
+              {HOME_COPY.faqBody}
             </p>
             <button type="button" onClick={openBook} className="neo-btn neo-btn-light sm:!w-auto">
-              Ask in a consultation
+              {HOME_COPY.askConsult}
             </button>
           </div>
           <FaqAccordion />
@@ -308,20 +309,19 @@ function IvoryPage() {
 
       <section className="home-band-white py-16 lg:py-24">
         <div className="home-wrap text-center">
-          <div className="home-kicker mx-auto mb-5 font-ui sm:mb-6">Private consultation</div>
+          <div className="home-kicker mx-auto mb-5 font-ui sm:mb-6">{HOME_COPY.ctaKicker}</div>
           <h2 className="home-display mx-auto mb-5 max-w-[620px] text-[clamp(32px,7vw,64px)] font-extralight leading-[1.06] tracking-[-0.03em] text-black sm:mb-[22px]">
-            Let’s begin with a <em className="italic text-maroon">conversation.</em>
+            {HOME_COPY.ctaTitle}
           </h2>
           <p className="home-display mx-auto mb-8 max-w-[440px] text-[17px] font-light leading-[1.65] text-pretty text-black sm:mb-[34px]">
-            One unhurried appointment, an honest assessment, and a written plan. Nothing is decided in
-            the room.
+            {HOME_COPY.ctaBody}
           </p>
           <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-6">
             <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
               {BOOK_LABEL} <span className="text-[15px]">→</span>
             </button>
-            <a href="#contact" className="home-text-link font-ui text-[13px] uppercase tracking-[0.1em] text-black">
-              Contact the clinic
+            <a href={HOME_CONTACT.phoneHref} className="home-text-link font-ui text-[13px] uppercase tracking-[0.1em] text-black">
+              {HOME_COPY.contactClinic}
             </a>
           </div>
         </div>
@@ -333,6 +333,8 @@ function IvoryPage() {
 }
 
 function IvoryFooter() {
+  const { openBook } = useBook();
+
   return (
     <footer id="contact" className="home-band-maroon pt-12 pb-[max(2rem,env(safe-area-inset-bottom))] lg:pt-[76px] lg:pb-[34px]">
       <div className="home-wrap">
@@ -343,8 +345,7 @@ function IvoryFooter() {
               Plastic &amp; cosmetic surgery
             </div>
             <p className="home-display mt-5 mb-6 max-w-[260px] text-[15px] font-light leading-[1.65] text-pretty text-white">
-              Surgical and non-surgical aesthetic care led by Dr. Sunita — considered, private and
-              unhurried.
+              {HOME_COPY.footerBlurb}
             </p>
             <div className="flex gap-2.5">
               {HOME_SOCIALS.map((social) => (
@@ -416,6 +417,9 @@ function IvoryFooter() {
                 <br />
                 {HOME_CONTACT.sunday}
               </span>
+              <button type="button" onClick={openBook} className="neo-btn mt-2 !h-auto !w-full px-4 py-3 text-[11px]">
+                {BOOK_LABEL}
+              </button>
             </div>
             <div className="relative mt-5 h-[120px] overflow-hidden rounded-[22px] bg-white">
               <iframe title="Clinic map" src={MAP_EMBED_SRC} className="h-full w-full border-0 grayscale" loading="lazy" />

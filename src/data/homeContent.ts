@@ -91,34 +91,81 @@ export const HOME_STATS = [
   { value: "1:1", label: "Personalised care" },
 ] as const;
 
+export const HOME_COPY = {
+  heroKicker: "Visakhapatnam · Board-certified · Since 2009",
+  ivoryHeroTitle: "Look like you.",
+  ivoryHeroAccent: "Only more confident.",
+  editorialHeroTitle: "Natural results.",
+  editorialHeroAccent: "Honest advice.",
+  heroBody:
+    "Face, body, breast and skin treatments with Dr. Sunita. Seventeen years of natural-looking results, clear answers, and a private consultation with no pressure to decide today.",
+  viewTreatments: "See treatments",
+  browseLibrary: "Browse treatments",
+  surgeonKicker: "Meet the surgeon",
+  surgeonName: "Dr. Sunita Ghanta",
+  ivorySurgeonTitle: "The surgeon patients trust with their face.",
+  editorialSurgeonTitle: "Careful surgery.",
+  editorialSurgeonAccent: "Natural results.",
+  surgeonBody:
+    "Board-certified plastic surgeon in Visakhapatnam for face, body, breast, hair and non-surgical aesthetics. You get a clear plan, realistic outcomes, and a clinic that never rushes you into a decision.",
+  surgeonQuote: "Every transformation begins with understanding.",
+  bookWithSurgeon: "Book with Dr. Sunita",
+  readStory: "Read her full story",
+  clinicKicker: "The clinic",
+  clinicTitle: "A private clinic, built around you.",
+  clinicBody:
+    "Calm rooms, discreet entry, and time that is actually yours — from the first hello through recovery.",
+  visitLine: "Private from the first door.",
+  findClinic: "Find the clinic",
+  treatmentsKicker: "Treatments & services",
+  treatmentsTitle: "Find the treatment that fits you.",
+  treatmentsBody:
+    "Surgical and non-surgical options, explained in plain language — who it suits, what recovery looks like, and what it cannot do.",
+  storiesKicker: "Patient stories",
+  storiesTitle: "Real people. Real journeys.",
+  allStories: "All stories",
+  fullPlaylist: "Full playlist",
+  faqKicker: "Before you begin",
+  faqTitle: "Clear answers, before you book.",
+  faqBody: "Still unsure? Bring the question to your consultation — that is exactly what it is for.",
+  askConsult: "Ask in a consultation",
+  ctaKicker: "Private consultation",
+  ctaTitle: "Let’s plan your next step.",
+  ctaBody:
+    "One private appointment. An honest assessment. A written plan you can take home — with zero pressure to book on the day.",
+  contactClinic: "Or call the clinic",
+  footerBlurb:
+    "Natural-looking surgical and non-surgical care in Visakhapatnam, led by Dr. Sunita Ghanta.",
+} as const;
+
 export const HOME_FAQS = [
   {
     q: "What happens during a consultation?",
-    a: "You meet Dr. Sunita in person. She listens first — what you would like to change, and why — then examines and explains which options genuinely apply to you, what each one involves, and what it does not do. You leave with a written plan and no pressure to decide.",
+    a: "You meet Dr. Sunita in person. She starts with what you want to change and why, then examines you and explains which options actually apply — including what each one cannot do. You leave with a written plan and no pressure to decide that day.",
   },
   {
     q: "How do I know which treatment is right for me?",
-    a: "That is decided together, based on your anatomy, medical history, lifestyle and how much recovery time you can realistically take. Sometimes the answer is a smaller procedure than expected, and sometimes it is no procedure at all.",
+    a: "That is decided together, based on your anatomy, medical history, lifestyle and how much recovery time you can take. Sometimes the right answer is a smaller treatment than expected — and sometimes it is no procedure at all.",
   },
   {
     q: "What is the recovery time?",
-    a: "It varies by procedure and by person. Most non-surgical treatments allow a return to routine the same day; surgical recovery is explained in detail before you consent, including time away from work, restrictions and the follow-up schedule.",
+    a: "It depends on the treatment and on you. Most non-surgical visits let you return to routine the same day. Surgical recovery is explained in detail before you consent, including time off work, restrictions and follow-up visits.",
   },
   {
     q: "How should I prepare?",
-    a: "You receive written pre-procedure instructions after your consultation. Bring your medical history and a list of current medications, follow the fasting and medication guidance given to you, and arrange for someone to accompany you home if sedation or anaesthesia is planned.",
+    a: "You receive written instructions after your consultation. Bring your medical history and current medications, follow any fasting or medicine guidance, and arrange someone to take you home if sedation or anaesthesia is planned.",
   },
   {
     q: "Will I still look like myself?",
-    a: "That is the intention. The aim is proportion and balance rather than a different face — changes that people notice as rest rather than surgery. If your goal and your anatomy do not agree, Dr. Sunita will tell you before anything is booked.",
+    a: "That is the goal. The aim is balance and a rested look — not a different face. If your wish and your anatomy do not match, Dr. Sunita will tell you before anything is booked.",
   },
   {
     q: "Are results guaranteed?",
-    a: "No responsible surgeon can guarantee a result. Outcomes depend on your anatomy, how you heal and how closely aftercare is followed. What is promised is an honest assessment beforehand, careful surgery, and continued care afterwards.",
+    a: "No responsible surgeon can guarantee a result. Healing, anatomy and aftercare all matter. What you can expect is an honest assessment, careful surgery, and continued care afterwards.",
   },
   {
     q: "How do I book an appointment?",
-    a: "Use the Book a Consultation button on this page, call the clinic, or send a message. The clinic confirms your appointment time and tells you what to bring and how long to allow.",
+    a: "Click Book a Consultation on this page, call the clinic, or send a message. The team confirms your time and tells you what to bring.",
   },
 ] as const;
 

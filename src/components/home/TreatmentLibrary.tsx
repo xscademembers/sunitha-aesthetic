@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  HOME_COPY,
   NONSURGICAL_COUNT,
   NONSURGICAL_GROUPS,
   SURGICAL_COUNT,
@@ -15,15 +16,14 @@ export function TreatmentLibrary() {
       <div className="mb-9 grid items-end gap-6 lg:mb-[46px] lg:grid-cols-2 lg:gap-8">
         <div>
           <div className="mb-4 sm:mb-5">
-            <span className="home-kicker font-ui">Treatments &amp; services</span>
+            <span className="home-kicker font-ui">{HOME_COPY.treatmentsKicker}</span>
           </div>
           <h2 className="home-display m-0 text-[clamp(34px,7vw,64px)] font-extralight leading-none tracking-[-0.035em] text-black">
-            One library. <em className="italic text-maroon">Listed once.</em>
+            {HOME_COPY.treatmentsTitle}
           </h2>
         </div>
         <p className="home-display m-0 max-w-[400px] text-[16px] font-light leading-[1.65] text-pretty text-black sm:text-[17px]">
-          {TOTAL_TREATMENT_COUNT} procedures, every name on the page. Choose one to read what it
-          involves, who it suits and how recovery works.
+          {TOTAL_TREATMENT_COUNT} procedures. {HOME_COPY.treatmentsBody}
         </p>
       </div>
 

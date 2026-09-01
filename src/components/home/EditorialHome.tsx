@@ -5,6 +5,7 @@ import {
   BOOK_LABEL,
   CLINIC_PHOTOS,
   HOME_CONTACT,
+  HOME_COPY,
   HOME_IMAGES,
   HOME_REVIEWS,
   HOME_SOCIALS,
@@ -59,23 +60,22 @@ function EditorialPage() {
             <div className="mb-5 flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.26em] text-maroon">
               <span>01</span>
               <span className="h-px w-8 bg-maroon/50" />
-              <span>Visakhapatnam · Est. 2009</span>
+              <span>{HOME_COPY.heroKicker}</span>
             </div>
             <h1 className="atelier-display mb-0 max-w-[560px] text-[clamp(40px,6.4vw,78px)] leading-[0.9] tracking-[-0.04em] text-black">
-              The face you
+              {HOME_COPY.editorialHeroTitle}
               <br />
-              already <em className="italic text-maroon">have.</em>
+              <em className="italic text-maroon">{HOME_COPY.editorialHeroAccent}</em>
             </h1>
             <p className="mt-6 mb-0 max-w-[38ch] text-[16px] leading-[1.7] text-pretty text-black">
-              Plastic, cosmetic and reconstructive surgery with Dr. Sunita. Seventeen years of work
-              built on listening first and operating second.
+              {HOME_COPY.heroBody}
             </p>
             <div className="mt-8 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
               <button type="button" onClick={openBook} className="atelier-btn sm:!w-auto">
                 {BOOK_LABEL}
               </button>
               <a href="#treatments" className="atelier-text-link self-center text-[12px] font-medium uppercase tracking-[0.16em] text-black sm:self-auto">
-                Browse the library
+                {HOME_COPY.browseLibrary}
               </a>
             </div>
             <div className="mt-10 grid grid-cols-2 gap-px bg-black/10 lg:hidden">
@@ -120,9 +120,10 @@ function EditorialPage() {
             </div>
           </div>
           <div>
-            <div className="atelier-kicker">Meet the surgeon</div>
+            <div className="atelier-kicker">{HOME_COPY.surgeonKicker}</div>
             <h2 className="atelier-display mt-3 mb-0 text-[clamp(28px,4vw,44px)] leading-[1.02] tracking-[-0.03em] text-black">
-              Precision, <em className="italic text-maroon">without theatre.</em>
+              {HOME_COPY.editorialSurgeonTitle}{" "}
+              <em className="italic text-maroon">{HOME_COPY.editorialSurgeonAccent}</em>
             </h2>
             <ol className="mt-5 border-y border-black/10">
               {[
@@ -141,21 +142,19 @@ function EditorialPage() {
               ))}
             </ol>
             <p className="mt-5 mb-0 max-w-[500px] text-[15px] leading-[1.7] text-pretty text-black">
-              Consultant plastic surgeon practising across face, body and breast surgery, non-surgical
-              aesthetics and reconstructive care. Every plan begins with an unhurried assessment and an
-              honest account of what surgery can and cannot do.
+              {HOME_COPY.surgeonBody}
             </p>
             <blockquote className="mt-5 border-l-2 border-maroon pl-4">
               <p className="atelier-display m-0 text-[18px] leading-[1.35] text-maroon italic sm:text-[20px]">
-                “Every transformation begins with understanding.”
+                “{HOME_COPY.surgeonQuote}”
               </p>
             </blockquote>
             <div className="mt-6 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center">
               <button type="button" onClick={openBook} className="atelier-btn sm:!w-auto">
-                Book with Dr. Sunita
+                {HOME_COPY.bookWithSurgeon}
               </button>
               <Link href="/about" className="atelier-text-link self-center text-[12px] font-medium uppercase tracking-[0.16em] text-black sm:self-auto">
-                Read her full story
+                {HOME_COPY.readStory}
               </Link>
             </div>
           </div>
@@ -172,11 +171,11 @@ function EditorialPage() {
                 <span>The clinic</span>
               </div>
               <h2 className="atelier-display m-0 text-[clamp(32px,5vw,52px)] leading-[1.02] tracking-[-0.03em]">
-                What a visit <em className="italic">feels like.</em>
+                {HOME_COPY.clinicTitle}
               </h2>
             </div>
             <p className="m-0 max-w-[340px] text-[15px] leading-[1.65] text-white/90">
-              Quiet rooms, private entry, and time that is genuinely yours — from reception to recovery.
+              {HOME_COPY.clinicBody}
             </p>
           </div>
 
@@ -220,10 +219,10 @@ function EditorialPage() {
               <div className="text-[10px] font-medium uppercase tracking-[0.22em] text-white/70">Visit</div>
               <div>
                 <p className="atelier-display m-0 text-[26px] leading-[1.12]">
-                  Private from the first door.
+                  {HOME_COPY.visitLine}
                 </p>
                 <a href="#contact" className="atelier-text-link mt-4 inline-block text-[11px] font-medium uppercase tracking-[0.16em] text-white">
-                  Find the clinic
+                  {HOME_COPY.findClinic}
                 </a>
               </div>
             </div>
@@ -239,9 +238,9 @@ function EditorialPage() {
         <div className="atelier-wrap">
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <div className="atelier-kicker mb-2">Patient stories</div>
+              <div className="atelier-kicker mb-2">{HOME_COPY.storiesKicker}</div>
               <h2 className="atelier-display m-0 text-[clamp(28px,4vw,42px)] leading-[1.05] tracking-[-0.03em]">
-                In their <em className="italic">own words.</em>
+                {HOME_COPY.storiesTitle}
               </h2>
             </div>
             <a
@@ -250,7 +249,7 @@ function EditorialPage() {
               rel="noreferrer"
               className="atelier-text-link self-start text-[11px] font-medium uppercase tracking-[0.18em] text-white"
             >
-              Full playlist
+              {HOME_COPY.fullPlaylist}
             </a>
           </div>
 
@@ -338,15 +337,15 @@ function EditorialPage() {
       <section id="faqs" className="atelier-band-maroon py-10 lg:py-14">
         <div className="atelier-wrap grid items-start gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
           <div>
-            <div className="atelier-kicker mb-3">Before you begin</div>
+            <div className="atelier-kicker mb-3">{HOME_COPY.faqKicker}</div>
             <h2 className="atelier-display mt-0 mb-4 text-[clamp(28px,4vw,42px)] leading-[1.05] tracking-[-0.03em]">
-              Questions, <em className="italic">answered plainly.</em>
+              {HOME_COPY.faqTitle}
             </h2>
             <p className="mb-5 max-w-[320px] text-[14px] leading-[1.6] text-white/90">
-              If something here is still unclear, ask it in your consultation — no question is too small.
+              {HOME_COPY.faqBody}
             </p>
             <button type="button" onClick={openBook} className="atelier-btn atelier-btn-light sm:!w-auto">
-              Ask in a consultation
+              {HOME_COPY.askConsult}
             </button>
           </div>
           <EditorialFaq />
@@ -355,20 +354,19 @@ function EditorialPage() {
 
       <section className="atelier-band-white py-12 lg:py-16">
         <div className="atelier-wrap text-center">
-          <div className="atelier-kicker mb-3">Private consultation</div>
+          <div className="atelier-kicker mb-3">{HOME_COPY.ctaKicker}</div>
           <h2 className="atelier-display mx-auto mb-4 max-w-[640px] text-[clamp(28px,4.5vw,48px)] leading-[1.05] tracking-[-0.03em] text-black">
-            Let’s begin with a <em className="italic text-maroon">conversation.</em>
+            {HOME_COPY.ctaTitle}
           </h2>
           <p className="mx-auto mb-6 max-w-[420px] text-[15px] leading-[1.6] text-black">
-            One unhurried appointment, an honest assessment, and a written plan. Nothing is decided in
-            the room.
+            {HOME_COPY.ctaBody}
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <button type="button" onClick={openBook} className="atelier-btn sm:!w-auto">
               {BOOK_LABEL}
             </button>
-            <a href="#contact" className="atelier-text-link text-[12px] font-medium uppercase tracking-[0.16em] text-black">
-              Contact the clinic
+            <a href={HOME_CONTACT.phoneHref} className="atelier-text-link text-[12px] font-medium uppercase tracking-[0.16em] text-black">
+              {HOME_COPY.contactClinic}
             </a>
           </div>
         </div>
@@ -380,6 +378,8 @@ function EditorialPage() {
 }
 
 function EditorialFooter() {
+  const { openBook } = useBook();
+
   return (
     <footer id="contact" className="atelier-band-maroon pt-10 pb-[max(1.5rem,env(safe-area-inset-bottom))] lg:pt-14">
       <div className="atelier-wrap">
@@ -390,8 +390,7 @@ function EditorialFooter() {
               Plastic &amp; cosmetic surgery
             </div>
             <p className="mt-5 mb-6 max-w-[260px] text-[15px] leading-[1.7] text-white/90">
-              Surgical and non-surgical aesthetic care led by Dr. Sunita — considered, private and
-              unhurried.
+              {HOME_COPY.footerBlurb}
             </p>
             <div className="flex gap-2">
               {HOME_SOCIALS.map((social) => (
@@ -463,6 +462,9 @@ function EditorialFooter() {
                 <br />
                 {HOME_CONTACT.sunday}
               </span>
+              <button type="button" onClick={openBook} className="atelier-btn mt-2 !w-full px-4 py-3 text-[11px]">
+                {BOOK_LABEL}
+              </button>
             </div>
             <div className="relative mt-4 h-[100px] overflow-hidden border border-white/25">
               <iframe title="Clinic map" src={MAP_EMBED_SRC} className="h-full w-full border-0 grayscale" loading="lazy" />

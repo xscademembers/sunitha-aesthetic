@@ -7,7 +7,7 @@ import { CONTACT } from "@/types/content";
 export const OPEN_APPOINTMENT_EVENT = "open-appointment";
 
 export function openAppointmentPopup() {
-  window.dispatchEvent(new CustomEvent(OPEN_APPOINTMENT_EVENT));
+  window.dispatchEvent(new CustomEvent(OPEN_APPOINTMENT_EVENT, { bubbles: true }));
 }
 
 interface GetAppointmentButtonProps {

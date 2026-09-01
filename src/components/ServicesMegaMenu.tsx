@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
-import { ChevronDownIcon } from "@/components/icons";
+import { ChevronDownIcon, CloseIcon } from "@/components/icons";
 import {
   SERVICE_CATEGORIES,
   type CatalogCategory,
@@ -234,74 +235,110 @@ function ServiceLinks({
 export function ServicesMegaMenu({ triggerClassName }: { triggerClassName?: string }) {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState(SERVICE_CATEGORIES[0].id);
-  const wrapRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
   const active = SERVICE_CATEGORIES.find((c) => c.id === activeId) ?? SERVICE_CATEGORIES[0];
-
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
-    const onClickOutside = (e: MouseEvent) => {
-      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
-    };
-    window.addEventListener("keydown", onKey);
-    document.addEventListener("mousedown", onClickOutside);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.removeEventListener("mousedown", onClickOutside);
-    };
-  }, [open]);
 
   const close = () => setOpen(false);
 
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
+    const onPointerDown = (e: PointerEvent) => {
+      const target = e.target as Node;
+      if (triggerRef.current?.contains(target) || panelRef.current?.contains(target)) return;
+      close();
+    };
+    window.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [open]);
+
   return (
-    <div ref={wrapRef} className="static">
-      <button
-        type="button"
-        aria-expanded={open}
-        onClick={() => setOpen(!open)}
-        className={cn(
-          "flex items-center gap-1.5 rounded-full px-4 py-2 font-sans text-[16px] text-black transition-colors duration-200 hover:bg-maroon/10",
-          triggerClassName,
-        )}
-      >
-        Our Services
-        <ChevronDownIcon className={cn("size-2.5 transition-transform duration-200", open && "rotate-180")} />
-      </button>
+    <div className="static">
+      <div ref={triggerRef} className="relative z-50">
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-haspopup="dialog"
+          onClick={() => setOpen((value) => !value)}
+          className={cn(
+            "flex items-center gap-1.5 rounded-full px-4 py-2 font-sans text-[16px] text-black transition-colors duration-200 hover:bg-maroon/10",
+            triggerClassName,
+          )}
+        >
+          Our Services
+          <ChevronDownIcon className={cn("size-2.5 transition-transform duration-200", open && "rotate-180")} />
+        </button>
+      </div>
 
       {open && (
-        <div className="absolute left-0 right-0 top-full z-50 px-6 lg:px-[88px]">
-          <div className="mt-2 overflow-hidden rounded-[20px] border border-black/5 bg-white shadow-[0_32px_64px_-24px_rgba(0,0,0,0.28)]">
-            <div className="grid md:grid-cols-[240px_1fr]">
-              <nav className="border-b border-black/5 bg-maroon/[0.03] px-3 py-4 md:border-b-0 md:border-r">
-                <KindLabel kind="surgical" />
-                {SURGICAL.map((category) => (
-                  <CategoryNavButton
-                    key={category.id}
-                    category={category}
-                    active={activeId === category.id}
-                    onSelect={() => setActiveId(category.id)}
-                  />
-                ))}
-                <div className="my-2 border-t border-maroon/10" />
-                <KindLabel kind="nonsurgical" />
-                {NONSURGICAL.map((category) => (
-                  <CategoryNavButton
-                    key={category.id}
-                    category={category}
-                    active={activeId === category.id}
-                    onSelect={() => setActiveId(category.id)}
-                  />
-                ))}
-              </nav>
-              <div className="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-6">
-                <ServiceLinks category={active} onNavigate={close} />
+        <>
+          {createPortal(
+            <button
+              type="button"
+              tabIndex={-1}
+              aria-label="Close services menu"
+              className="fixed inset-0 z-40 cursor-default bg-black/20"
+              onClick={close}
+            />,
+            document.body,
+          )}
+          <div className="pointer-events-none absolute inset-x-0 top-full z-50 px-6 lg:px-[88px]">
+            <div
+              ref={panelRef}
+              role="dialog"
+              aria-label="Our services"
+              className="pointer-events-auto relative mt-2 overflow-hidden rounded-[20px] border border-black/5 bg-white shadow-[0_32px_64px_-24px_rgba(0,0,0,0.28)]"
+            >
+              <div className="flex items-center justify-between border-b border-black/5 px-4 py-2.5 md:px-5">
+                <p className="font-marcellus text-[13px] uppercase tracking-[0.14em] text-maroon">
+                  Our Services
+                </p>
+                <button
+                  type="button"
+                  aria-label="Close services menu"
+                  onClick={close}
+                  className="flex size-9 items-center justify-center rounded-full border border-black/10 text-black transition-colors hover:bg-maroon/10 hover:text-maroon"
+                >
+                  <CloseIcon className="size-[18px]" />
+                </button>
+              </div>
+              <div className="grid md:grid-cols-[240px_1fr]">
+                <nav className="border-b border-black/5 bg-maroon/[0.03] px-3 py-4 md:border-b-0 md:border-r">
+                  <KindLabel kind="surgical" />
+                  {SURGICAL.map((category) => (
+                    <CategoryNavButton
+                      key={category.id}
+                      category={category}
+                      active={activeId === category.id}
+                      onSelect={() => setActiveId(category.id)}
+                    />
+                  ))}
+                  <div className="my-2 border-t border-maroon/10" />
+                  <KindLabel kind="nonsurgical" />
+                  {NONSURGICAL.map((category) => (
+                    <CategoryNavButton
+                      key={category.id}
+                      category={category}
+                      active={activeId === category.id}
+                      onSelect={() => setActiveId(category.id)}
+                    />
+                  ))}
+                </nav>
+                <div className="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-6">
+                  <ServiceLinks category={active} onNavigate={close} />
+                </div>
+              </div>
+              <div className="border-t border-black/5 bg-maroon/5 px-8 py-4">
+                <AiDiagnosisLink onClick={close} />
               </div>
             </div>
-            <div className="border-t border-black/5 bg-maroon/5 px-8 py-4">
-              <AiDiagnosisLink onClick={close} />
-            </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
