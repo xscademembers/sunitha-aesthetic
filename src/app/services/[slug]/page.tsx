@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { AppointmentPopup } from "@/components/AppointmentPopup";
 import { ContactSection } from "@/components/ContactSection";
 import { Disclaimer } from "@/components/Disclaimer";
 import { MeetTheDoctor } from "@/components/MeetTheDoctor";
@@ -86,7 +85,6 @@ export default async function ServicePage({ params }: Props) {
         <Disclaimer />
       </main>
       <SiteFooter />
-      <AppointmentPopup />
     </>
   );
 }

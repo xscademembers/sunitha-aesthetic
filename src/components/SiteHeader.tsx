@@ -1,39 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { GetAppointmentButton } from "@/components/BrandButtons";
-import { ChevronDownIcon, CloseIcon, MenuIcon, PhoneIcon } from "@/components/icons";
+import { HomeDropdown, HomeMobileLinks } from "@/components/HomeDropdown";
+import { ChevronDownIcon, CloseIcon, MenuIcon } from "@/components/icons";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
-import { CONTACT } from "@/types/content";
 
 const NAV_LINKS = [
   { label: "About Us", href: "/about" },
-  { label: "Our Services", href: "/#services" },
+  { label: "Our Services", href: "/#treatments" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Reviews", href: "/#reviews" },
-  { label: "Why Choose us", href: "/#why-choose-us" },
   { label: "Contact Us", href: "/#contact" },
-];
-
-const SOCIALS = [
-  { name: "Instagram", src: "/images/social/instagram.png" },
-  { name: "Facebook", src: "/images/social/facebook.png" },
-  { name: "Youtube", src: "/images/social/youtube.png" },
-  { name: "Whatsapp", src: "/images/social/whatsapp.png" },
-  { name: "LinkedIn", src: "/images/social/linkedin.png" },
-  { name: "Twitter", src: "/images/social/twitter.png" },
-];
-
-function MailIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className={className}>
-      <rect x="2.5" y="5" width="19" height="14" rx="1.5" />
-      <path d="m3 6 9 7 9-7" />
-    </svg>
-  );
-}
+] as const;
 
 function MobileFolderIcon({ open, className }: { open: boolean; className?: string }) {
   return (
@@ -50,7 +30,7 @@ function MobileFolderIcon({ open, className }: { open: boolean; className?: stri
       {open ? (
         <path d="M3.5 7.5h6l2-2h3l2 2h4a1.5 1.5 0 0 1 1.4 2l-2.1 8a1.5 1.5 0 0 1-1.45 1.1H5.65a1.5 1.5 0 0 1-1.45-1.1l-2.1-8a1.5 1.5 0 0 1 1.4-2Z" />
       ) : (
-        <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h5l2 2h8A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" />
+        <path d="M3 6.5A1.5 1.5 0 0 1 4.5 5h5l2 2h8A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1 1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z" />
       )}
     </svg>
   );
@@ -77,10 +57,12 @@ function MobileFileIcon({ className }: { className?: string }) {
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
 
   const closeMobileMenu = () => {
     setMenuOpen(false);
     setMobileServicesOpen(false);
+    setMobileHomeOpen(false);
   };
 
   useEffect(() => {
@@ -101,53 +83,13 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Top bar (scrolls away normally) */}
-      <div className="h-[45px] bg-maroon-btn">
-        <div className="flex h-full items-center justify-between px-6 lg:px-[88px]">
-          <div className="flex items-center gap-6">
-            <a
-              href={`mailto:${CONTACT.email}`}
-              className="hidden items-center gap-3 font-sans text-[13px] font-bold text-light-text sm:flex lg:text-[16px]"
-            >
-              <MailIcon className="size-[22px] shrink-0 text-white" />
-              {CONTACT.email}
-            </a>
-            <span className="hidden h-[22px] w-px bg-white/40 sm:block" />
-            <a
-              href={CONTACT.phoneHref}
-              className="flex items-center gap-3 font-sans text-[13px] font-bold text-light-text lg:text-[16px]"
-            >
-              <PhoneIcon className="size-[22px] shrink-0 text-white" />
-              {CONTACT.phone}
-            </a>
-          </div>
-          <div className="hidden items-center gap-[22px] lg:flex">
-            {SOCIALS.map((s) => (
-              <a key={s.name} href="#" aria-label={s.name}>
-                <Image
-                  src={s.src}
-                  alt={s.name}
-                  width={22}
-                  height={22}
-                  loading="eager"
-                  unoptimized
-                  className="brightness-0 invert"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Nav — sticky at top:0. A sibling of <main>, so it pins for the whole
-          page; positive-offset sticky composits smoothly (the previous
-          negative-top sticky header jittered while scrolling). */}
       <header className="sticky top-0 z-50 flex h-[70px] items-center justify-between border-b border-black/5 bg-white px-6 shadow-[0_6px_20px_-12px_rgba(0,0,0,0.15)] lg:px-[88px]">
         <Link href="/" aria-label="Dr. Sunita Aesthetics home">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/logo.svg" alt="Dr. Sunita Aesthetics" className="h-[55px] w-[166px]" />
         </Link>
         <nav className="hidden flex-1 items-center justify-evenly px-7 xl:px-12 lg:flex" aria-label="Main">
+          <HomeDropdown />
           {NAV_LINKS.map((l) =>
             l.label === "Our Services" ? (
               <ServicesMegaMenu key={l.label} />
@@ -175,7 +117,6 @@ export function SiteHeader() {
         </button>
       </header>
 
-      {/* Mobile overlay menu */}
       {menuOpen && (
         <div
           className="fixed inset-0 z-50 flex h-[100dvh] flex-col overflow-hidden bg-white lg:hidden"
@@ -200,15 +141,29 @@ export function SiteHeader() {
             </button>
           </div>
 
-          <nav
-            className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5"
-            aria-label="Mobile"
-          >
+          <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5" aria-label="Mobile">
             <div className="mx-auto w-full max-w-[460px]">
-              <p className="mb-2 px-2 font-sans text-[11px] font-bold uppercase tracking-[0.14em] text-gray-text">
-                Website
-              </p>
               <ul className="space-y-1">
+                <li>
+                  <button
+                    type="button"
+                    aria-expanded={mobileHomeOpen}
+                    aria-controls="mobile-home-tree"
+                    onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
+                    className="flex min-h-12 w-full items-center gap-2.5 rounded-[11px] px-2 text-left font-sans text-[16px] font-medium text-black transition-colors hover:bg-maroon/10"
+                  >
+                    <ChevronDownIcon
+                      className={`size-2.5 shrink-0 -rotate-90 transition-transform duration-200 ${mobileHomeOpen ? "rotate-0" : ""}`}
+                    />
+                    <MobileFolderIcon open={mobileHomeOpen} className="size-5 shrink-0 text-maroon" />
+                    <span>Home</span>
+                  </button>
+                  {mobileHomeOpen && (
+                    <div id="mobile-home-tree" className="ml-[19px] border-l border-maroon/20 pb-3 pl-[17px] pt-1">
+                      <HomeMobileLinks onNavigate={closeMobileMenu} />
+                    </div>
+                  )}
+                </li>
                 {NAV_LINKS.map((link) =>
                   link.label === "Our Services" ? (
                     <li key={link.label}>

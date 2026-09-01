@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { AppointmentPopup } from "@/components/AppointmentPopup";
 import { GetAppointmentButton } from "@/components/BrandButtons";
 import { Disclaimer } from "@/components/Disclaimer";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -314,7 +313,6 @@ export default async function CaseStudyPage({ params }: Props) {
         <Disclaimer />
       </main>
       <SiteFooter />
-      <AppointmentPopup />
     </>
   );
 }

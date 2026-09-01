@@ -1,0 +1,337 @@
+@keyframes home-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes home-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.home-fade {
+  animation: home-fade 0.16s ease both;
+}
+
+.home-rise {
+  animation: home-rise 0.22s ease both;
+}
+
+.home-ivory {
+  --ivory: #f4eee7;
+  font-family: var(--font-jost), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #ffffff;
+  color: #000000;
+  overflow-x: hidden;
+}
+
+.home-display {
+  font-family: var(--font-newsreader), Georgia, serif;
+}
+
+.home-ivory a {
+  text-decoration: none;
+}
+
+html:has(.home-ivory),
+html:has(.home-ivory) body {
+  background: #ffffff;
+  scroll-behavior: smooth;
+}
+
+html:has(.home-ivory) {
+  scroll-padding-top: 86px;
+}
+
+.home-ivory [id] {
+  scroll-margin-top: 86px;
+}
+
+.home-wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(18px, env(safe-area-inset-left));
+  padding-right: max(18px, env(safe-area-inset-right));
+}
+
+@media (min-width: 1024px) {
+  .home-wrap {
+    padding-left: 72px;
+    padding-right: 72px;
+  }
+}
+
+.home-band-white {
+  background: #ffffff;
+}
+
+.home-band-maroon {
+  background: #a1534e;
+  color: #ffffff;
+}
+
+.home-band-maroon .home-kicker {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+}
+
+.home-on-maroon,
+.home-on-maroon h2,
+.home-on-maroon h2 em,
+.home-on-maroon .home-display,
+.home-on-maroon p,
+.home-on-maroon .home-text-link {
+  color: #ffffff;
+}
+
+.home-on-maroon .home-text-link {
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}
+
+.home-on-maroon .home-text-link:hover,
+.home-on-maroon .home-text-link:focus-visible {
+  color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.home-band-maroon .neo {
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.home-band-maroon .neo-press:hover,
+.home-band-maroon .neo-press:focus-visible {
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.28);
+}
+
+.home-band-maroon .neo-btn:not(.neo-btn-light) {
+  background: #ffffff;
+  color: #a1534e;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+.neo-btn-light {
+  background: #ffffff;
+  color: #a1534e;
+  box-shadow:
+    0 10px 24px rgba(0, 0, 0, 0.16),
+    0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.neo-btn-light:hover,
+.neo-btn-light:focus-visible {
+  background: #ffffff;
+  color: #a1534e;
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.2),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.home-kicker {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #a1534e;
+  background: var(--ivory, #f4eee7);
+  box-shadow:
+    inset 5px 5px 10px rgba(0, 0, 0, 0.06),
+    inset -5px -5px 10px #ffffff;
+}
+
+/* Raised: same-surface extrusion (matches the Book button reference). */
+.neo {
+  border: 0;
+  background: var(--ivory, #f4eee7);
+  box-shadow:
+    -10px -10px 22px #ffffff,
+    10px 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.neo-press {
+  transition: box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.neo-press:hover,
+.neo-press:focus-visible {
+  transform: translateY(-2px);
+  box-shadow:
+    -6px -6px 16px #ffffff,
+    12px 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.neo-press:active {
+  transform: none;
+  box-shadow:
+    inset 6px 6px 14px rgba(0, 0, 0, 0.08),
+    inset -6px -6px 14px #ffffff;
+}
+
+.neo-inset {
+  border: 0;
+  background: var(--ivory, #f4eee7);
+  box-shadow:
+    inset 6px 6px 14px rgba(0, 0, 0, 0.08),
+    inset -6px -6px 14px #ffffff;
+}
+
+.neo-media {
+  overflow: hidden;
+}
+
+.neo-media img {
+  transition: transform 0.7s ease;
+}
+
+.neo-media:hover img {
+  transform: scale(1.045);
+}
+
+.home-nav-link {
+  border-radius: 999px;
+  transition: color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.home-nav-link:hover,
+.home-nav-link:focus-visible {
+  color: #a1534e;
+  box-shadow:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.06),
+    inset -4px -4px 8px #ffffff;
+}
+
+.home-text-link {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.28);
+  padding-bottom: 3px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.home-text-link:hover,
+.home-text-link:focus-visible {
+  color: #a1534e;
+  border-color: #a1534e;
+}
+
+.neo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ivory, #f4eee7);
+  color: #a1534e;
+  cursor: pointer;
+  font-family: var(--font-jost), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 16px 40px;
+  box-shadow:
+    -8px -8px 20px #ffffff,
+    8px 8px 20px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.neo-btn:hover,
+.neo-btn:focus-visible {
+  transform: translateY(-1px);
+  box-shadow:
+    -6px -6px 16px #ffffff,
+    10px 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.neo-btn:active {
+  transform: none;
+  box-shadow:
+    inset 6px 6px 14px rgba(0, 0, 0, 0.08),
+    inset -6px -6px 14px #ffffff;
+}
+
+.neo-btn:focus-visible,
+.neo-press:focus-visible,
+.neo-chip:focus-visible,
+.home-nav-link:focus-visible {
+  outline: 2px solid #a1534e;
+  outline-offset: 3px;
+}
+
+.neo-chip {
+  background: #ffffff;
+  color: #000000;
+  border-radius: 999px;
+  box-shadow:
+    0 10px 24px -6px rgba(0, 0, 0, 0.08),
+    0 4px 10px -4px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.neo-chip:hover,
+.neo-chip:focus-visible {
+  color: #a1534e;
+  transform: translateY(-1px);
+  box-shadow:
+    0 14px 28px -8px rgba(0, 0, 0, 0.12),
+    0 6px 12px -6px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 640px) {
+  .neo,
+  .neo-btn {
+    box-shadow:
+      -5px -5px 14px #ffffff,
+      5px 5px 14px rgba(0, 0, 0, 0.1);
+  }
+
+  .home-band-maroon .neo,
+  .home-band-maroon .neo-btn {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+  }
+
+  .neo-btn {
+    width: 100%;
+    padding: 15px 22px;
+    letter-spacing: 0.12em;
+  }
+
+  .home-kicker {
+    padding: 7px 12px;
+    letter-spacing: 0.22em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-fade,
+  .home-rise,
+  .neo-press,
+  .neo-btn,
+  .neo-chip,
+  .neo-media img {
+    animation: none;
+    transition: none;
+  }
+
+  .neo-press:hover,
+  .neo-btn:hover,
+  .neo-chip:hover,
+  .neo-media:hover img {
+    transform: none;
+  }
+}

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { AppointmentPopup } from "@/components/AppointmentPopup";
 import { CallNowButton, GetAppointmentButton } from "@/components/BrandButtons";
 import { ContactSection } from "@/components/ContactSection";
 import { Disclaimer } from "@/components/Disclaimer";
@@ -379,7 +378,6 @@ export default function AboutPage() {
         <Disclaimer />
       </main>
       <SiteFooter />
-      <AppointmentPopup />
     </>
   );
 }

@@ -231,7 +231,7 @@ function ServiceLinks({
 
 /* -------------------------------- Desktop -------------------------------- */
 
-export function ServicesMegaMenu() {
+export function ServicesMegaMenu({ triggerClassName }: { triggerClassName?: string }) {
   const [open, setOpen] = useState(false);
   const [activeId, setActiveId] = useState(SERVICE_CATEGORIES[0].id);
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -259,7 +259,10 @@ export function ServicesMegaMenu() {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-1.5 rounded-full px-4 py-2 font-sans text-[16px] text-black transition-colors duration-200 hover:bg-maroon/10"
+        className={cn(
+          "flex items-center gap-1.5 rounded-full px-4 py-2 font-sans text-[16px] text-black transition-colors duration-200 hover:bg-maroon/10",
+          triggerClassName,
+        )}
       >
         Our Services
         <ChevronDownIcon className={cn("size-2.5 transition-transform duration-200", open && "rotate-180")} />

@@ -1,0 +1,256 @@
+.home-atelier {
+  --atelier-maroon: #a1534e;
+  background: #ffffff;
+  color: #000000;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.atelier-display {
+  font-family: var(--font-prata), Georgia, serif;
+}
+
+.home-atelier a {
+  text-decoration: none;
+}
+
+html:has(.home-atelier),
+html:has(.home-atelier) body {
+  background: #ffffff;
+  scroll-behavior: smooth;
+}
+
+html:has(.home-atelier) {
+  scroll-padding-top: 72px;
+}
+
+.home-atelier [id] {
+  scroll-margin-top: 72px;
+}
+
+.atelier-wrap {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+}
+
+@media (min-width: 1024px) {
+  .atelier-wrap {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+.atelier-kicker {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #a1534e;
+}
+
+.home-atelier .atelier-band-maroon .atelier-kicker {
+  color: #ffffff;
+}
+
+.atelier-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 0;
+  border-radius: 0;
+  background: #a1534e;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  line-height: 1;
+  text-transform: uppercase;
+  padding: 14px 28px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.atelier-btn:hover,
+.atelier-btn:focus-visible {
+  background: #000000;
+  color: #ffffff;
+}
+
+.atelier-btn-light {
+  background: #ffffff;
+  color: #a1534e;
+}
+
+.atelier-btn-light:hover,
+.atelier-btn-light:focus-visible {
+  background: #000000;
+  color: #ffffff;
+}
+
+.atelier-btn:focus-visible,
+.atelier-nav-link:focus-visible,
+.atelier-text-link:focus-visible {
+  outline: 2px solid #a1534e;
+  outline-offset: 3px;
+}
+
+.atelier-text-link {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.atelier-text-link:hover,
+.atelier-text-link:focus-visible {
+  opacity: 0.65;
+}
+
+.atelier-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: transparent;
+  color: #000000;
+  cursor: pointer;
+  font-family: var(--font-roboto), system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  transition: color 0.2s ease;
+}
+
+.atelier-nav-link:hover,
+.atelier-nav-link:focus-visible {
+  color: #a1534e;
+}
+
+.atelier-band-white {
+  background: #ffffff;
+  color: #000000;
+}
+
+.atelier-band-maroon {
+  background: #a1534e;
+  color: #ffffff;
+}
+
+.atelier-spine {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.atelier-film {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.atelier-film::-webkit-scrollbar {
+  height: 4px;
+}
+
+.atelier-film::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.atelier-film-card {
+  position: relative;
+  flex: 0 0 min(72vw, 280px);
+  height: 240px;
+  scroll-snap-align: start;
+  overflow: hidden;
+}
+
+.atelier-film-card img {
+  transition: transform 0.7s ease;
+}
+
+.atelier-film-card:hover img {
+  transform: scale(1.04);
+}
+
+.atelier-media img {
+  transition: transform 0.8s ease;
+}
+
+.atelier-media:hover img {
+  transform: scale(1.04);
+}
+
+.atelier-rule {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.16;
+}
+
+@keyframes atelier-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.atelier-fade {
+  animation: atelier-fade 0.35s ease both;
+}
+
+.atelier-chip-row {
+  scrollbar-width: none;
+}
+
+.atelier-chip-row::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .atelier-btn {
+    width: 100%;
+    padding: 15px 22px;
+  }
+
+  .atelier-film-card {
+    flex-basis: 78vw;
+    height: 230px;
+  }
+
+  .atelier-kicker {
+    letter-spacing: 0.22em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atelier-fade,
+  .atelier-btn,
+  .atelier-film-card img,
+  .atelier-media img {
+    animation: none;
+    transition: none;
+  }
+
+  .atelier-film-card:hover img,
+  .atelier-media:hover img {
+    transform: none;
+  }
+}

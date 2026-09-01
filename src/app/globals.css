@@ -8,6 +8,8 @@
   --font-sans: var(--font-roboto), Roboto, ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-prata), Prata, Georgia, serif;
   --font-marcellus: var(--font-marcellus), Marcellus, Georgia, serif;
+  --font-ui: var(--font-jost), Jost, ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-newsreader), Newsreader, Georgia, serif;
   --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
   --font-heading: var(--font-serif);
   /* Strict 3-colour palette: maroon #A1534E, black, white only. */

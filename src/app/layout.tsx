@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Prata, Roboto, Marcellus } from "next/font/google";
+import { Prata, Roboto, Marcellus, Newsreader, Jost } from "next/font/google";
+import { AppointmentPopup } from "@/components/AppointmentPopup";
 import "./globals.css";
 
 const prata = Prata({
@@ -17,6 +18,19 @@ const roboto = Roboto({
 const marcellus = Marcellus({
   variable: "--font-marcellus",
   weight: "400",
+  subsets: ["latin"],
+});
+
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  weight: ["200", "300", "400"],
+  style: ["normal", "italic"],
+  subsets: ["latin"],
+});
+
+const jost = Jost({
+  variable: "--font-jost",
+  weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
 });
 
@@ -40,13 +54,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${prata.variable} ${roboto.variable} ${marcellus.variable} h-full antialiased`}
+      data-scroll-behavior="smooth"
+      className={`${prata.variable} ${roboto.variable} ${marcellus.variable} ${newsreader.variable} ${jost.variable} h-full antialiased`}
     >
       <body
         className="min-h-full flex flex-col font-sans"
         suppressHydrationWarning
       >
         {children}
+        <AppointmentPopup />
       </body>
     </html>
   );

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { AppointmentPopup } from "@/components/AppointmentPopup";
 import { GetAppointmentButton } from "@/components/BrandButtons";
 import { Disclaimer } from "@/components/Disclaimer";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -153,7 +152,6 @@ export default function CaseStudiesPage() {
         <Disclaimer />
       </main>
       <SiteFooter />
-      <AppointmentPopup />
     </>
   );
 }

@@ -64,7 +64,7 @@ export function CloseIcon(props: IconProps) {
   );
 }
 
-/** Rating star (gold #FABD4F on the site — pass className="text-gold"). */
+/** Rating star — pass className="text-maroon". */
 export function StarIcon(props: IconProps) {
   return (
     <svg viewBox="20 20 160 160" fill="currentColor" xmlns="http://www.w3.org/2000/svg" {...props}>
