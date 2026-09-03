@@ -265,6 +265,28 @@ html:has(.home-ivory) {
     inset -6px -6px 14px #ffffff;
 }
 
+.neo-btn-solid {
+  background: #a1534e;
+  color: #ffffff;
+  box-shadow:
+    0 12px 28px rgba(161, 83, 78, 0.32),
+    0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.neo-btn-solid:hover,
+.neo-btn-solid:focus-visible {
+  color: #ffffff;
+  box-shadow:
+    0 16px 32px rgba(161, 83, 78, 0.4),
+    0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.neo-btn-solid:active {
+  box-shadow:
+    0 8px 18px rgba(161, 83, 78, 0.28),
+    inset 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
 .neo-btn:focus-visible,
 .neo-press:focus-visible,
 .neo-chip:focus-visible,
@@ -309,6 +331,10 @@ html:has(.home-ivory) {
     width: 100%;
     padding: 15px 22px;
     letter-spacing: 0.12em;
+  }
+
+  .neo-btn-solid {
+    box-shadow: 0 10px 22px rgba(161, 83, 78, 0.3);
   }
 
   .home-kicker {

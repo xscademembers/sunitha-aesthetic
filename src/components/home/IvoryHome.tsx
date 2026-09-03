@@ -13,6 +13,7 @@ import {
   MAP_EMBED_SRC,
   NONSURGICAL_GROUPS,
   REVIEW_COUNT_LABEL,
+  SURGEON_CREDENTIALS,
   SURGICAL_GROUPS,
   VIDEO_PLAYLIST_URL,
 } from "@/data/homeContent";
@@ -61,7 +62,7 @@ function IvoryPage() {
                 {HOME_COPY.heroBody}
               </p>
               <div className="flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
-                <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
+                <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                   {BOOK_LABEL} <span className="text-[15px]">→</span>
                 </button>
                 <a href="#treatments" className="home-text-link self-center text-center font-ui text-[12px] uppercase tracking-[0.1em] text-black sm:self-auto sm:text-[13px]">
@@ -69,63 +70,92 @@ function IvoryPage() {
                 </a>
               </div>
             </div>
-            <div className="neo neo-media relative aspect-[4/5] max-h-[340px] overflow-hidden rounded-[22px] sm:max-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:max-h-none lg:min-h-0">
+            <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
               <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta" priority className="object-[center_12%]" />
-            </div>
-          </div>
-          <div className="mt-6 grid grid-cols-2 gap-2.5 sm:mt-10 sm:grid-cols-4 sm:gap-4">
-            {HOME_STATS.map((stat) => (
-              <div key={stat.label} className="neo-inset rounded-[18px] px-3 py-3.5 sm:rounded-[22px] sm:px-5 sm:py-5">
-                <div className="home-display text-[26px] font-light leading-none text-maroon sm:text-[36px]">{stat.value}</div>
-                <div className="mt-1.5 font-ui text-[9px] uppercase leading-[1.4] tracking-[0.1em] text-black sm:mt-2 sm:text-[10px] sm:tracking-[0.2em]">
-                  {stat.label}
-                </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
+                {HOME_STATS.map((stat, index) => (
+                  <div
+                    key={stat.label}
+                    className={[
+                      "px-3 py-3 sm:px-4 sm:py-4",
+                      index % 2 === 1 ? "border-l border-white/20" : "",
+                      index >= 2 ? "border-t border-white/20 lg:border-t-0" : "",
+                      index > 0 ? "lg:border-l lg:border-white/20" : "",
+                    ].join(" ")}
+                  >
+                    <div className="home-display text-[22px] font-light leading-none sm:text-[28px]">{stat.value}</div>
+                    <div className="mt-1.5 font-ui text-[8px] uppercase leading-[1.35] tracking-[0.12em] text-white/80 sm:text-[9px] sm:tracking-[0.16em]">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </section>
       </div>
       </div>
 
-      <section id="why-choose-us" className="home-band-white py-10 lg:py-14">
+      <section id="why-choose-us" className="home-band-white py-6 sm:py-10 lg:py-16">
         <div id="surgeon" className="home-wrap">
-        <div className="neo grid items-stretch gap-5 rounded-[24px] p-5 sm:rounded-[40px] sm:p-7 lg:grid-cols-2 lg:gap-10 lg:px-12 lg:py-9">
-          <div className="neo neo-media relative aspect-[4/5] max-h-[360px] overflow-hidden rounded-[22px] sm:max-h-[420px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:max-h-none lg:min-h-0">
-            <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial treatment" className="object-[center_18%]" />
-          </div>
-          <div className="flex flex-col justify-center">
-            <div className="home-kicker font-ui">{HOME_COPY.surgeonKicker}</div>
-            <h2 className="home-display mt-4 mb-0 text-[clamp(34px,6vw,58px)] font-extralight leading-[1.02] tracking-[-0.025em] text-black">
-              {HOME_COPY.surgeonName}
-            </h2>
-            <p className="home-display mt-3 mb-0 max-w-[470px] text-[20px] font-light italic leading-[1.35] text-maroon sm:text-[24px]">
-              {HOME_COPY.ivorySurgeonTitle}
-            </p>
-            <div className="mt-5 flex flex-wrap gap-2 sm:mt-[22px]">
-              {["MBBS", "DNB", "MCh", "17+ years"].map((tag) => (
-                <span
-                  key={tag}
-                  className="neo-inset rounded-full px-4 py-2 font-ui text-[11px] uppercase tracking-[0.14em] text-maroon sm:px-[18px] sm:py-[9px] sm:text-[12px]"
-                >
-                  {tag}
-                </span>
-              ))}
+        <div className="neo overflow-hidden rounded-[24px] sm:rounded-[40px]">
+          <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
+            <div className="neo-media relative aspect-[4/5] min-h-[360px] overflow-hidden bg-maroon sm:min-h-[440px] lg:aspect-auto lg:min-h-[620px]">
+              <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial treatment" className="object-[center_18%]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
+                <div className="font-ui text-[10px] uppercase tracking-[0.22em] text-white/75">
+                  Consultant plastic surgeon
+                </div>
+                <h2 className="home-display mt-1.5 mb-0 text-[28px] font-light leading-none text-white sm:text-[36px]">
+                  {HOME_COPY.surgeonName}
+                </h2>
+                <p className="mt-3 mb-0 font-ui text-[10px] uppercase tracking-[0.16em] text-white/80">
+                  Visakhapatnam · Board-certified · Since 2009
+                </p>
+              </div>
             </div>
-            <p className="home-display mt-6 mb-0 max-w-[470px] text-[16px] font-light leading-[1.7] text-pretty text-black sm:mt-[26px] sm:text-[17px]">
-              {HOME_COPY.surgeonBody}
-            </p>
-            <div className="neo-inset mt-7 rounded-[28px] px-6 py-5 sm:mt-[30px] sm:px-[30px] sm:py-[26px]">
-              <p className="home-display m-0 text-[clamp(18px,3vw,26px)] font-light italic leading-[1.42] text-maroon">
-                “{HOME_COPY.surgeonQuote}”
+
+            <div className="flex flex-col justify-center px-5 py-7 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
+              <div className="home-kicker font-ui">{HOME_COPY.surgeonKicker}</div>
+              <p className="home-display mt-4 mb-0 text-[clamp(28px,4.8vw,44px)] font-extralight italic leading-[1.12] tracking-[-0.03em] text-maroon">
+                {HOME_COPY.ivorySurgeonTitle}
               </p>
-            </div>
-            <div className="mt-7 flex flex-col items-stretch gap-4 sm:mt-[30px] sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
-              <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
-                {HOME_COPY.bookWithSurgeon}
-              </button>
-              <Link href="/about" className="home-text-link self-center text-center font-ui text-[13px] uppercase tracking-[0.1em] text-black sm:self-auto">
-                {HOME_COPY.readStory}
-              </Link>
+              <ol className="mt-6 border-y border-black/10">
+                {SURGEON_CREDENTIALS.map((item, index) => (
+                  <li
+                    key={item.degree}
+                    className="flex items-baseline justify-between gap-4 border-b border-black/10 py-3 last:border-b-0"
+                  >
+                    <span className="flex min-w-0 items-baseline gap-3">
+                      <span className="w-6 shrink-0 font-ui text-[10px] tracking-[0.14em] text-maroon">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="home-display text-[20px] font-light text-black sm:text-[22px]">{item.degree}</span>
+                    </span>
+                    <span className="text-right font-ui text-[10px] uppercase tracking-[0.14em] text-black/55 sm:text-[11px]">
+                      {item.label}
+                    </span>
+                  </li>
+                ))}
+              </ol>
+              <p className="home-display mt-6 mb-0 max-w-[470px] text-[16px] font-light leading-[1.7] text-pretty text-black sm:text-[17px]">
+                {HOME_COPY.surgeonBody}
+              </p>
+              <blockquote className="relative mt-7 border-l-2 border-maroon pl-5">
+                <p className="home-display m-0 text-[clamp(18px,2.6vw,26px)] font-light italic leading-[1.4] text-maroon">
+                  “{HOME_COPY.surgeonQuote}”
+                </p>
+              </blockquote>
+              <div className="mt-7 flex flex-col items-stretch gap-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
+                <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
+                  {HOME_COPY.bookWithSurgeon}
+                </button>
+                <Link href="/about" className="home-text-link self-center text-center font-ui text-[13px] uppercase tracking-[0.1em] text-black sm:self-auto">
+                  {HOME_COPY.readStory}
+                </Link>
+              </div>
             </div>
           </div>
         </div>

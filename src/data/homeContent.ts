@@ -91,6 +91,13 @@ export const HOME_STATS = [
   { value: "1:1", label: "Personalised care" },
 ] as const;
 
+export const SURGEON_CREDENTIALS = [
+  { degree: "MBBS", label: "Medical foundation" },
+  { degree: "DNB", label: "General surgery" },
+  { degree: "MCh", label: "Plastic surgery" },
+  { degree: "17+", label: "Years in practice" },
+] as const;
+
 export const HOME_COPY = {
   heroKicker: "Visakhapatnam · Board-certified · Since 2009",
   ivoryHeroTitle: "Natural results.",
@@ -226,7 +233,7 @@ export const CLINIC_PHOTOS = [
   { src: "/images/clinic/clinic-reception.webp", alt: "Clinic reception", label: "Reception" },
   { src: "/images/clinic/clinic-interior-1.webp", alt: "Consultation room", label: "Consultation" },
   { src: "/images/clinic/clinic-interior-2.webp", alt: "Procedure room", label: "Procedure room" },
-  { src: "/images/clinic/clinic-interior-3.webp", alt: "Clinic technology", label: "Technology" },
+  { src: "/images/clinic/clinic-interior-3.webp", alt: "Clinic pharmacy", label: "Pharmacy" },
   { src: "/images/clinic/clinic-interior-4.webp", alt: "Patient comfort and recovery", label: "Comfort" },
 ] as const;
 
