@@ -11,7 +11,7 @@ const LABEL_CLASSES = "mb-1.5 block font-sans text-[14px] text-black";
 
 const COUNTRY_CODES = ["+91", "+1", "+44", "+971"];
 
-export function AppointmentForm() {
+export function AppointmentForm({ idPrefix = "appt" }: { idPrefix?: string }) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -31,20 +31,26 @@ export function AppointmentForm() {
     <form onSubmit={handleSubmit} noValidate={false}>
       <div className="grid grid-cols-2 gap-4">
         <div>
-          <label htmlFor="first-name" className={LABEL_CLASSES}>
+          <label htmlFor={`${idPrefix}-first-name`} className={LABEL_CLASSES}>
             First name *
           </label>
-          <input id="first-name" name="firstName" type="text" required className={FIELD_CLASSES} />
+          <input
+            id={`${idPrefix}-first-name`}
+            name="firstName"
+            type="text"
+            required
+            className={FIELD_CLASSES}
+          />
         </div>
         <div>
-          <label htmlFor="last-name" className={LABEL_CLASSES}>
+          <label htmlFor={`${idPrefix}-last-name`} className={LABEL_CLASSES}>
             Last name
           </label>
-          <input id="last-name" name="lastName" type="text" className={FIELD_CLASSES} />
+          <input id={`${idPrefix}-last-name`} name="lastName" type="text" className={FIELD_CLASSES} />
         </div>
       </div>
       <div className="mt-4">
-        <label htmlFor="phone" className={LABEL_CLASSES}>
+        <label htmlFor={`${idPrefix}-phone`} className={LABEL_CLASSES}>
           Phone *
         </label>
         <div className="flex gap-2">
@@ -62,15 +68,21 @@ export function AppointmentForm() {
             </select>
             <ChevronDownIcon className="pointer-events-none absolute right-3 top-1/2 size-2.5 -translate-y-1/2 text-black" />
           </div>
-          <input id="phone" name="phone" type="tel" required className={FIELD_CLASSES} />
+          <input id={`${idPrefix}-phone`} name="phone" type="tel" required className={FIELD_CLASSES} />
         </div>
       </div>
       <div className="mt-4">
-        <label htmlFor="treatment" className={LABEL_CLASSES}>
+        <label htmlFor={`${idPrefix}-treatment`} className={LABEL_CLASSES}>
           Select Treatment Option *
         </label>
         <div className="relative">
-          <select id="treatment" name="treatment" required defaultValue="" className={`${FIELD_CLASSES} appearance-none pr-8`}>
+          <select
+            id={`${idPrefix}-treatment`}
+            name="treatment"
+            required
+            defaultValue=""
+            className={`${FIELD_CLASSES} appearance-none pr-8`}
+          >
             <option value="" disabled hidden />
             {TREATMENT_OPTIONS.map((t) => (
               <option key={t} value={t}>

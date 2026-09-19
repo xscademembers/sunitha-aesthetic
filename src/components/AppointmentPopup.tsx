@@ -8,9 +8,11 @@ import { CloseIcon } from "@/components/icons";
 
 const BOTTOM_THRESHOLD_PX = 160;
 const MIN_SCROLL_PX = 80;
+const EXIT_MS = 450;
 
 export function AppointmentPopup() {
   const [open, setOpen] = useState(false);
+  const [visible, setVisible] = useState(false);
   const autoOpened = useRef(false);
   const sentinelRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -18,7 +20,18 @@ export function AppointmentPopup() {
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
-    autoOpened.current = false;
+    if (open) {
+      setVisible(true);
+      return;
+    }
+    if (!visible) return;
+    const timeout = window.setTimeout(() => setVisible(false), EXIT_MS);
+    return () => window.clearTimeout(timeout);
+  }, [open, visible]);
+
+  useEffect(() => {
+    const skipAutoOpen = pathname === "/contact";
+    autoOpened.current = skipAutoOpen;
     setOpen(false);
 
     const openHandler = () => setOpen(true);
@@ -65,7 +78,7 @@ export function AppointmentPopup() {
   }, [pathname]);
 
   useEffect(() => {
-    if (!open) return;
+    if (!visible) return;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") close();
@@ -75,7 +88,7 @@ export function AppointmentPopup() {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [open, close]);
+  }, [visible, close]);
 
   return (
     <>
@@ -84,17 +97,21 @@ export function AppointmentPopup() {
         aria-hidden="true"
         className="pointer-events-none h-1 w-full shrink-0"
       />
-      {open ? (
+      {visible ? (
         <div
           role="dialog"
           aria-modal="true"
           aria-label="Book Appointment Form"
           onClick={close}
-          className="fixed inset-0 z-[1000] flex items-center justify-center bg-black/80"
+          className={`fixed inset-0 z-[1000] flex items-center justify-center bg-black/80 ${
+            open ? "appointment-popup-overlay-in" : "appointment-popup-overlay-out"
+          }`}
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative max-h-[90vh] w-[417px] max-w-[92vw] overflow-y-auto rounded-[24px] bg-white p-8 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.5)]"
+            className={`relative max-h-[90vh] w-[417px] max-w-[92vw] overflow-y-auto rounded-[24px] bg-white p-8 shadow-[0_32px_64px_-24px_rgba(0,0,0,0.5)] ${
+              open ? "appointment-popup-dialog-in" : "appointment-popup-dialog-out"
+            }`}
           >
             <button
               type="button"

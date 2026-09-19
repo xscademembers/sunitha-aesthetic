@@ -10,21 +10,17 @@ import {
   HOME_REVIEWS,
   HOME_STATS,
   HOME_VIDEOS,
-  MAP_EMBED_SRC,
-  NONSURGICAL_GROUPS,
   REVIEW_COUNT_LABEL,
   SURGEON_CREDENTIALS,
-  SURGICAL_GROUPS,
   VIDEO_PLAYLIST_URL,
 } from "@/data/homeContent";
-import { BrandLogo } from "@/components/BrandLogo";
-import { SocialLinks } from "@/components/SocialLinks";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
 import { FaqAccordion } from "./FaqAccordion";
 import { FillImage } from "./FillImage";
-import { TreatmentLibrary } from "./TreatmentLibrary";
 import { HomeNav } from "./HomeNav";
+import { IvoryFooter } from "./IvoryFooter";
+import { TreatmentLibrary } from "./TreatmentLibrary";
 import "./home.css";
 
 export function IvoryHome() {
@@ -45,6 +41,7 @@ function IvoryPage() {
     <>
       <HomeNav />
 
+      <main id="main-content">
       <div className="home-band-white">
       <div className="home-wrap pt-3 pb-6 sm:pt-4 sm:pb-8 lg:pt-6 lg:pb-10">
         <section className="neo rounded-[24px] p-5 sm:rounded-[40px] sm:p-7 lg:px-12 lg:py-9">
@@ -54,9 +51,9 @@ function IvoryPage() {
                 {HOME_COPY.heroKicker}
               </div>
               <h1 className="home-display mb-4 text-[clamp(36px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
-                {HOME_COPY.ivoryHeroTitle}
+                {HOME_COPY.heroTitle}
                 <br />
-                <em className="font-light italic text-maroon">{HOME_COPY.ivoryHeroAccent}</em>
+                <em className="font-light italic text-maroon">{HOME_COPY.heroAccent}</em>
               </h1>
               <p className="home-display mb-6 max-w-[430px] text-[16px] font-light leading-[1.62] text-pretty text-black sm:mb-7 sm:text-[19px]">
                 {HOME_COPY.heroBody}
@@ -71,7 +68,7 @@ function IvoryPage() {
               </div>
             </div>
             <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
-              <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta" priority className="object-[center_12%]" />
+              <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam" priority className="object-[center_12%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
                 {HOME_STATS.map((stat, index) => (
@@ -102,7 +99,7 @@ function IvoryPage() {
         <div className="neo overflow-hidden rounded-[24px] sm:rounded-[40px]">
           <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
             <div className="neo-media relative aspect-[4/5] min-h-[360px] overflow-hidden bg-maroon sm:min-h-[440px] lg:aspect-auto lg:min-h-[620px]">
-              <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial treatment" className="object-[center_18%]" />
+              <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial aesthetic treatment in Visakhapatnam" className="object-[center_18%]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
                 <div className="font-ui text-[10px] uppercase tracking-[0.22em] text-white/75">
@@ -120,7 +117,7 @@ function IvoryPage() {
             <div className="flex flex-col justify-center px-5 py-7 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
               <div className="home-kicker font-ui">{HOME_COPY.surgeonKicker}</div>
               <p className="home-display mt-4 mb-0 text-[clamp(28px,4.8vw,44px)] font-extralight italic leading-[1.12] tracking-[-0.03em] text-maroon">
-                {HOME_COPY.ivorySurgeonTitle}
+                {HOME_COPY.surgeonTitle}
               </p>
               <ol className="mt-6 border-y border-black/10">
                 {SURGEON_CREDENTIALS.map((item, index) => (
@@ -292,14 +289,9 @@ function IvoryPage() {
                 </div>
               </div>
             </div>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=Dr%20Sunita%20Aesthetics%20Seethammadara%20Visakhapatnam"
-              target="_blank"
-              rel="noreferrer"
-              className="neo-btn sm:!w-auto"
-            >
-              Read more reviews
-            </a>
+            <Link href="/reviews" className="neo-btn sm:!w-auto">
+              See all reviews
+            </Link>
           </div>
           <div className="mt-7 grid grid-cols-1 gap-4 sm:mt-[30px] sm:grid-cols-2 lg:grid-cols-4">
             {HOME_REVIEWS.map((review) => (
@@ -358,109 +350,8 @@ function IvoryPage() {
         </div>
       </section>
 
+      </main>
       <IvoryFooter />
     </>
-  );
-}
-
-function IvoryFooter() {
-  const { openBook } = useBook();
-
-  return (
-    <footer id="contact" className="home-band-maroon pt-12 pb-[max(2rem,env(safe-area-inset-bottom))] lg:pt-[76px] lg:pb-[34px]">
-      <div className="home-wrap">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="inline-flex rounded-[16px] bg-white px-3 py-2">
-              <BrandLogo className="h-[52px] w-[158px]" />
-            </div>
-            <p className="home-display mt-5 mb-6 max-w-[260px] text-[15px] font-light leading-[1.65] text-pretty text-white">
-              {HOME_COPY.footerBlurb}
-            </p>
-            <SocialLinks
-              itemClassName="neo neo-press flex size-[38px] items-center justify-center rounded-full text-maroon"
-            />
-          </div>
-          <div>
-            <div className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Quick links</div>
-            <div className="flex flex-col gap-3">
-              {[
-                { label: "Home 1", href: "/" },
-                { label: "Home 2", href: "/home-2" },
-                { label: "About the clinic", href: "/about" },
-                { label: "Dr. Sunita", href: "#surgeon" },
-                { label: "Treatments", href: "#treatments" },
-                { label: "Patient stories", href: "#stories" },
-                { label: "FAQs", href: "#faqs" },
-              ].map((link) => (
-                <a key={link.label} href={link.href} className="font-ui text-[14px] text-white hover:text-white/70">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Surgical</div>
-            <div className="flex flex-col gap-3">
-              {SURGICAL_GROUPS.map((group) => (
-                <a key={group.id} href={group.href} className="font-ui text-[14px] leading-[1.3] text-white hover:text-white/70">
-                  {group.name}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Non-surgical</div>
-            <div className="flex flex-col gap-3">
-              {NONSURGICAL_GROUPS.map((group) => (
-                <a key={group.id} href={group.href} className="font-ui text-[14px] leading-[1.3] text-white hover:text-white/70">
-                  {group.name}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Visit &amp; contact</div>
-            <div className="flex flex-col gap-2.5 rounded-[24px] bg-white p-4 font-ui text-[14px] text-black">
-              <a href={HOME_CONTACT.phoneHref} className="hover:text-maroon">
-                {HOME_CONTACT.phone}
-              </a>
-              <a href={`mailto:${HOME_CONTACT.email}`} className="hover:text-maroon">
-                {HOME_CONTACT.email}
-              </a>
-              <span className="home-display text-[15px] font-light leading-[1.55]">
-                {HOME_CONTACT.addressLines[0]}
-                <br />
-                {HOME_CONTACT.addressLines[1]}
-              </span>
-              <span className="mt-1.5 font-ui text-[12px] leading-[1.6] tracking-[0.06em]">
-                {HOME_CONTACT.hours}
-                <br />
-                {HOME_CONTACT.sunday}
-              </span>
-              <button type="button" onClick={openBook} className="neo-btn mt-2 !h-auto !w-full px-4 py-3 text-[11px]">
-                {BOOK_LABEL}
-              </button>
-            </div>
-            <div className="relative mt-5 h-[120px] overflow-hidden rounded-[22px] bg-white">
-              <iframe title="Clinic map" src={MAP_EMBED_SRC} className="h-full w-full border-0 grayscale" loading="lazy" />
-            </div>
-          </div>
-        </div>
-        <div className="mt-10 flex flex-col gap-4 border-t border-white/20 pt-6 sm:mt-11 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:pt-[22px]">
-          <span className="font-ui text-[12px] tracking-[0.06em] text-white/80">
-            © 2026 Sunita Aesthetics. All rights reserved.
-          </span>
-          <div className="flex flex-wrap gap-6">
-            <a href="#privacy" className="font-ui text-[12px] tracking-[0.06em] text-white hover:text-white/70">
-              Privacy Policy
-            </a>
-            <a href="#terms" className="font-ui text-[12px] tracking-[0.06em] text-white hover:text-white/70">
-              Terms &amp; Conditions
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
   );
 }

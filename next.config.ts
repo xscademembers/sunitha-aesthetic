@@ -6,6 +6,16 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/home-2",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/home-1",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/services/gynecomastia",
         destination: "/services/gynecomastia-treatment-in-visakhapatnam",
         permanent: true,

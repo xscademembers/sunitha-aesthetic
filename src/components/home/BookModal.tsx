@@ -1,22 +1,13 @@
 "use client";
 
-import { FormEvent } from "react";
 import { createPortal } from "react-dom";
-import { ALL_TREATMENT_GROUPS } from "@/data/homeContent";
-import { cn } from "@/lib/utils";
+import { BookForm } from "./BookForm";
 import { useBook } from "./BookProvider";
 
 export function BookModal() {
   const { open, sent, closeBook, markSent } = useBook();
 
   if (!open || typeof document === "undefined") return null;
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    markSent();
-  };
-
-  const fieldClass = "neo-inset w-full rounded-full px-5 py-[15px] font-ui text-[14px] text-black outline-none";
 
   return createPortal(
     <div
@@ -46,45 +37,7 @@ export function BookModal() {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3.5 font-ui text-[10px] uppercase tracking-[0.3em] text-maroon">
-              Appointment request
-            </div>
-            <h3 className="home-display mb-2 pr-10 text-[clamp(26px,5vw,38px)] font-extralight leading-[1.08] tracking-[-0.02em] text-black">
-              Book a <em className="italic text-maroon">consultation.</em>
-            </h3>
-            <p className="home-display mb-6 text-[15px] font-light leading-[1.6] text-black sm:mb-[26px]">
-              Share a few details and the clinic will confirm a time that suits you.
-            </p>
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-              <input name="name" placeholder="Full name" required className={fieldClass} />
-              <input name="phone" type="tel" placeholder="Phone number" required className={fieldClass} />
-              <input name="email" type="email" placeholder="Email address" required className={fieldClass} />
-              <input name="date" type="date" required className={fieldClass} />
-            </div>
-            <select name="treatment" required defaultValue="" className={cn(fieldClass, "mt-3 appearance-none")}>
-              <option value="" disabled>
-                Interested in — select a category
-              </option>
-              {ALL_TREATMENT_GROUPS.map((group) => (
-                <option key={group.id} value={group.name}>
-                  {group.name}
-                </option>
-              ))}
-            </select>
-            <textarea
-              name="notes"
-              rows={3}
-              placeholder="Anything you would like Dr. Sunita to know (optional)"
-              className={cn(fieldClass, "mt-3 resize-none rounded-[26px] px-[22px] py-[18px]")}
-            />
-            <button type="submit" className="neo-btn mt-[18px]">
-              Request appointment
-            </button>
-            <p className="mt-4 mb-0 text-center font-ui text-[11px] leading-[1.6] tracking-[0.04em] text-black">
-              Your details are used only to arrange this appointment.
-            </p>
-          </form>
+          <BookForm variant="modal" onSuccess={markSent} />
         )}
       </div>
     </div>,

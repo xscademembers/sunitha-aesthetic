@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { cn } from "@/lib/utils";
 import { ChevronDownIcon, CloseIcon } from "@/components/icons";
@@ -10,87 +10,12 @@ import {
   type CatalogCategory,
   type ServiceKind,
 } from "@/data/serviceCatalog";
+import "@/components/home/home.css";
 
 export const AI_DIAGNOSIS_URL = "https://ai.drsunitaesthetics.com/";
 
 const SURGICAL = SERVICE_CATEGORIES.filter((c) => c.kind === "surgical");
 const NONSURGICAL = SERVICE_CATEGORIES.filter((c) => c.kind === "nonsurgical");
-
-function KindLabel({ kind }: { kind: ServiceKind }) {
-  return (
-    <p className="px-2 pb-1.5 pt-1 font-marcellus text-[11px] uppercase tracking-[0.16em] text-maroon/70">
-      {kind === "surgical" ? "Surgical Services" : "Non-Surgical Services"}
-    </p>
-  );
-}
-
-function CategoryIcon({ category, className }: { category: CatalogCategory; className?: string }) {
-  const common = {
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: 1.5,
-    strokeLinecap: "round" as const,
-    strokeLinejoin: "round" as const,
-    className,
-  };
-  switch (category.id) {
-    case "hair-surgery":
-    case "hair-treatments":
-      return (
-        <svg {...common}>
-          <path d="M5 21c0-9 3.5-15 7-15s7 6 7 15" />
-          <path d="M9 21c0-6 1.3-10 3-10s3 4 3 10" />
-        </svg>
-      );
-    case "face-surgery":
-    case "injectables":
-    case "anti-aging-aesthetic":
-      return (
-        <svg {...common}>
-          <path d="M16 3.5A7 7 0 0 0 8 10c0 2 .8 3.2 1.5 4.2.6.8.5 1.6.5 2.3V21h5" />
-          <path d="M11.5 10h.01" />
-        </svg>
-      );
-    case "breast-surgery":
-      return (
-        <svg {...common}>
-          <path d="M10 21c-2.5-4-4-7-4-10a6 6 0 0 1 12 0c0 3-1.5 6-4 10" />
-          <path d="M9 8c1.5 2 4.5 2 6 0" />
-        </svg>
-      );
-    case "mens-cosmetic-surgery":
-      return (
-        <svg {...common}>
-          <path d="M4 20c1.5-3 4-4.5 8-4.5s6.5 1.5 8 4.5" />
-          <circle cx="10" cy="8.5" r="3" />
-          <path d="M13 6.5 17 3m0 0h-3.2M17 3v3.2" />
-        </svg>
-      );
-    case "body-contouring-surgery":
-      return (
-        <svg {...common}>
-          <circle cx="12" cy="4.5" r="2" />
-          <path d="M12 7v8M12 9l-4 2M12 9l4 2M12 15l-3 6M12 15l3 6" />
-        </svg>
-      );
-    case "skin-rejuvenation":
-    case "laser-treatments":
-      return (
-        <svg {...common}>
-          <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />
-          <path d="M9.5 14a2.5 2.5 0 0 0 2.5 2.5" />
-        </svg>
-      );
-    default:
-      return (
-        <svg {...common}>
-          <path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z" />
-          <path d="M12 8.5v4M10 10.5h4" />
-        </svg>
-      );
-  }
-}
 
 function AiIcon({ className }: { className?: string }) {
   return (
@@ -109,27 +34,25 @@ function AiDiagnosisLink({ className, onClick }: { className?: string; onClick?:
       rel="noopener noreferrer"
       onClick={onClick}
       className={cn(
-        "group flex items-center gap-4 rounded-[16px] bg-maroon px-5 py-4 text-white transition-colors hover:bg-maroon-btn",
+        "group flex items-center gap-3 rounded-[22px] bg-maroon px-5 py-3.5 text-white transition-opacity hover:opacity-95 sm:rounded-full sm:px-7",
         className,
       )}
     >
-      <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/15">
-        <AiIcon className="size-6 text-white" />
+      <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white/15">
+        <AiIcon className="size-5 text-white" />
       </span>
-      <span className="flex-1">
-        <span className="flex items-center gap-2 font-marcellus text-[17px]">
+      <span className="min-w-0 flex-1">
+        <span className="flex items-center gap-2 font-ui text-[11px] font-medium uppercase tracking-[0.16em]">
           AI Diagnosis
-          <span className="rounded-full bg-white px-2 py-0.5 font-sans text-[10px] font-bold uppercase tracking-wide text-maroon">
+          <span className="rounded-full bg-white px-2 py-0.5 font-ui text-[9px] font-semibold tracking-[0.12em] text-maroon">
             New
           </span>
         </span>
-        <span className="mt-0.5 block font-sans text-[13px] leading-[18px] text-light-text">
+        <span className="mt-1 block font-ui text-[12px] font-normal tracking-normal text-white/85">
           Get an instant AI skin &amp; procedure assessment.
         </span>
       </span>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5 shrink-0 transition-transform group-hover:translate-x-1">
-        <path d="M5 12h14M13 6l6 6-6 6" />
-      </svg>
+      <span className="shrink-0 text-[16px] transition-transform group-hover:translate-x-0.5">→</span>
     </a>
   );
 }
@@ -173,7 +96,7 @@ function FileIcon({ className }: { className?: string }) {
   );
 }
 
-function CategoryNavButton({
+function CategoryRow({
   category,
   active,
   onSelect,
@@ -189,18 +112,28 @@ function CategoryNavButton({
       onFocus={onSelect}
       onClick={onSelect}
       className={cn(
-        "flex w-full items-center gap-2 rounded-[10px] px-2 py-2 text-left font-sans text-[14px] transition-colors",
-        active ? "bg-maroon/10 font-medium text-maroon" : "text-black/75 hover:bg-maroon/5 hover:text-maroon",
+        "group flex w-full items-center gap-2.5 rounded-full px-3 py-2 text-left transition-all duration-200",
+        active
+          ? "bg-maroon text-white shadow-[0_10px_22px_rgba(161,83,78,0.28)]"
+          : "text-black/80 hover:bg-white/70 hover:text-maroon",
       )}
     >
-      <CategoryIcon category={category} className="size-4 shrink-0 text-maroon/70" />
-      <span className="flex-1">{category.menuLabel}</span>
-      <span className="text-[11px] text-gray-text">{category.items.length}</span>
+      <span className={cn("home-display flex-1 text-[15px] font-light leading-none tracking-[-0.01em]")}>
+        {category.menuLabel}
+      </span>
+      <span
+        className={cn(
+          "font-ui text-[10px] tracking-[0.1em]",
+          active ? "text-white/80" : "text-maroon/55 group-hover:text-maroon/80",
+        )}
+      >
+        {String(category.items.length).padStart(2, "0")}
+      </span>
     </button>
   );
 }
 
-function ServiceLinks({
+function InnerServices({
   category,
   onNavigate,
 }: {
@@ -208,24 +141,52 @@ function ServiceLinks({
   onNavigate: () => void;
 }) {
   return (
-    <div className="min-h-[280px]">
-      <h3 className="flex items-center gap-2 border-b border-maroon/15 pb-2.5 font-marcellus text-[13px] uppercase tracking-[0.12em] text-maroon">
-        <CategoryIcon category={category} className="size-4 text-maroon/70" />
-        {category.title}
-      </h3>
-      <ul className="mt-3.5 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-        {category.items.map((item) => (
+    <div key={category.id} className="home-fade">
+      <div className="mb-4 flex items-end justify-between gap-3">
+        <div>
+          <p className="mb-1.5 font-ui text-[10px] uppercase tracking-[0.2em] text-maroon">
+            {category.kind === "surgical" ? "Surgical care" : "Non-surgical care"}
+          </p>
+          <h3 className="home-display m-0 text-[clamp(22px,2.4vw,28px)] font-light leading-none tracking-[-0.025em] text-black">
+            {category.title}
+          </h3>
+        </div>
+        <span className="home-kicker !px-3 !py-1.5 font-ui">
+          {category.items.length} treatments
+        </span>
+      </div>
+
+      <ul className="m-0 grid list-none grid-cols-1 gap-x-5 gap-y-1 p-0 sm:grid-cols-2 lg:grid-cols-3">
+        {category.items.map((item, index) => (
           <li key={item.slug}>
             <Link
               href={`/services/${item.slug}`}
               onClick={onNavigate}
-              className="block rounded-[8px] px-1.5 py-1.5 font-sans text-[14px] leading-[19px] text-black/80 transition-colors hover:bg-maroon/5 hover:text-maroon"
+              className="group flex items-center gap-3 rounded-full px-2.5 py-2 text-black transition-all duration-200 hover:bg-white/80 hover:text-maroon"
             >
-              {item.title}
+              <span className="w-5 shrink-0 font-ui text-[10px] tracking-[0.12em] text-maroon/70">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <span className="home-display min-w-0 flex-1 text-[14px] font-light leading-snug">
+                {item.title}
+              </span>
+              <span className="shrink-0 text-[13px] text-maroon opacity-0 transition-all duration-200 group-hover:translate-x-0.5 group-hover:opacity-100">
+                →
+              </span>
             </Link>
           </li>
         ))}
       </ul>
+
+      <div className="mt-4 pt-1">
+        <Link
+          href={`/#${category.id}`}
+          onClick={onNavigate}
+          className="home-text-link inline-flex font-ui text-[11px] uppercase tracking-[0.14em] text-maroon"
+        >
+          View full {category.menuLabel.toLowerCase()} section
+        </Link>
+      </div>
     </div>
   );
 }
@@ -234,12 +195,46 @@ function ServiceLinks({
 
 export function ServicesMegaMenu({ triggerClassName }: { triggerClassName?: string }) {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [activeId, setActiveId] = useState(SERVICE_CATEGORIES[0].id);
+  const [panelBox, setPanelBox] = useState({ top: 88, left: 24, width: 640, overlayTop: 80 });
   const triggerRef = useRef<HTMLDivElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const active = SERVICE_CATEGORIES.find((c) => c.id === activeId) ?? SERVICE_CATEGORIES[0];
 
   const close = () => setOpen(false);
+
+  const updatePosition = useCallback(() => {
+    const trigger = triggerRef.current;
+    if (!trigger) return;
+
+    const triggerRect = trigger.getBoundingClientRect();
+    const header = trigger.closest("header");
+    const headerRect = (header ?? trigger).getBoundingClientRect();
+    const overlayTop = headerRect.bottom;
+    const top = triggerRect.bottom + 12;
+
+    const wrap = document.querySelector(".home-wrap");
+    const wrapRect = wrap?.getBoundingClientRect();
+    const gutter = window.innerWidth >= 1024 ? 72 : 18;
+    const fullWidth = wrapRect?.width ?? Math.min(1120, window.innerWidth - gutter * 2);
+    const width = Math.min(fullWidth * 0.8, window.innerWidth - 32);
+    let left = wrapRect
+      ? wrapRect.left + (wrapRect.width - width) / 2
+      : (window.innerWidth - width) / 2;
+    left = Math.max(16, Math.min(left, window.innerWidth - width - 16));
+
+    setPanelBox({ top, left, width, overlayTop });
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!open) return;
+    updatePosition();
+  }, [open, updatePosition]);
 
   useEffect(() => {
     if (!open) return;
@@ -250,15 +245,19 @@ export function ServicesMegaMenu({ triggerClassName }: { triggerClassName?: stri
       close();
     };
     window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", updatePosition);
+    window.addEventListener("scroll", updatePosition, true);
     document.addEventListener("pointerdown", onPointerDown);
     return () => {
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", updatePosition, true);
       document.removeEventListener("pointerdown", onPointerDown);
     };
-  }, [open]);
+  }, [open, updatePosition]);
 
   return (
-    <div className="static">
+    <div className="relative">
       <div ref={triggerRef} className="relative z-50">
         <button
           type="button"
@@ -275,71 +274,106 @@ export function ServicesMegaMenu({ triggerClassName }: { triggerClassName?: stri
         </button>
       </div>
 
-      {open && (
-        <>
-          {createPortal(
+      {mounted &&
+        open &&
+        createPortal(
+          <>
             <button
               type="button"
               tabIndex={-1}
               aria-label="Close services menu"
-              className="fixed inset-0 z-40 cursor-default bg-black/20"
+              className="fixed inset-0 z-[60] cursor-default bg-black/15"
               onClick={close}
-            />,
-            document.body,
-          )}
-          <div className="pointer-events-none absolute inset-x-0 top-full z-50 px-6 lg:px-[88px]">
+            />
             <div
               ref={panelRef}
               role="dialog"
               aria-label="Our services"
-              className="pointer-events-auto relative mt-2 overflow-hidden rounded-[20px] border border-black/5 bg-white shadow-[0_32px_64px_-24px_rgba(0,0,0,0.28)]"
+              className="home-rise font-ui neo fixed z-[70] overflow-hidden rounded-[28px]"
+              style={{
+                top: panelBox.top,
+                left: panelBox.left,
+                width: panelBox.width,
+                ["--ivory" as string]: "#f4eee7",
+              }}
             >
-              <div className="flex items-center justify-between border-b border-black/5 px-4 py-2.5 md:px-5">
-                <p className="font-marcellus text-[13px] uppercase tracking-[0.14em] text-maroon">
-                  Our Services
-                </p>
+              <div className="flex items-center justify-between gap-4 px-5 pt-4 pb-3 sm:px-6">
+                <div>
+                  <p className="home-kicker mb-2 !px-3 !py-1.5 font-ui">Treatment menu</p>
+                  <p className="home-display text-[24px] font-light leading-none tracking-[-0.02em] text-black">
+                    Our Services
+                  </p>
+                </div>
                 <button
                   type="button"
                   aria-label="Close services menu"
                   onClick={close}
-                  className="flex size-9 items-center justify-center rounded-full border border-black/10 text-black transition-colors hover:bg-maroon/10 hover:text-maroon"
+                  className="neo flex size-9 items-center justify-center rounded-full text-maroon transition-transform hover:scale-[1.03]"
                 >
-                  <CloseIcon className="size-[18px]" />
+                  <CloseIcon className="size-[17px]" />
                 </button>
               </div>
-              <div className="grid md:grid-cols-[240px_1fr]">
-                <nav className="border-b border-black/5 bg-maroon/[0.03] px-3 py-4 md:border-b-0 md:border-r">
-                  <KindLabel kind="surgical" />
-                  {SURGICAL.map((category) => (
-                    <CategoryNavButton
-                      key={category.id}
-                      category={category}
-                      active={activeId === category.id}
-                      onSelect={() => setActiveId(category.id)}
-                    />
-                  ))}
-                  <div className="my-2 border-t border-maroon/10" />
-                  <KindLabel kind="nonsurgical" />
-                  {NONSURGICAL.map((category) => (
-                    <CategoryNavButton
-                      key={category.id}
-                      category={category}
-                      active={activeId === category.id}
-                      onSelect={() => setActiveId(category.id)}
-                    />
-                  ))}
+
+              <div className="mx-4 mb-4 grid overflow-hidden rounded-[22px] md:mx-6 md:grid-cols-[240px_minmax(0,1fr)]">
+                <nav className="neo-inset px-2.5 py-3 md:rounded-l-[22px] md:rounded-r-none">
+                  <p className="px-3 pb-1.5 pt-1 font-ui text-[10px] uppercase tracking-[0.2em] text-maroon">
+                    Surgical
+                  </p>
+                  <div className="space-y-0.5">
+                    {SURGICAL.map((category) => (
+                      <CategoryRow
+                        key={category.id}
+                        category={category}
+                        active={activeId === category.id}
+                        onSelect={() => setActiveId(category.id)}
+                      />
+                    ))}
+                  </div>
+                  <div className="mx-2 my-2.5 border-t border-black/10" />
+                  <p className="px-3 pb-1.5 pt-0.5 font-ui text-[10px] uppercase tracking-[0.2em] text-maroon">
+                    Non-surgical
+                  </p>
+                  <div className="space-y-0.5">
+                    {NONSURGICAL.map((category) => (
+                      <CategoryRow
+                        key={category.id}
+                        category={category}
+                        active={activeId === category.id}
+                        onSelect={() => setActiveId(category.id)}
+                      />
+                    ))}
+                  </div>
                 </nav>
-                <div className="max-h-[min(70vh,560px)] overflow-y-auto px-6 py-6">
-                  <ServiceLinks category={active} onNavigate={close} />
+
+                <div className="bg-white/45 px-5 py-4 md:rounded-r-[22px] md:rounded-l-none sm:px-7 sm:py-5">
+                  <InnerServices category={active} onNavigate={close} />
                 </div>
               </div>
-              <div className="border-t border-black/5 bg-maroon/5 px-8 py-4">
-                <AiDiagnosisLink onClick={close} />
+
+              <div className="flex flex-wrap items-center justify-between gap-3 px-5 pb-4 sm:px-6">
+                <Link
+                  href="/#treatments"
+                  onClick={close}
+                  className="home-text-link font-ui text-[11px] uppercase tracking-[0.14em] text-black"
+                >
+                  Browse full library
+                </Link>
+                <a
+                  href={AI_DIAGNOSIS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={close}
+                  className="neo-btn neo-btn-solid !w-auto gap-2 !px-5 !py-2.5 text-[11px]"
+                >
+                  <AiIcon className="size-3.5" />
+                  AI Diagnosis
+                  <span aria-hidden>→</span>
+                </a>
               </div>
             </div>
-          </div>
-        </>
-      )}
+          </>,
+          document.body,
+        )}
     </div>
   );
 }

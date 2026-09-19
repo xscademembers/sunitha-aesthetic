@@ -1,21 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
-import { HomeDropdown, HomeMobileLinks } from "@/components/HomeDropdown";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
 import { useBook } from "./BookProvider";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Our Services", href: "/#treatments" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
+
+function isNavActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  if (href === "/#treatments") return pathname.startsWith("/services");
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
 
 export function HomeNav() {
   const { openBook } = useBook();
+  const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
@@ -40,25 +48,32 @@ export function HomeNav() {
 
   return (
     <header className="sticky top-0 z-50 bg-white py-3 lg:py-[18px]">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-maroon focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to content
+      </a>
       <div className="home-wrap">
         <div className="neo flex items-center gap-3 rounded-full py-2 pr-2 pl-4 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
           <BrandLogo />
 
           <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex" aria-label="Main">
-            <HomeDropdown
-              triggerClassName="home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] hover:bg-transparent xl:px-3 xl:text-[13px]"
-            />
             {NAV_LINKS.map((link) =>
               link.label === "Our Services" ? (
                 <ServicesMegaMenu
                   key={link.label}
-                  triggerClassName="home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] hover:bg-transparent xl:px-3 xl:text-[13px]"
+                  triggerClassName={`home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] hover:bg-transparent xl:px-3 xl:text-[13px] ${
+                    isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
+                  }`}
                 />
               ) : (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] text-black xl:px-3 xl:text-[13px]"
+                  className={`home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] xl:px-3 xl:text-[13px] ${
+                    isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
+                  }`}
                 >
                   {link.label}
                 </a>
@@ -101,20 +116,15 @@ export function HomeNav() {
               </button>
             </div>
             <div className="flex flex-col gap-1">
-              <div>
-                <p className="px-4 pt-2 pb-1 font-ui text-[11px] uppercase tracking-[0.18em] text-maroon">Home</p>
-                <HomeMobileLinks
-                  onNavigate={closeMobile}
-                  linkClassName="home-nav-link px-4 py-3 font-ui"
-                />
-              </div>
               {NAV_LINKS.map((link) =>
                 link.label === "Our Services" ? (
                   <div key={link.label}>
                     <button
                       type="button"
                       onClick={() => setMobileServicesOpen((open) => !open)}
-                      className="home-nav-link flex w-full items-center justify-between px-4 py-3 font-ui text-[15px] text-black"
+                      className={`home-nav-link flex w-full items-center justify-between px-4 py-3 font-ui text-[15px] ${
+                        isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
+                      }`}
                     >
                       Our Services
                       <span>{mobileServicesOpen ? "−" : "+"}</span>
@@ -130,7 +140,9 @@ export function HomeNav() {
                     key={link.label}
                     href={link.href}
                     onClick={closeMobile}
-                    className="home-nav-link block px-4 py-3 font-ui text-[15px] text-black"
+                    className={`home-nav-link block px-4 py-3 font-ui text-[15px] ${
+                      isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
+                    }`}
                   >
                     {link.label}
                   </a>

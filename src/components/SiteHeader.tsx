@@ -3,16 +3,17 @@
 import { useEffect, useState } from "react";
 import { GetAppointmentButton } from "@/components/BrandButtons";
 import { BrandLogo } from "@/components/BrandLogo";
-import { HomeDropdown, HomeMobileLinks } from "@/components/HomeDropdown";
 import { ChevronDownIcon, CloseIcon, MenuIcon } from "@/components/icons";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
+import "@/components/home/home.css";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Our Services", href: "/#treatments" },
   { label: "Case Studies", href: "/case-studies" },
-  { label: "Reviews", href: "/#reviews" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "Reviews", href: "/reviews" },
+  { label: "Contact Us", href: "/contact" },
 ] as const;
 
 function MobileFolderIcon({ open, className }: { open: boolean; className?: string }) {
@@ -57,12 +58,10 @@ function MobileFileIcon({ className }: { className?: string }) {
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileHomeOpen, setMobileHomeOpen] = useState(false);
 
   const closeMobileMenu = () => {
     setMenuOpen(false);
     setMobileServicesOpen(false);
-    setMobileHomeOpen(false);
   };
 
   useEffect(() => {
@@ -83,133 +82,110 @@ export function SiteHeader() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 flex h-[72px] items-center justify-between border-b border-black/5 bg-white px-6 shadow-[0_6px_20px_-12px_rgba(0,0,0,0.15)] lg:px-[88px]">
-        <BrandLogo />
-        <nav className="hidden flex-1 items-center justify-evenly px-7 xl:px-12 lg:flex" aria-label="Main">
-          <HomeDropdown />
-          {NAV_LINKS.map((l) =>
-            l.label === "Our Services" ? (
-              <ServicesMegaMenu key={l.label} />
-            ) : (
-              <a
-                key={l.label}
-                href={l.href}
-                className="rounded-full px-3 py-2 font-sans text-[15px] text-black transition-colors duration-200 hover:bg-maroon/10 xl:px-4 xl:text-[16px]"
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-maroon focus:px-4 focus:py-2 focus:text-white"
+      >
+        Skip to content
+      </a>
+      <header className="sticky top-0 z-50 bg-white py-3 lg:py-[18px]">
+        <div className="home-wrap">
+          <div className="neo flex items-center gap-3 rounded-full py-2 pr-2 pl-4 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
+            <BrandLogo />
+
+            <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex" aria-label="Main">
+              {NAV_LINKS.map((l) =>
+                l.label === "Our Services" ? (
+                  <ServicesMegaMenu
+                    key={l.label}
+                    triggerClassName="home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] hover:bg-transparent xl:px-3 xl:text-[13px]"
+                  />
+                ) : (
+                  <a
+                    key={l.label}
+                    href={l.href}
+                    className="home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] text-black xl:px-3 xl:text-[13px]"
+                  >
+                    {l.label}
+                  </a>
+                ),
+              )}
+            </nav>
+
+            <div className="ml-auto flex shrink-0 items-center gap-2">
+              <div className="hidden lg:block">
+                <GetAppointmentButton size="nav" className="!rounded-full" />
+              </div>
+              <button
+                type="button"
+                aria-label="Menu"
+                onClick={() => setMenuOpen(true)}
+                className="neo flex size-9 items-center justify-center rounded-full text-maroon sm:size-10 lg:hidden"
               >
-                {l.label}
-              </a>
-            ),
-          )}
-        </nav>
-        <div className="hidden lg:block">
-          <GetAppointmentButton size="nav" />
+                <MenuIcon className="size-5" />
+              </button>
+            </div>
+          </div>
         </div>
-        <button
-          type="button"
-          aria-label="Menu"
-          onClick={() => setMenuOpen(true)}
-          className="flex size-[45px] items-center justify-center rounded-[12px] border border-transparent bg-black text-white transition-colors hover:border-black hover:bg-white hover:text-black lg:hidden"
-        >
-          <MenuIcon className="size-5" />
-        </button>
       </header>
 
       {menuOpen && (
-        <div
-          className="fixed inset-0 z-50 flex h-[100dvh] flex-col overflow-hidden bg-white lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Mobile navigation"
-        >
-          <div className="flex shrink-0 items-center justify-between border-b border-black/[0.07] px-5 py-4">
-            <div>
-              <p className="font-serif text-[24px] leading-tight text-black">Navigation</p>
-              <p className="mt-1 font-sans text-[11px] uppercase tracking-[0.16em] text-maroon">
-                Dr. Sunita Aesthetics
-              </p>
+        <div className="fixed inset-0 z-[70] lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+          <button type="button" className="absolute inset-0 bg-black/30" aria-label="Close menu" onClick={closeMobileMenu} />
+          <div className="neo absolute top-4 right-4 left-4 max-h-[min(88dvh,720px)] overflow-y-auto rounded-[28px] p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <span className="home-display text-[22px] text-maroon">Menu</span>
+              <button
+                type="button"
+                aria-label="Close menu"
+                onClick={closeMobileMenu}
+                className="neo flex size-9 items-center justify-center rounded-full text-maroon"
+              >
+                <CloseIcon className="size-[18px]" />
+              </button>
             </div>
-            <button
-              type="button"
-              aria-label="Close menu"
-              onClick={closeMobileMenu}
-              className="flex size-11 items-center justify-center rounded-[12px] border border-black/10 text-black transition-colors hover:bg-maroon/10"
-            >
-              <CloseIcon className="size-[20px]" />
-            </button>
-          </div>
-
-          <nav className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 py-5" aria-label="Mobile">
-            <div className="mx-auto w-full max-w-[460px]">
-              <ul className="space-y-1">
-                <li>
-                  <button
-                    type="button"
-                    aria-expanded={mobileHomeOpen}
-                    aria-controls="mobile-home-tree"
-                    onClick={() => setMobileHomeOpen(!mobileHomeOpen)}
-                    className="flex min-h-12 w-full items-center gap-2.5 rounded-[11px] px-2 text-left font-sans text-[16px] font-medium text-black transition-colors hover:bg-maroon/10"
+            <nav className="flex flex-col gap-1" aria-label="Mobile">
+              {NAV_LINKS.map((link) =>
+                link.label === "Our Services" ? (
+                  <div key={link.label}>
+                    <button
+                      type="button"
+                      aria-expanded={mobileServicesOpen}
+                      aria-controls="mobile-services-tree"
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      className="home-nav-link flex w-full items-center justify-between px-4 py-3 font-ui text-[15px] text-black"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <MobileFolderIcon open={mobileServicesOpen} className="size-5 shrink-0 text-maroon" />
+                        Our Services
+                      </span>
+                      <ChevronDownIcon
+                        className={`size-2.5 shrink-0 transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {mobileServicesOpen && (
+                      <div id="mobile-services-tree" className="px-2 pb-3">
+                        <ServicesMobileMenu onNavigate={closeMobileMenu} />
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    onClick={closeMobileMenu}
+                    className="home-nav-link flex items-center gap-2.5 px-4 py-3 font-ui text-[15px] text-black"
                   >
-                    <ChevronDownIcon
-                      className={`size-2.5 shrink-0 -rotate-90 transition-transform duration-200 ${mobileHomeOpen ? "rotate-0" : ""}`}
-                    />
-                    <MobileFolderIcon open={mobileHomeOpen} className="size-5 shrink-0 text-maroon" />
-                    <span>Home</span>
-                  </button>
-                  {mobileHomeOpen && (
-                    <div id="mobile-home-tree" className="ml-[19px] border-l border-maroon/20 pb-3 pl-[17px] pt-1">
-                      <HomeMobileLinks onNavigate={closeMobileMenu} />
-                    </div>
-                  )}
-                </li>
-                {NAV_LINKS.map((link) =>
-                  link.label === "Our Services" ? (
-                    <li key={link.label}>
-                      <button
-                        type="button"
-                        aria-expanded={mobileServicesOpen}
-                        aria-controls="mobile-services-tree"
-                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                        className="flex min-h-12 w-full items-center gap-2.5 rounded-[11px] px-2 text-left font-sans text-[16px] font-medium text-black transition-colors hover:bg-maroon/10"
-                      >
-                        <ChevronDownIcon
-                          className={`size-2.5 shrink-0 -rotate-90 transition-transform duration-200 ${mobileServicesOpen ? "rotate-0" : ""}`}
-                        />
-                        <MobileFolderIcon
-                          open={mobileServicesOpen}
-                          className="size-5 shrink-0 text-maroon"
-                        />
-                        <span>{link.label}</span>
-                      </button>
-
-                      {mobileServicesOpen && (
-                        <div
-                          id="mobile-services-tree"
-                          className="ml-[19px] border-l border-maroon/20 pb-3 pl-[17px] pt-1"
-                        >
-                          <ServicesMobileMenu onNavigate={closeMobileMenu} />
-                        </div>
-                      )}
-                    </li>
-                  ) : (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        onClick={closeMobileMenu}
-                        className="flex min-h-12 items-center gap-2.5 rounded-[11px] px-2 pl-[22px] font-sans text-[16px] text-black/80 transition-colors hover:bg-maroon/10 hover:text-maroon"
-                      >
-                        <MobileFileIcon className="size-[18px] shrink-0 text-maroon/65" />
-                        <span>{link.label}</span>
-                      </a>
-                    </li>
-                  ),
-                )}
-              </ul>
-
-              <div className="mt-7 border-t border-black/[0.07] pt-6" onClick={closeMobileMenu}>
-                <GetAppointmentButton className="w-full" />
-              </div>
+                    <MobileFileIcon className="size-[18px] shrink-0 text-maroon/65" />
+                    {link.label}
+                  </a>
+                ),
+              )}
+            </nav>
+            <div className="mt-5" onClick={closeMobileMenu}>
+              <GetAppointmentButton className="w-full !rounded-full" />
             </div>
-          </nav>
+          </div>
         </div>
       )}
     </>

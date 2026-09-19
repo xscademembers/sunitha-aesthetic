@@ -1,23 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ContactSection } from "@/components/ContactSection";
-import { Disclaimer } from "@/components/Disclaimer";
-import { MeetTheDoctor } from "@/components/MeetTheDoctor";
-import {
-  BeforeAfterGallery,
-  FinalCTA,
-  KeyBenefits,
-  PatientStories,
-  RelatedServices,
-  ServiceFAQs,
-  ServiceHero,
-  WhatToExpect,
-  WhoIsItFor,
-} from "@/components/ServiceSections";
-import { SiteFooter } from "@/components/SiteFooter";
-import { SiteHeader } from "@/components/SiteHeader";
-import { TestimonialSlider } from "@/components/TestimonialSlider";
+import { IvoryService } from "@/components/home/IvoryService";
+import { JsonLd } from "@/components/JsonLd";
 import { SERVICES } from "@/data/services";
+import { absUrl, breadcrumbJsonLd, pageMetadata, SITE_NAME } from "@/lib/seo";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -31,10 +17,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const service = SERVICES.find((s) => s.slug === slug);
   if (!service) return {};
-  return {
-    title: `${service.title} in Visakhapatnam | Dr Sunita Aesthetics`,
+  return pageMetadata({
+    title: `${service.title} in Visakhapatnam | ${SITE_NAME}`,
     description: service.metaDescription,
-  };
+    path: `/services/${service.slug}`,
+    keywords: [
+      `${service.title} Visakhapatnam`,
+      `${service.title} Vizag`,
+      "Dr Sunita Ghanta",
+      "plastic surgeon Visakhapatnam",
+    ],
+  });
 }
 
 export default async function ServicePage({ params }: Props) {
@@ -52,39 +45,31 @@ export default async function ServicePage({ params }: Props) {
     })),
   };
 
+  const procedureJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalProcedure",
+    name: service.title,
+    description: service.metaDescription,
+    url: absUrl(`/services/${service.slug}`),
+    procedureType: service.category,
+    howPerformed: service.steps.map((step) => step.title).join(", "),
+    performedBy: {
+      "@type": "Physician",
+      name: "Dr. Sunita Ghanta",
+    },
+  };
+
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      <JsonLd data={faqJsonLd} />
+      <JsonLd data={procedureJsonLd} />
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: service.title, path: `/services/${service.slug}` },
+        ])}
       />
-      <SiteHeader />
-      <main>
-        <ServiceHero service={service} />
-        <KeyBenefits service={service} />
-        <WhoIsItFor service={service} />
-        <WhatToExpect service={service} />
-        <BeforeAfterGallery service={service} />
-        <PatientStories service={service} />
-        <ServiceFAQs service={service} />
-        <RelatedServices service={service} />
-        <section id="reviews" className="bg-white px-6 pb-[72px] lg:px-[72px]">
-          <p className="text-center font-sans text-[18px] font-bold leading-[25.2px] text-maroon">
-            Trusted across Andhra Pradesh
-          </p>
-          <h2 className="mt-1 text-center font-serif text-[28px] leading-[1.4] text-black lg:text-[32px] lg:leading-[44.8px]">
-            What Our Patients Say
-          </h2>
-          <div className="mx-auto mt-12 max-w-[952px]">
-            <TestimonialSlider />
-          </div>
-        </section>
-        <MeetTheDoctor />
-        <FinalCTA service={service} />
-        <ContactSection />
-        <Disclaimer />
-      </main>
-      <SiteFooter />
+      <IvoryService service={service} />
     </>
   );
 }

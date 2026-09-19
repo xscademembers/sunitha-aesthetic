@@ -14,7 +14,7 @@ function CardArrowChip({
 }) {
   return (
     <Link
-      href={slug ? `/services/${slug}` : "#contact"}
+      href={slug ? `/services/${slug}` : "/contact"}
       aria-label={`Learn more about ${title}`}
       className={cn(
         "group ml-auto flex shrink-0 items-center justify-center rounded-full border border-transparent bg-maroon shadow-[0_8px_16px_-8px_rgba(161,83,78,0.5)] transition-all duration-300 hover:border-black hover:bg-white",

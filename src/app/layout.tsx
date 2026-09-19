@@ -1,6 +1,16 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Prata, Roboto, Marcellus, Newsreader, Jost } from "next/font/google";
 import { AppointmentPopup } from "@/components/AppointmentPopup";
+import { JsonLd } from "@/components/JsonLd";
+import {
+  clinicJsonLd,
+  SITE_DESCRIPTION,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_OG_IMAGE,
+  SITE_TITLE,
+  SITE_URL,
+} from "@/lib/seo";
 import "./globals.css";
 
 const prata = Prata({
@@ -34,15 +44,70 @@ const jost = Jost({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#A1534E",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://drsunitaesthetics.com"),
-  title: "Dr Sunita Aesthetics | Cosmetic & Plastic Surgeon in Vizag.",
-  description:
-    "Dr. Sunita Ghanta is a well-known and Board certified plastic surgeon in Visakhapatnam who has been practicing for more than 17 years.",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  keywords: SITE_KEYWORDS,
+  applicationName: SITE_NAME,
+  authors: [{ name: "Dr. Sunita Ghanta", url: `${SITE_URL}/about` }],
+  creator: "Dr. Sunita Ghanta",
+  publisher: SITE_NAME,
+  category: "health",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
-    icon: "/seo/favicon.png",
+    icon: [
+      { url: "/seo/favicon.png" },
+      { url: "/images/logo.svg", type: "image/svg+xml" },
+    ],
     shortcut: "/seo/favicon.png",
     apple: "/seo/favicon.png",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [
+      {
+        url: SITE_OG_IMAGE,
+        alt: "Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  other: {
+    "geo.region": "IN-AP",
+    "geo.placename": "Visakhapatnam",
   },
 };
 
@@ -53,7 +118,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       data-scroll-behavior="smooth"
       className={`${prata.variable} ${roboto.variable} ${marcellus.variable} ${newsreader.variable} ${jost.variable} h-full antialiased`}
     >
@@ -61,6 +126,7 @@ export default function RootLayout({
         className="min-h-full flex flex-col font-sans"
         suppressHydrationWarning
       >
+        <JsonLd data={clinicJsonLd()} />
         {children}
         <AppointmentPopup />
       </body>

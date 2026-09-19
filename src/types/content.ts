@@ -14,7 +14,7 @@ export interface ProcedureCard {
   description: string;
   /** Path under /public, e.g. "/icons/nose.svg" */
   icon: string;
-  /** Service page slug — arrow links to /services/<slug>. Falls back to #contact when absent. */
+  /** Service page slug — arrow links to /services/<slug>. Falls back to /contact when absent. */
   slug?: string;
 }
 

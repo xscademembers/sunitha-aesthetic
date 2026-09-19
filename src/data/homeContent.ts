@@ -99,20 +99,16 @@ export const SURGEON_CREDENTIALS = [
 ] as const;
 
 export const HOME_COPY = {
-  heroKicker: "Visakhapatnam · Board-certified · Since 2009",
-  ivoryHeroTitle: "Natural results.",
-  ivoryHeroAccent: "Honest advice.",
-  editorialHeroTitle: "Natural results.",
-  editorialHeroAccent: "Honest advice.",
+  heroKicker: "Plastic surgeon in Visakhapatnam · Board-certified · Since 2009",
+  heroTitle: "Natural results.",
+  heroAccent: "Honest advice.",
   heroBody:
     "Face, body, breast and skin treatments with Dr. Sunita. Seventeen years of natural-looking results, clear answers, and a private consultation with no pressure to decide today.",
   viewTreatments: "See treatments",
   browseLibrary: "Browse treatments",
   surgeonKicker: "Meet the surgeon",
   surgeonName: "Dr. Sunita Ghanta",
-  ivorySurgeonTitle: "The surgeon patients trust with their face.",
-  editorialSurgeonTitle: "Careful surgery.",
-  editorialSurgeonAccent: "Natural results.",
+  surgeonTitle: "The surgeon patients trust with their face.",
   surgeonBody:
     "Board-certified plastic surgeon in Visakhapatnam for face, body, breast, hair and non-surgical aesthetics. You get a clear plan, realistic outcomes, and a clinic that never rushes you into a decision.",
   surgeonQuote: "Every transformation begins with understanding.",
@@ -199,6 +195,41 @@ export const HOME_REVIEWS = [
   },
 ] as const;
 
+export const MORE_REVIEWS = [
+  {
+    name: "Meena K.",
+    tag: "Breast reduction",
+    text: "I finally felt heard. The plan was clear, the recovery instructions were practical, and the result looks like me — only more comfortable in my own clothes.",
+  },
+  {
+    name: "Ravi K.",
+    tag: "Liposuction",
+    text: "No sales pitch, no rush. Dr. Sunita told me what surgery could and could not change. That honesty made the decision easier.",
+  },
+  {
+    name: "Sneha P.",
+    tag: "Eyelid surgery",
+    text: "The clinic felt private from the first door. Follow-up visits were as careful as the procedure, and people say I look rested rather than ‘done’.",
+  },
+  {
+    name: "Deepa M.",
+    tag: "Skin tightening",
+    text: "I wanted a smaller treatment, not a dramatic change. The advice was measured, the appointments were unhurried, and the result settled naturally.",
+  },
+  {
+    name: "Arjun V.",
+    tag: "Hair transplant",
+    text: "Every step was explained in plain language. I knew the timeline, the aftercare, and what to expect in the first months. No surprises.",
+  },
+  {
+    name: "Kavitha L.",
+    tag: "Mommy makeover",
+    text: "A personalised plan, realistic recovery, and a team that checked in after surgery. I felt looked after, not processed.",
+  },
+] as const;
+
+export const ALL_REVIEWS = [...HOME_REVIEWS, ...MORE_REVIEWS];
+
 export const HOME_VIDEOS = [
   {
     meta: "Tummy tuck · Patient documentary",
@@ -230,11 +261,11 @@ export const VIDEO_PLAYLIST_URL =
   "https://www.youtube.com/playlist?list=PLu5_mp4Nk_R0TlcTOK-YBXRwMH0T48JA_";
 
 export const CLINIC_PHOTOS = [
-  { src: "/images/clinic/clinic-reception.webp", alt: "Clinic reception", label: "Reception" },
-  { src: "/images/clinic/clinic-interior-1.webp", alt: "Consultation room", label: "Consultation" },
-  { src: "/images/clinic/clinic-interior-2.webp", alt: "Procedure room", label: "Procedure room" },
-  { src: "/images/clinic/clinic-interior-3.webp", alt: "Clinic pharmacy", label: "Pharmacy" },
-  { src: "/images/clinic/clinic-interior-4.webp", alt: "Patient comfort and recovery", label: "Comfort" },
+  { src: "/images/clinic/clinic-reception.webp", alt: "Reception at Dr. Sunita Aesthetics in Visakhapatnam", label: "Reception" },
+  { src: "/images/clinic/clinic-interior-1.webp", alt: "Private consultation room at Dr. Sunita Aesthetics", label: "Consultation" },
+  { src: "/images/clinic/clinic-interior-2.webp", alt: "Procedure room at Dr. Sunita Aesthetics clinic", label: "Procedure room" },
+  { src: "/images/clinic/clinic-interior-3.webp", alt: "In-clinic pharmacy at Dr. Sunita Aesthetics", label: "Pharmacy" },
+  { src: "/images/clinic/clinic-interior-4.webp", alt: "Patient comfort and recovery area at Dr. Sunita Aesthetics", label: "Comfort" },
 ] as const;
 
 export const HOME_IMAGES = {
@@ -255,3 +286,5 @@ export const HOME_CONTACT = {
 
 export const BOOK_LABEL = "Book a Consultation";
 export const REVIEW_COUNT_LABEL = "240+ Google reviews";
+export const GOOGLE_REVIEWS_HREF =
+  "https://www.google.com/maps/search/?api=1&query=Dr%20Sunita%20Aesthetics%20Seethammadara%20Visakhapatnam";

@@ -6,14 +6,15 @@ const LINK_GROUPS: FooterLinkGroup[] = [
   {
     heading: "Quick Links",
     links: [
+      { label: "Home", href: "/" },
       { label: "About Doctor", href: "/about" },
       { label: "Our Services", href: "/#services" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Blogs", href: "#" },
       { label: "Careers", href: "#" },
       { label: "Clinic Gallery", href: "#" },
-      { label: "Contact us", href: "/#contact" },
-      { label: "Written Testimonials", href: "/#reviews" },
+      { label: "Contact us", href: "/contact" },
+      { label: "Written Testimonials", href: "/reviews" },
     ],
   },
   {
@@ -82,7 +83,7 @@ export function SiteFooter() {
       </div>
       <div className="flex h-[63px] items-center justify-center bg-maroon">
         <p className="font-sans text-[13px] text-white sm:text-[15px]">
-          © 2025 All Rights reserved by Dr. Sunita Aesthetics
+          © 2026 All Rights reserved by Dr. Sunita Aesthetics
         </p>
       </div>
     </footer>

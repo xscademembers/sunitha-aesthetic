@@ -4,12 +4,15 @@ import { useState } from "react";
 import { HOME_FAQS } from "@/data/homeContent";
 import { cn } from "@/lib/utils";
 
-export function FaqAccordion() {
+export type FaqItem = { q: string; a: string };
+
+export function FaqAccordion({ items }: { items?: FaqItem[] }) {
   const [openIndex, setOpenIndex] = useState(0);
+  const faqs = items ?? HOME_FAQS;
 
   return (
     <div className="neo rounded-[28px] p-2 sm:rounded-[36px] sm:p-3.5">
-      {HOME_FAQS.map((faq, index) => {
+      {faqs.map((faq, index) => {
         const open = index === openIndex;
         return (
           <div key={faq.q} className="border-b border-black/10 last:border-b-0">

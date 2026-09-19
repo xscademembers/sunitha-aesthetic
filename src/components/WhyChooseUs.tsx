@@ -68,7 +68,7 @@ export function WhyChooseUs() {
                 {c.body}
               </p>
               <a
-                href="#contact"
+                href="/contact"
                 className="mt-3 font-sans text-[14px] font-medium text-white underline underline-offset-2 transition-colors hover:text-white/80"
               >
                 Read More
