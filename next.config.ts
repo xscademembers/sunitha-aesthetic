@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: "standalone",
+  // Standalone + Vercel's adapter breaks on Next 16.3 (missing next-server.js.nft.json).
+  // Keep standalone for self-hosted/Docker builds; disable it on Vercel.
+  output: process.env.VERCEL ? undefined : "standalone",
   async redirects() {
     return [
       {
