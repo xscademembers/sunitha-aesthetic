@@ -9,6 +9,7 @@ const LINK_GROUPS: FooterLinkGroup[] = [
       { label: "Home", href: "/" },
       { label: "About Doctor", href: "/about" },
       { label: "Our Services", href: "/#services" },
+      { label: "Pricing", href: "/pricing" },
       { label: "Case Studies", href: "/case-studies" },
       { label: "Blogs", href: "#" },
       { label: "Careers", href: "#" },

@@ -123,13 +123,13 @@ function AboutInner() {
               </div>
               <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
                 <FillImage
-                  src={HOME_IMAGES.hero}
+                  src={HOME_IMAGES.aboutHero}
                   alt="Dr. Sunita Ghanta, plastic and aesthetic surgeon"
                   priority
                   className="object-[center_12%]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 z-[1] grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
                   {HOME_STATS.map((stat, index) => (
                     <div
                       key={stat.label}
@@ -160,8 +160,8 @@ function AboutInner() {
               <div className="neo-media relative aspect-[4/5] min-h-[320px] overflow-hidden bg-maroon sm:min-h-[400px] lg:aspect-auto lg:min-h-[560px]">
                 <FillImage
                   src={HOME_IMAGES.surgeon}
-                  alt="Dr. Sunita Ghanta performing a facial aesthetic treatment in Visakhapatnam"
-                  className="object-[center_18%]"
+                  alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
+                  className="object-[center_12%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">

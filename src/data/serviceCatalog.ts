@@ -1,4 +1,5 @@
 import type { ProcedureSectionData } from "@/types/content";
+import { CATEGORY_IMAGES, SERVICE_ITEM_IMAGES } from "@/data/serviceImages";
 
 export type ServiceKind = "surgical" | "nonsurgical";
 
@@ -7,6 +8,8 @@ export interface CatalogItem {
   title: string;
   icon: string;
   description: string;
+  /** Indian service-specific hero image under /public. */
+  image?: string;
 }
 
 export interface CatalogCategory {
@@ -58,10 +61,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Face Surgery",
     categoryLabel: "Surgical Procedure — Face",
     eyebrow: "Surgical Procedure",
-    image: "/images/procedures/facial.webp",
-    imageAlt: "Facial procedure planning",
+    image: CATEGORY_IMAGES["face-surgery"].src,
+    imageAlt: CATEGORY_IMAGES["face-surgery"].alt,
     imageSide: "right",
     imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "nose-surgery",
@@ -180,8 +184,8 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Breast Surgery",
     categoryLabel: "Surgical Procedure — Breast",
     eyebrow: "Surgical Procedure",
-    image: "/images/procedures/body.webp",
-    imageAlt: "Breast surgery planning",
+    image: CATEGORY_IMAGES["breast-surgery"].src,
+    imageAlt: CATEGORY_IMAGES["breast-surgery"].alt,
     imageSide: "left",
     imageSize: [455, 455],
     circleCrop: true,
@@ -225,8 +229,8 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Body Contouring Surgery",
     categoryLabel: "Surgical Procedure — Body",
     eyebrow: "Surgical Procedure",
-    image: "/images/procedures/body.webp",
-    imageAlt: "Body contouring surgery",
+    image: CATEGORY_IMAGES["body-contouring-surgery"].src,
+    imageAlt: CATEGORY_IMAGES["body-contouring-surgery"].alt,
     imageSide: "right",
     imageSize: [455, 455],
     circleCrop: true,
@@ -318,8 +322,8 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Men's Cosmetic Surgery",
     categoryLabel: "Surgical Procedure — Men's Cosmetic Surgery",
     eyebrow: "Surgical Procedure",
-    image: "/images/procedures/body.webp",
-    imageAlt: "Men's cosmetic surgery",
+    image: CATEGORY_IMAGES["mens-cosmetic-surgery"].src,
+    imageAlt: CATEGORY_IMAGES["mens-cosmetic-surgery"].alt,
     imageSide: "left",
     imageSize: [455, 455],
     circleCrop: true,
@@ -351,10 +355,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Hair Surgery",
     categoryLabel: "Surgical Procedure — Hair",
     eyebrow: "Surgical Procedure",
-    image: "/images/procedures/facial.webp",
-    imageAlt: "Hair transplant surgery",
+    image: CATEGORY_IMAGES["hair-surgery"].src,
+    imageAlt: CATEGORY_IMAGES["hair-surgery"].alt,
     imageSide: "right",
     imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "hair-transplant",
@@ -383,10 +388,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Reconstructive Surgery",
     categoryLabel: "Reconstructive Surgery",
     eyebrow: "Surgical Procedure",
-    image: "/images/procedures/reconstructive.webp",
-    imageAlt: "Reconstructive surgery",
+    image: CATEGORY_IMAGES["reconstructive-surgery"].src,
+    imageAlt: CATEGORY_IMAGES["reconstructive-surgery"].alt,
     imageSide: "left",
-    imageSize: [681, 707],
+    imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "cleft-lip-palate-surgery",
@@ -445,10 +451,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Injectables",
     categoryLabel: "Non-Surgical — Injectables",
     eyebrow: "Non-Surgical Procedure",
-    image: "/images/procedures/anti-aging.webp",
-    imageAlt: "Injectable treatments",
+    image: CATEGORY_IMAGES.injectables.src,
+    imageAlt: CATEGORY_IMAGES.injectables.alt,
     imageSide: "right",
-    imageSize: [681, 620],
+    imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "anti-wrinkle-injections",
@@ -513,8 +520,8 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Skin Rejuvenation",
     categoryLabel: "Non-Surgical — Skin Rejuvenation",
     eyebrow: "Non-Surgical Procedure",
-    image: "/images/procedures/face-treatment.webp",
-    imageAlt: "Skin rejuvenation treatment",
+    image: CATEGORY_IMAGES["skin-rejuvenation"].src,
+    imageAlt: CATEGORY_IMAGES["skin-rejuvenation"].alt,
     imageSide: "left",
     imageSize: [506, 506],
     circleCrop: true,
@@ -612,10 +619,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Laser Treatments",
     categoryLabel: "Non-Surgical — Laser",
     eyebrow: "Non-Surgical Procedure",
-    image: "/images/procedures/laser.webp",
-    imageAlt: "Laser treatments",
+    image: CATEGORY_IMAGES["laser-treatments"].src,
+    imageAlt: CATEGORY_IMAGES["laser-treatments"].alt,
     imageSide: "right",
-    imageSize: [681, 699],
+    imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "laser-hair-reduction",
@@ -650,10 +658,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Hair Treatments",
     categoryLabel: "Non-Surgical — Hair Treatments",
     eyebrow: "Non-Surgical Procedure",
-    image: "/images/procedures/facial.webp",
-    imageAlt: "Hair treatments",
+    image: CATEGORY_IMAGES["hair-treatments"].src,
+    imageAlt: CATEGORY_IMAGES["hair-treatments"].alt,
     imageSide: "left",
     imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "prp-hair-treatment",
@@ -688,10 +697,11 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
     title: "Anti-Aging & Aesthetic Procedures",
     categoryLabel: "Non-Surgical — Anti-Aging",
     eyebrow: "Non-Surgical Procedure",
-    image: "/images/procedures/anti-aging.webp",
-    imageAlt: "Anti-aging aesthetic procedures",
+    image: CATEGORY_IMAGES["anti-aging-aesthetic"].src,
+    imageAlt: CATEGORY_IMAGES["anti-aging-aesthetic"].alt,
     imageSide: "right",
-    imageSize: [681, 620],
+    imageSize: [650, 650],
+    circleCrop: true,
     items: [
       {
         slug: "non-surgical-rhinoplasty",
@@ -710,7 +720,12 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
 ];
 
 export const CATALOG_ITEMS = SERVICE_CATEGORIES.flatMap((category) =>
-  category.items.map((item) => ({ ...item, category })),
+  category.items.map((item) => ({
+    ...item,
+    // Only attach a unique item image — never reuse the category image for service heroes.
+    image: SERVICE_ITEM_IMAGES[item.slug],
+    category,
+  })),
 );
 
 export function getCatalogItem(slug: string) {

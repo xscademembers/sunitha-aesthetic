@@ -8,16 +8,16 @@ import { TestimonialSlider } from "@/components/TestimonialSlider";
 // NOTE: the 2nd & 3rd images are placeholders for reference — swap them later.
 const HERO_PHOTOS: HeroPhoto[] = [
   {
-    src: "/images/doctor-hero.webp",
+    src: "/images/dr-sunita/portraits/white-coat-crossed.jpg",
     alt: "Dr Sunita Ghanta - Founder of Dr. Sunita Aesthetics - Cosmetic Surgeon in Vizag",
   },
   {
-    src: "/images/clinic/clinic-reception.webp",
-    alt: "Dr. Sunita Aesthetics Clinic - reception (placeholder)",
+    src: "/images/dr-sunita/portraits/white-coat-pockets.jpg",
+    alt: "Dr. Sunita Ghanta in clinic, Visakhapatnam",
   },
   {
-    src: "/images/clinic/clinic-interior-1.webp",
-    alt: "Dr. Sunita Aesthetics Clinic - interior (placeholder)",
+    src: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
+    alt: "Dr. Sunita Ghanta, plastic surgery consultant",
   },
 ];
 
@@ -95,7 +95,7 @@ export function HeroSection() {
         {/* Desktop: sticky single photo */}
         <div className="hidden lg:sticky lg:top-0 lg:block">
           <Image
-            src="/images/doctor-hero.webp"
+            src="/images/dr-sunita/portraits/white-coat-crossed.jpg"
             alt="Dr Sunita Ghanta - Founder of Dr. Sunita Aesthetics - Cosmetic Surgeon in Vizag"
             width={1440}
             height={1690}

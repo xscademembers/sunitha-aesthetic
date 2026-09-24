@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   description:
     "Meet Dr. Sunita Ghanta, a board-certified plastic, aesthetic and reconstructive surgeon in Visakhapatnam. Learn about her qualifications, approach and clinic.",
   path: "/about",
-  image: "/images/about/dr-sunita-ghanta.jpg",
+  image: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
   keywords: [
     "Dr Sunita Ghanta",
     "about Dr Sunita",

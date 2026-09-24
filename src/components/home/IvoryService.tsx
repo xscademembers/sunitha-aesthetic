@@ -25,9 +25,13 @@ export function IvoryService({ service }: { service: ServiceData }) {
 function ServiceInner({ service }: { service: ServiceData }) {
   const { openBook } = useBook();
   const catalog = getCatalogItem(service.slug);
-  const heroImage = catalog?.category.image ?? service.videoPoster ?? HOME_IMAGES.surgeon;
-  const related = catalog?.category.items.filter((item) => item.slug !== service.slug) ?? [];
   const hasVideo = Boolean(service.youtubeVideoId) || !service.videoSrc.includes("BigBuckBunny");
+  // Video pages show the video only — no service hero image.
+  // Image-only pages use a unique per-service photo (never a shared category fallback).
+  const heroImage = hasVideo
+    ? (service.videoPoster ?? HOME_IMAGES.surgeonPortrait)
+    : (catalog?.image ?? service.videoPoster ?? HOME_IMAGES.surgeonPortrait);
+  const related = catalog?.category.items.filter((item) => item.slug !== service.slug) ?? [];
   const hasPhotos = service.beforeAfter.some((item) => item.image || item.before || item.after);
 
   return (
@@ -59,35 +63,46 @@ function ServiceInner({ service }: { service: ServiceData }) {
                 </div>
               </div>
 
-              <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
-                <FillImage
-                  src={heroImage}
-                  alt={`${service.title} at Dr. Sunita Aesthetics, Visakhapatnam`}
-                  priority
-                  className="object-[center_18%]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
-                  {service.facts.map((fact, index) => (
-                    <div
-                      key={fact.label}
-                      className={[
-                        "px-3 py-3 sm:px-4 sm:py-4",
-                        index % 2 === 1 ? "border-l border-white/20" : "",
-                        index >= 2 ? "border-t border-white/20 lg:border-t-0" : "",
-                        index > 0 ? "lg:border-l lg:border-white/20" : "",
-                      ].join(" ")}
-                    >
-                      <div className="home-display text-[18px] font-light leading-none sm:text-[22px]">
-                        {fact.value}
-                      </div>
-                      <div className="mt-1.5 font-ui text-[8px] uppercase leading-[1.35] tracking-[0.12em] text-white/80 sm:text-[9px] sm:tracking-[0.16em]">
-                        {fact.label}
-                      </div>
-                    </div>
-                  ))}
+              {hasVideo ? (
+                <div className="flex w-full items-center justify-center">
+                  <div
+                    className={[
+                      "neo neo-media w-full overflow-hidden rounded-[22px] bg-black sm:rounded-[32px]",
+                      service.youtubeVideoId ? "max-w-[640px] aspect-video" : "max-w-[360px] aspect-[9/16]",
+                    ].join(" ")}
+                  >
+                    {service.youtubeVideoId ? (
+                      <iframe
+                        className="h-full w-full"
+                        src={`https://www.youtube-nocookie.com/embed/${service.youtubeVideoId}?rel=0`}
+                        title={`${service.title} with Dr. Sunita Ghanta`}
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <video
+                        controls
+                        playsInline
+                        preload="metadata"
+                        poster={service.videoPoster}
+                        src={service.videoSrc}
+                        className="h-full w-full bg-black object-cover"
+                      />
+                    )}
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
+                  <FillImage
+                    src={heroImage}
+                    alt={`${service.title} at Dr. Sunita Aesthetics, Visakhapatnam`}
+                    priority
+                    className="object-[center_18%]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                </div>
+              )}
             </div>
           </section>
         </div>
@@ -196,44 +211,6 @@ function ServiceInner({ service }: { service: ServiceData }) {
           </div>
         </div>
       </section>
-
-      {hasVideo && (
-        <section className="home-band-white py-12 lg:py-20">
-          <div className="home-wrap">
-            <div className="mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
-              <div>
-                <div className="home-kicker mb-3 font-ui sm:mb-4">From the surgeon</div>
-                <h2 className="home-display m-0 text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em] text-black">
-                  Dr. Sunita explains {service.title.toLowerCase()}.
-                </h2>
-              </div>
-            </div>
-            <div className="neo overflow-hidden rounded-[24px] sm:rounded-[36px]">
-              {service.youtubeVideoId ? (
-                <div className="relative aspect-video bg-black">
-                  <iframe
-                    className="absolute inset-0 h-full w-full"
-                    src={`https://www.youtube-nocookie.com/embed/${service.youtubeVideoId}?rel=0`}
-                    title={`${service.title} with Dr. Sunita Ghanta`}
-                    referrerPolicy="strict-origin-when-cross-origin"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  />
-                </div>
-              ) : (
-                <video
-                  controls
-                  playsInline
-                  preload="metadata"
-                  poster={service.videoPoster}
-                  src={service.videoSrc}
-                  className="aspect-video w-full bg-black object-cover"
-                />
-              )}
-            </div>
-          </div>
-        </section>
-      )}
 
       <section className="home-band-maroon py-12 lg:py-20">
         <div className="home-wrap">
@@ -366,9 +343,9 @@ function ServiceInner({ service }: { service: ServiceData }) {
             <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
               <div className="neo-media relative aspect-[4/5] min-h-[320px] overflow-hidden bg-maroon sm:min-h-[400px] lg:aspect-auto lg:min-h-[520px]">
                 <FillImage
-                  src={HOME_IMAGES.surgeon}
+                  src={HOME_IMAGES.surgeonPortrait ?? HOME_IMAGES.surgeon}
                   alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
-                  className="object-[center_18%]"
+                  className="object-[center_12%]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">

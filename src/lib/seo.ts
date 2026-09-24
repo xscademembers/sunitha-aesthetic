@@ -8,7 +8,7 @@ export const SITE_TITLE =
   "Plastic Surgeon in Visakhapatnam | Dr. Sunita Ghanta";
 export const SITE_DESCRIPTION =
   "Dr. Sunita Ghanta is a board-certified plastic, cosmetic and reconstructive surgeon in Visakhapatnam with 17+ years of experience. Face, body, breast, hair and aesthetic treatments with honest advice and natural-looking results.";
-export const SITE_OG_IMAGE = "/images/about/dr-sunita-ghanta.jpg";
+export const SITE_OG_IMAGE = "/images/dr-sunita/portraits/white-coat-crossed.jpg";
 export const SITE_KEYWORDS = [
   "plastic surgeon in Visakhapatnam",
   "cosmetic surgeon Vizag",

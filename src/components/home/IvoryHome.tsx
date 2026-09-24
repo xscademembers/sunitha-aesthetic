@@ -68,9 +68,14 @@ function IvoryPage() {
               </div>
             </div>
             <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
-              <FillImage src={HOME_IMAGES.hero} alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam" priority className="object-[center_12%]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
+              <FillImage
+                src={HOME_IMAGES.hero}
+                alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
+                priority
+                className="object-[center_12%]"
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 z-[1] grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
                 {HOME_STATS.map((stat, index) => (
                   <div
                     key={stat.label}
@@ -99,7 +104,11 @@ function IvoryPage() {
         <div className="neo overflow-hidden rounded-[24px] sm:rounded-[40px]">
           <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
             <div className="neo-media relative aspect-[4/5] min-h-[360px] overflow-hidden bg-maroon sm:min-h-[440px] lg:aspect-auto lg:min-h-[620px]">
-              <FillImage src={HOME_IMAGES.surgeon} alt="Dr. Sunita Ghanta performing a facial aesthetic treatment in Visakhapatnam" className="object-[center_18%]" />
+              <FillImage
+                src={HOME_IMAGES.surgeonSurgery}
+                alt="Dr. Sunita Ghanta performing surgery in Visakhapatnam"
+                className="object-[center_35%]"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
                 <div className="font-ui text-[10px] uppercase tracking-[0.22em] text-white/75">

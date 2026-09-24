@@ -40,6 +40,7 @@ export function IvoryFooter() {
               {[
                 { label: "Home", href: "/" },
                 { label: "About the clinic", href: "/about" },
+                { label: "Pricing", href: "/pricing" },
                 { label: "Case studies", href: "/case-studies" },
                 { label: "Reviews", href: "/reviews" },
                 { label: "Treatments", href: "/#treatments" },

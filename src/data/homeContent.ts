@@ -1,4 +1,5 @@
 import { SERVICE_CATEGORIES } from "@/data/serviceCatalog";
+import { CATEGORY_IMAGES } from "@/data/serviceImages";
 import { CONTACT } from "@/types/content";
 
 export type TreatmentItem = { name: string; href: string };
@@ -13,67 +14,23 @@ export type TreatmentGroup = {
   items: TreatmentItem[];
 };
 
-const LIBRARY_IMAGES: Record<string, { src: string; alt: string }> = {
-  "face-surgery": {
-    src: "/images/procedures/face-treatment.webp",
-    alt: "Facial surgery consultation",
-  },
-  "breast-surgery": {
-    src: "/images/services/service-breast.webp",
-    alt: "Breast surgery consultation",
-  },
-  "body-contouring-surgery": {
-    src: "/images/home/library-body.webp",
-    alt: "Body contouring consultation",
-  },
-  "mens-cosmetic-surgery": {
-    src: "/images/services/service-gynecomastia.webp",
-    alt: "Men’s cosmetic surgery consultation",
-  },
-  "hair-surgery": {
-    src: "/images/services/service-hair.webp",
-    alt: "Hair surgery consultation",
-  },
-  "reconstructive-surgery": {
-    src: "/images/home/library-reconstructive.webp",
-    alt: "Reconstructive surgery consultation",
-  },
-  injectables: {
-    src: "/images/home/library-injectables.webp",
-    alt: "Injectable aesthetic treatment",
-  },
-  "skin-rejuvenation": {
-    src: "/images/services/service-facial.webp",
-    alt: "Skin rejuvenation treatment",
-  },
-  "laser-treatments": {
-    src: "/images/home/library-laser.webp",
-    alt: "Laser skin treatment",
-  },
-  "hair-treatments": {
-    src: "/images/services/service-hair.webp",
-    alt: "Hair treatment consultation",
-  },
-  "anti-aging-aesthetic": {
-    src: "/images/home/library-antiaging.webp",
-    alt: "Anti-aging aesthetic care",
-  },
-};
-
 function buildGroups(kind: "surgical" | "nonsurgical"): TreatmentGroup[] {
-  return SERVICE_CATEGORIES.filter((category) => category.kind === kind).map((category) => ({
-    id: category.id,
-    name: category.title,
-    href: `#${category.id}`,
-    count: category.items.length,
-    countLabel: `${category.items.length} treatments`,
-    image: LIBRARY_IMAGES[category.id]?.src ?? category.image,
-    imageAlt: LIBRARY_IMAGES[category.id]?.alt ?? category.imageAlt,
-    items: category.items.map((item) => ({
-      name: item.title,
-      href: `/services/${item.slug}`,
-    })),
-  }));
+  return SERVICE_CATEGORIES.filter((category) => category.kind === kind).map((category) => {
+    const theme = CATEGORY_IMAGES[category.id];
+    return {
+      id: category.id,
+      name: category.title,
+      href: `#${category.id}`,
+      count: category.items.length,
+      countLabel: `${category.items.length} treatments`,
+      image: theme?.src ?? category.image,
+      imageAlt: theme?.alt ?? category.imageAlt,
+      items: category.items.map((item) => ({
+        name: item.title,
+        href: `/services/${item.slug}`,
+      })),
+    };
+  });
 }
 
 export const SURGICAL_GROUPS = buildGroups("surgical");
@@ -269,8 +226,14 @@ export const CLINIC_PHOTOS = [
 ] as const;
 
 export const HOME_IMAGES = {
-  hero: "/images/about/dr-sunita-ghanta.jpg",
-  surgeon: "/images/doctor-hero.webp",
+  /** Home page first section — first portrait */
+  hero: "/images/dr-sunita/portraits/white-coat-crossed.jpg",
+  /** About page first section — third portrait */
+  aboutHero: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
+  /** Meet / approach sections */
+  surgeon: "/images/dr-sunita/portraits/white-coat-pockets.jpg",
+  surgeonPortrait: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
+  surgeonSurgery: "/images/dr-sunita/surgery/surgeon-focus.webp",
   outdoor: "/images/clinic/clinic-outdoor.webp",
 } as const;
 
