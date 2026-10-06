@@ -220,6 +220,13 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
         icon: I.chest,
         description: "Replace, reposition or remove implants to correct issues and refine your result.",
       },
+      {
+        slug: "axillary-breast-surgery",
+        title: "Axillary Breast Surgery",
+        icon: I.chest,
+        description:
+          "Remove accessory breast tissue under the arms for a smoother contour and greater comfort.",
+      },
     ],
   },
   {

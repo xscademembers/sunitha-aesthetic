@@ -95,6 +95,8 @@ export const SERVICE_ITEM_IMAGES: Record<string, string> = {
   "breast-lift": ITEM("breast-lift"),
   "breast-reconstruction": ITEM("breast-reconstruction"),
   "breast-implant-revision": ITEM("breast-implant-revision"),
+  "axillary-breast-surgery":
+    "/images/case-studies/bilateral-axillary-breast-removal/hero.jpg",
 
   // Body (video omitted: liposuction, tummy-tuck, mommy-makeover)
   "hd-liposuction": ITEM("hd-liposuction"),

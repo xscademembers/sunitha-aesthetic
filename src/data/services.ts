@@ -377,6 +377,101 @@ const OVERRIDES: Record<string, Omit<Partial<ServiceSeed>, "slug" | "title" | "c
   "breast-reduction": {
     video: "https://video.wixstatic.com/video/2139b1_0addbbe11e294c958d5de74c175e686e/1080p/mp4/file.mp4",
   },
+  "axillary-breast-surgery": {
+    metaDescription:
+      "Axillary breast surgery (accessory breast tissue removal) in Visakhapatnam by Dr. Sunita Ghanta — remove underarm breast tissue for a smoother contour, less heaviness and better clothing comfort. Board-certified plastic surgeon, 17+ years of experience.",
+    heroDescription:
+      "Axillary (accessory) breast tissue creates fullness, heaviness or discomfort in the underarm that diet and exercise rarely fix. Dr. Sunita Ghanta removes the excess tissue — and skin when needed — to restore a smoother chest-to-arm transition with discreetly placed incisions and a clear recovery plan.",
+    facts: [
+      { label: "Procedure Time", value: "1–2 Hrs" },
+      { label: "Anaesthesia", value: "General / Sedation" },
+      { label: "Recovery", value: "1–2 Weeks" },
+      { label: "Final Results", value: "2–3 Months" },
+    ],
+    benefits: [
+      {
+        title: "Smoother Underarm Contour",
+        description:
+          "Accessory tissue and excess skin are removed so the transition from chest to upper arm looks cleaner in fitted and sleeveless clothes.",
+      },
+      {
+        title: "Comfort Day to Day",
+        description:
+          "Reduce heaviness, friction and tenderness that can make arm movement, bras and daily wear uncomfortable.",
+      },
+      {
+        title: "Clear Diagnosis, Tailored Plan",
+        description:
+          "A proper assessment confirms accessory breast tissue and shapes a plan — liposuction, excision, or both — around your anatomy and goals.",
+      },
+    ],
+    whoIsItFor: [
+      "You have persistent fullness or a bulge in one or both underarms",
+      "The area feels heavy, tender or worsens with hormonal changes or pregnancy",
+      "Fitted or sleeveless clothes feel uncomfortable or self-conscious to wear",
+      "Diet and exercise have not flattened the underarm contour",
+      "You are in good general health with realistic expectations",
+    ],
+    steps: [
+      {
+        title: "Consultation & Assessment",
+        description:
+          "A private evaluation of the underarm tissue, skin quality and any related breast concerns, with investigations when needed to confirm the diagnosis.",
+      },
+      {
+        title: "Personalised Plan",
+        description:
+          "A tailored approach — liposuction, direct excision, or both — with incision placement planned for the most discreet result.",
+      },
+      {
+        title: "The Procedure",
+        description:
+          "Performed under anaesthesia in a fully equipped facility, often with same-day or next-day discharge depending on the plan.",
+      },
+      {
+        title: "Recovery & Aftercare",
+        description:
+          "Supportive dressing and clear aftercare guidance; most patients return to light routines within one to two weeks.",
+      },
+      {
+        title: "Enjoy the Results",
+        description:
+          "Swelling settles over the following weeks, revealing a smoother underarm contour by about two to three months.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is axillary breast tissue?",
+        answer:
+          "Axillary or accessory breast tissue is extra breast tissue in the underarm. It can become more noticeable after hormonal changes such as puberty or pregnancy. It is usually benign but may cause fullness, pain, friction or clothing concerns.",
+      },
+      {
+        question: "Is surgery the only option?",
+        answer:
+          "True accessory breast tissue does not reliably disappear with diet or exercise. When fullness is mainly fat, liposuction may help; when glandular tissue or excess skin is present, surgical excision is usually the lasting solution. Dr. Sunita advises the right approach after assessment.",
+      },
+      {
+        question: "Will there be a visible scar?",
+        answer:
+          "Incisions are placed as discreetly as possible in the underarm crease or natural folds. Scar care is part of aftercare so healing stays as inconspicuous as possible. Exact placement is discussed before surgery.",
+      },
+      {
+        question: "Can it be done on one side only?",
+        answer:
+          "Yes. Some patients have accessory tissue on one side; others on both. The plan is tailored to the side or sides that need correction.",
+      },
+      {
+        question: "Can axillary breast surgery be combined with other breast procedures?",
+        answer:
+          "Often yes — for example with breast reduction or lift when underarm tissue is part of a wider contour concern. Suitable combinations are planned for safety and recovery in your consultation.",
+      },
+      {
+        question: "How soon can I return to normal activity?",
+        answer:
+          "Most patients return to desk work within several days to a week and avoid strenuous arm activity for a few weeks. A personalised timeline is given with your aftercare plan.",
+      },
+    ],
+  },
   "gynecomastia-treatment-in-visakhapatnam": {
     youtubeVideoId: "xglfMidbq8I",
     metaDescription:

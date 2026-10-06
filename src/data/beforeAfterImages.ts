@@ -11,6 +11,11 @@ export const BEFORE_AFTER_BY_SLUG: Record<string, string[]> = {
     "/images/before-after/breast-reduction/55.png",
     "/images/before-after/breast-reduction/60.png",
   ],
+  "chin-augmentation": [
+    "/images/before-after/chin-augmentation/63.png",
+    "/images/before-after/chin-augmentation/7.png",
+    "/images/before-after/chin-augmentation/54.png",
+  ],
   "cleft-lip-palate-surgery": [
     "/images/before-after/cleft-lip-palate-surgery/9.png",
     "/images/before-after/cleft-lip-palate-surgery/10.png",
@@ -18,14 +23,14 @@ export const BEFORE_AFTER_BY_SLUG: Record<string, string[]> = {
     "/images/before-after/cleft-lip-palate-surgery/50.png",
   ],
   "co2-laser": ["/images/before-after/co2-laser/14.png"],
-  "double-chin-correction": [
-    "/images/before-after/double-chin-correction/7.png",
-    "/images/before-after/double-chin-correction/54.png",
-  ],
   "eyelid-surgery": ["/images/before-after/eyelid-surgery/46.png"],
   "face-lift": ["/images/before-after/face-lift/13.png"],
+  "facial-fat-grafting": [
+    "/images/before-after/facial-fat-grafting/16.png",
+    "/images/before-after/facial-fat-grafting/20.png",
+    "/images/before-after/facial-fat-grafting/21.png",
+  ],
   "gynecomastia-treatment-in-visakhapatnam": [
-    "/images/before-after/gynecomastia-treatment-in-visakhapatnam/32.png",
     "/images/before-after/gynecomastia-treatment-in-visakhapatnam/35.png",
     "/images/before-after/gynecomastia-treatment-in-visakhapatnam/49.png",
   ],
@@ -41,24 +46,24 @@ export const BEFORE_AFTER_BY_SLUG: Record<string, string[]> = {
     "/images/before-after/lip-surgery/58.png",
     "/images/before-after/lip-surgery/59.png",
   ],
+  "axillary-breast-surgery": [
+    "/images/before-after/axillary-breast-surgery/30.png",
+    "/images/before-after/axillary-breast-surgery/31.png",
+    "/images/before-after/axillary-breast-surgery/57.png",
+  ],
   "liposuction": [
-    "/images/before-after/liposuction/30.png",
-    "/images/before-after/liposuction/31.png",
-    "/images/before-after/liposuction/57.png",
+    "/images/before-after/liposuction/61.png",
   ],
   "male-chest-liposuction": [
+    "/images/before-after/male-chest-liposuction/32.png",
     "/images/before-after/male-chest-liposuction/61.png",
   ],
   "nose-surgery": [
-    "/images/before-after/nose-surgery/16.png",
     "/images/before-after/nose-surgery/19.png",
-    "/images/before-after/nose-surgery/20.png",
-    "/images/before-after/nose-surgery/21.png",
     "/images/before-after/nose-surgery/25.png",
     "/images/before-after/nose-surgery/28.png",
     "/images/before-after/nose-surgery/34.png",
     "/images/before-after/nose-surgery/47.png",
-    "/images/before-after/nose-surgery/63.png",
     "/images/before-after/nose-surgery/64.png",
   ],
   "scar-revision": [

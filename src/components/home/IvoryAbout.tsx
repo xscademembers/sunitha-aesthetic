@@ -29,7 +29,8 @@ const EXPERTISE = [
   {
     number: "03",
     title: "Breast surgery",
-    description: "Breast augmentation, reduction, lift, asymmetry correction and revision surgery.",
+    description:
+      "Breast augmentation, reduction, lift, axillary breast correction, asymmetry and revision surgery.",
     href: "/#breast-surgery",
   },
   {

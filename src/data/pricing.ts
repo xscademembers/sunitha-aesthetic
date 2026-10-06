@@ -68,6 +68,7 @@ const PRICE_BY_SLUG: Record<
   "breast-reduction": { inrMin: 175_000, inrMax: 600_000, unit: "procedure" },
   "breast-reconstruction": { unit: "on consultation", note: "Personalised after clinical assessment" },
   "breast-implant-revision": { inrMin: 175_000, inrMax: 450_000, unit: "procedure" },
+  "axillary-breast-surgery": { inrMin: 50_000, inrMax: 150_000, unit: "procedure" },
 
   // Body contouring
   liposuction: { inrMin: 50_000, inrMax: 400_000, unit: "procedure", note: "Depends on number of areas" },
