@@ -202,6 +202,12 @@ html:has(.home-ivory) {
   transform: scale(1.045);
 }
 
+/* Keep hero sharp — no hover zoom (scale softens the photo) */
+.neo-media.hero-photo img,
+.neo-media.hero-photo:hover img {
+  transform: none;
+}
+
 .home-nav-link {
   border-radius: 999px;
   transition: color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;

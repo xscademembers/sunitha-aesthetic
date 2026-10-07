@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   // Standalone + Vercel's adapter breaks on Next 16.3 (missing next-server.js.nft.json).
   // Keep standalone for self-hosted/Docker builds; disable it on Vercel.
   output: process.env.VERCEL ? undefined : "standalone",
+  images: {
+    formats: ["image/webp"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+  },
   async redirects() {
     return [
       {

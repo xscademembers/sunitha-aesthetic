@@ -67,14 +67,17 @@ function IvoryPage() {
                 </a>
               </div>
             </div>
-            <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
+            <div className="neo neo-media hero-photo relative isolate overflow-hidden rounded-[22px] bg-maroon aspect-[7/5] min-h-[280px] sm:min-h-[340px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[420px]">
               <FillImage
                 src={HOME_IMAGES.hero}
                 alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
                 priority
-                className="object-[center_12%]"
+                quality={100}
+                unoptimized
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover object-center"
               />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 z-[1] grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
                 {HOME_STATS.map((stat, index) => (
                   <div
