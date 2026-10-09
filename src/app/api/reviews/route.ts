@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
-import { getGoogleReviews, REVIEWS_REVALIDATE } from "@/lib/reviews.server";
+import { getGoogleReviews } from "@/lib/reviews.server";
 
-export const revalidate = REVIEWS_REVALIDATE;
+export const revalidate = 3600;
 
 export async function GET() {
   try {
