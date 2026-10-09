@@ -2,16 +2,25 @@
 
 import Link from "next/link";
 import {
-  ALL_REVIEWS,
   GOOGLE_REVIEWS_HREF,
   HOME_VIDEOS,
-  REVIEW_COUNT_LABEL,
   VIDEO_PLAYLIST_URL,
 } from "@/data/homeContent";
+import {
+  averageRatingLabel,
+  formatReviewDate,
+  ratingStars,
+  reviewCountLabel,
+  type ReviewsPayload,
+} from "@/lib/reviews";
 import { FillImage } from "./FillImage";
 import { IvoryCta, IvoryShell } from "./IvoryShell";
 
-export function IvoryReviews() {
+export function IvoryReviews({ googleReviews }: { googleReviews: ReviewsPayload }) {
+  const ratingDisplay = averageRatingLabel(googleReviews.averageRating);
+  const countDisplay = reviewCountLabel(googleReviews.totalCount);
+  const googleHref = googleReviews.writeReviewUrl || GOOGLE_REVIEWS_HREF;
+
   return (
     <IvoryShell>
       <main id="main-content">
@@ -20,15 +29,15 @@ export function IvoryReviews() {
             <div className="neo rounded-[24px] p-5 sm:rounded-[44px] sm:p-8 lg:p-[52px]">
               <div className="flex flex-col items-start justify-between gap-5 border-b border-black/10 pb-6 sm:flex-row sm:flex-wrap sm:items-end sm:gap-6 sm:pb-[30px]">
                 <div>
-                  <div className="home-kicker mb-4 font-ui">Patient reviews</div>
+                  <div className="home-kicker mb-4 font-ui">Google reviews</div>
                   <div className="flex items-end gap-5 sm:gap-[22px]">
                     <div className="home-display text-[clamp(44px,8vw,72px)] font-extralight leading-none text-maroon">
-                      5.0
+                      {ratingDisplay}
                     </div>
                     <div className="pb-1 sm:pb-2">
                       <div className="font-ui text-[15px] tracking-[0.3em] text-maroon">★★★★★</div>
                       <div className="mt-3 font-ui text-[11px] uppercase tracking-[0.18em] text-black">
-                        {REVIEW_COUNT_LABEL}
+                        {countDisplay}
                       </div>
                     </div>
                   </div>
@@ -37,7 +46,7 @@ export function IvoryReviews() {
                   </h1>
                 </div>
                 <a
-                  href={GOOGLE_REVIEWS_HREF}
+                  href={googleHref}
                   target="_blank"
                   rel="noreferrer"
                   className="neo-btn sm:!w-auto"
@@ -47,14 +56,16 @@ export function IvoryReviews() {
               </div>
 
               <div className="mt-7 grid grid-cols-1 gap-4 sm:mt-[30px] sm:grid-cols-2 lg:grid-cols-3">
-                {ALL_REVIEWS.map((review) => (
-                  <div key={`${review.name}-${review.tag}`} className="neo-inset rounded-[22px] p-5 sm:rounded-[26px] sm:p-[26px]">
-                    <div className="mb-4 font-ui text-[12px] tracking-[0.24em] text-maroon">★★★★★</div>
+                {googleReviews.reviews.map((review) => (
+                  <div key={review.id} className="neo-inset rounded-[22px] p-5 sm:rounded-[26px] sm:p-[26px]">
+                    <div className="mb-4 font-ui text-[12px] tracking-[0.24em] text-maroon">
+                      {ratingStars(review.rating)}
+                    </div>
                     <p className="home-display mb-5 text-[15px] font-light leading-[1.62] text-pretty text-black">
-                      {review.text}
+                      {review.comment}
                     </p>
                     <div className="font-ui text-[11px] uppercase tracking-[0.18em] text-black">
-                      {review.name} · {review.tag}
+                      {review.reviewer} · {formatReviewDate(review.createTime)}
                     </div>
                   </div>
                 ))}
@@ -67,7 +78,7 @@ export function IvoryReviews() {
           <div className="home-wrap">
             <div className="home-on-maroon mb-8 flex flex-col gap-4 sm:mb-10 sm:flex-row sm:flex-wrap sm:items-end sm:justify-between">
               <div>
-                <div className="home-kicker mb-3 font-ui sm:mb-4">Patient stories</div>
+                <div className="home-kicker mb-3 font-ui sm:mb-4">Patient videos</div>
                 <h2 className="home-display m-0 text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em]">
                   Hear the journey in their own words.
                 </h2>
@@ -78,7 +89,7 @@ export function IvoryReviews() {
                 rel="noreferrer"
                 className="home-text-link self-start font-ui text-[12px] uppercase tracking-[0.12em]"
               >
-                All stories
+                All videos
               </a>
             </div>
 

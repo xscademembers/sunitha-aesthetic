@@ -281,7 +281,7 @@ export function BeforeAfterGallery({ service }: { service: ServiceData }) {
   );
 }
 
-/* ---------- Patient Stories ---------- */
+/* ---------- Google Reviews (legacy layout; IvoryService is the live path) ---------- */
 
 export function PatientStories({ service }: { service: ServiceData }) {
   return (
@@ -290,7 +290,7 @@ export function PatientStories({ service }: { service: ServiceData }) {
         In their own words
       </p>
       <h2 className="mt-1 text-center font-serif text-[28px] leading-[1.4] text-black lg:text-[32px] lg:leading-[44.8px]">
-        Patient Stories
+        Google Reviews
       </h2>
       <div className="mx-auto mt-12 grid max-w-[1200px] gap-6 lg:grid-cols-3">
         {service.stories.map((s) => (

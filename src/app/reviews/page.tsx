@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { IvoryReviews } from "@/components/home/IvoryReviews";
 import { JsonLd } from "@/components/JsonLd";
+import { getGoogleReviews } from "@/lib/reviews.server";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Patient Reviews | Dr Sunita Aesthetics Visakhapatnam",
+  title: "Google Reviews | Dr Sunita Aesthetics Visakhapatnam",
   description:
-    "Read patient reviews and stories from Dr. Sunita Aesthetics in Visakhapatnam. 5.0 Google rating from 240+ reviews of honest, unhurried plastic surgery care.",
+    "Read Google reviews from Dr. Sunita Aesthetics in Visakhapatnam. Real patient feedback on honest, unhurried plastic surgery care.",
   path: "/reviews",
   keywords: [
     "Dr Sunita Ghanta reviews",
@@ -16,7 +17,9 @@ export const metadata: Metadata = pageMetadata({
   ],
 });
 
-export default function ReviewsPage() {
+export default async function ReviewsPage() {
+  const googleReviews = await getGoogleReviews(50);
+
   return (
     <>
       <JsonLd
@@ -25,7 +28,7 @@ export default function ReviewsPage() {
           { name: "Reviews", path: "/reviews" },
         ])}
       />
-      <IvoryReviews />
+      <IvoryReviews googleReviews={googleReviews} />
     </>
   );
 }

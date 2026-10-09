@@ -9,20 +9,37 @@ import {
 } from "@/data/homeContent";
 import { getCatalogItem } from "@/data/serviceCatalog";
 import type { BeforeAfterCase, ServiceData } from "@/data/services";
+import {
+  formatReviewDate,
+  ratingStars,
+  type ReviewsPayload,
+} from "@/lib/reviews";
 import { FillImage } from "./FillImage";
 import { FaqAccordion } from "./FaqAccordion";
 import { useBook } from "./BookProvider";
 import { IvoryCta, IvoryDisclaimer, IvoryShell } from "./IvoryShell";
 
-export function IvoryService({ service }: { service: ServiceData }) {
+export function IvoryService({
+  service,
+  googleReviews,
+}: {
+  service: ServiceData;
+  googleReviews: ReviewsPayload;
+}) {
   return (
     <IvoryShell>
-      <ServiceInner service={service} />
+      <ServiceInner service={service} googleReviews={googleReviews} />
     </IvoryShell>
   );
 }
 
-function ServiceInner({ service }: { service: ServiceData }) {
+function ServiceInner({
+  service,
+  googleReviews,
+}: {
+  service: ServiceData;
+  googleReviews: ReviewsPayload;
+}) {
   const { openBook } = useBook();
   const catalog = getCatalogItem(service.slug);
   const hasVideo = Boolean(service.youtubeVideoId) || !service.videoSrc.includes("BigBuckBunny");
@@ -33,6 +50,7 @@ function ServiceInner({ service }: { service: ServiceData }) {
     : (catalog?.image ?? service.videoPoster ?? HOME_IMAGES.surgeonPortrait);
   const related = catalog?.category.items.filter((item) => item.slug !== service.slug) ?? [];
   const hasPhotos = service.beforeAfter.some((item) => item.image || item.before || item.after);
+  const stories = googleReviews.reviews.slice(0, 3);
 
   return (
     <main id="main-content">
@@ -247,7 +265,7 @@ function ServiceInner({ service }: { service: ServiceData }) {
               <div>
                 <div className="home-kicker mb-4 font-ui">In their own words</div>
                 <h2 className="home-display m-0 max-w-[520px] text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em] text-black">
-                  Patient stories.
+                  Google reviews.
                 </h2>
               </div>
               <Link href="/reviews" className="neo-btn sm:!w-auto">
@@ -255,14 +273,16 @@ function ServiceInner({ service }: { service: ServiceData }) {
               </Link>
             </div>
             <div className="mt-7 grid grid-cols-1 gap-4 sm:mt-[30px] sm:grid-cols-2 lg:grid-cols-3">
-              {service.stories.map((story) => (
-                <article key={`${story.name}-${story.city}`} className="neo-inset rounded-[22px] p-5 sm:rounded-[26px] sm:p-[26px]">
-                  <div className="mb-4 font-ui text-[12px] tracking-[0.24em] text-maroon">★★★★★</div>
-                  <p className="home-display mb-5 text-[15px] font-light leading-[1.62] text-pretty text-black">
-                    {story.quote}
+              {stories.map((review) => (
+                <article key={review.id} className="neo-inset rounded-[22px] p-5 sm:rounded-[26px] sm:p-[26px]">
+                  <div className="mb-4 font-ui text-[12px] tracking-[0.24em] text-maroon">
+                    {ratingStars(review.rating)}
+                  </div>
+                  <p className="home-display mb-5 line-clamp-6 text-[15px] font-light leading-[1.62] text-pretty text-black">
+                    {review.comment}
                   </p>
                   <div className="font-ui text-[11px] uppercase tracking-[0.18em] text-black">
-                    {story.name} · {story.city}
+                    {review.reviewer} · {formatReviewDate(review.createTime)}
                   </div>
                 </article>
               ))}

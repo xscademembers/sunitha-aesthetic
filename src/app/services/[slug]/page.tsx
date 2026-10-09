@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { IvoryService } from "@/components/home/IvoryService";
 import { JsonLd } from "@/components/JsonLd";
 import { SERVICES } from "@/data/services";
+import { getGoogleReviews } from "@/lib/reviews.server";
 import { absUrl, breadcrumbJsonLd, pageMetadata, SITE_NAME } from "@/lib/seo";
 
 interface Props {
@@ -59,6 +60,8 @@ export default async function ServicePage({ params }: Props) {
     },
   };
 
+  const googleReviews = await getGoogleReviews(6);
+
   return (
     <>
       <JsonLd data={faqJsonLd} />
@@ -69,7 +72,7 @@ export default async function ServicePage({ params }: Props) {
           { name: service.title, path: `/services/${service.slug}` },
         ])}
       />
-      <IvoryService service={service} />
+      <IvoryService service={service} googleReviews={googleReviews} />
     </>
   );
 }

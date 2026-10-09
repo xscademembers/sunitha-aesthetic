@@ -81,9 +81,9 @@ export const HOME_COPY = {
   treatmentsTitle: "Find the treatment that fits you.",
   treatmentsBody:
     "Surgical and non-surgical options, explained in plain language — who it suits, what recovery looks like, and what it cannot do.",
-  storiesKicker: "Patient stories",
+  storiesKicker: "Patient videos",
   storiesTitle: "Real people. Real journeys.",
-  allStories: "All stories",
+  allStories: "All videos",
   fullPlaylist: "Full playlist",
   faqKicker: "Before you begin",
   faqTitle: "Clear answers, before you book.",
@@ -248,6 +248,6 @@ export const HOME_CONTACT = {
 } as const;
 
 export const BOOK_LABEL = "Book a Consultation";
-export const REVIEW_COUNT_LABEL = "240+ Google reviews";
+export const REVIEW_COUNT_LABEL = "464+ Google reviews";
 export const GOOGLE_REVIEWS_HREF =
   "https://www.google.com/maps/search/?api=1&query=Dr%20Sunita%20Aesthetics%20Seethammadara%20Visakhapatnam";

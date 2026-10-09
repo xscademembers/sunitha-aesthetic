@@ -7,13 +7,18 @@ import {
   HOME_CONTACT,
   HOME_COPY,
   HOME_IMAGES,
-  HOME_REVIEWS,
   HOME_STATS,
   HOME_VIDEOS,
-  REVIEW_COUNT_LABEL,
   SURGEON_CREDENTIALS,
   VIDEO_PLAYLIST_URL,
 } from "@/data/homeContent";
+import {
+  averageRatingLabel,
+  formatReviewDate,
+  ratingStars,
+  reviewCountLabel,
+  type ReviewsPayload,
+} from "@/lib/reviews";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
 import { FaqAccordion } from "./FaqAccordion";
@@ -23,19 +28,22 @@ import { IvoryFooter } from "./IvoryFooter";
 import { TreatmentLibrary } from "./TreatmentLibrary";
 import "./home.css";
 
-export function IvoryHome() {
+export function IvoryHome({ googleReviews }: { googleReviews: ReviewsPayload }) {
   return (
     <BookProvider>
       <div className="home-ivory font-ui min-h-full">
-        <IvoryPage />
+        <IvoryPage googleReviews={googleReviews} />
         <BookModal />
       </div>
     </BookProvider>
   );
 }
 
-function IvoryPage() {
+function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
   const { openBook } = useBook();
+  const homeReviews = googleReviews.reviews.slice(0, 4);
+  const ratingDisplay = averageRatingLabel(googleReviews.averageRating);
+  const countDisplay = reviewCountLabel(googleReviews.totalCount);
 
   return (
     <>
@@ -292,12 +300,17 @@ function IvoryPage() {
         <div className="home-wrap">
         <div className="neo rounded-[24px] p-5 sm:rounded-[44px] sm:p-8 lg:p-[52px]">
           <div className="flex flex-col items-start justify-between gap-5 border-b border-black/10 pb-6 sm:flex-row sm:flex-wrap sm:items-end sm:gap-6 sm:pb-[30px]">
-            <div className="flex items-end gap-5 sm:gap-[22px]">
-              <div className="home-display text-[clamp(44px,8vw,72px)] font-extralight leading-none text-maroon">5.0</div>
-              <div className="pb-1 sm:pb-2">
-                <div className="font-ui text-[15px] tracking-[0.3em] text-maroon">★★★★★</div>
-                <div className="mt-3 font-ui text-[11px] uppercase tracking-[0.18em] text-black">
-                  {REVIEW_COUNT_LABEL}
+            <div>
+              <div className="home-kicker mb-4 font-ui">Google reviews</div>
+              <div className="flex items-end gap-5 sm:gap-[22px]">
+                <div className="home-display text-[clamp(44px,8vw,72px)] font-extralight leading-none text-maroon">
+                  {ratingDisplay}
+                </div>
+                <div className="pb-1 sm:pb-2">
+                  <div className="font-ui text-[15px] tracking-[0.3em] text-maroon">★★★★★</div>
+                  <div className="mt-3 font-ui text-[11px] uppercase tracking-[0.18em] text-black">
+                    {countDisplay}
+                  </div>
                 </div>
               </div>
             </div>
@@ -306,14 +319,16 @@ function IvoryPage() {
             </Link>
           </div>
           <div className="mt-7 grid grid-cols-1 gap-4 sm:mt-[30px] sm:grid-cols-2 lg:grid-cols-4">
-            {HOME_REVIEWS.map((review) => (
-              <div key={review.name} className="neo-inset rounded-[22px] p-5 sm:rounded-[26px] sm:p-[26px]">
-                <div className="mb-4 font-ui text-[12px] tracking-[0.24em] text-maroon">★★★★★</div>
-                <p className="home-display mb-5 text-[15px] font-light leading-[1.62] text-pretty text-black">
-                  {review.text}
+            {homeReviews.map((review) => (
+              <div key={review.id} className="neo-inset rounded-[22px] p-5 sm:rounded-[26px] sm:p-[26px]">
+                <div className="mb-4 font-ui text-[12px] tracking-[0.24em] text-maroon">
+                  {ratingStars(review.rating)}
+                </div>
+                <p className="home-display mb-5 line-clamp-6 text-[15px] font-light leading-[1.62] text-pretty text-black">
+                  {review.comment}
                 </p>
                 <div className="font-ui text-[11px] uppercase tracking-[0.18em] text-black">
-                  {review.name} · {review.tag}
+                  {review.reviewer} · {formatReviewDate(review.createTime)}
                 </div>
               </div>
             ))}

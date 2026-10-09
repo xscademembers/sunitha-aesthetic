@@ -15,7 +15,7 @@ const LINK_GROUPS: FooterLinkGroup[] = [
       { label: "Careers", href: "#" },
       { label: "Clinic Gallery", href: "#" },
       { label: "Contact us", href: "/contact" },
-      { label: "Written Testimonials", href: "/reviews" },
+      { label: "Google Reviews", href: "/reviews" },
     ],
   },
   {
