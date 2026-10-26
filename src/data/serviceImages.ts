@@ -100,10 +100,8 @@ export const SERVICE_ITEM_IMAGES: Record<string, string> = {
   // Body (video omitted: liposuction, tummy-tuck, mommy-makeover)
   "hd-liposuction": ITEM("hd-liposuction"),
   "mini-tummy-tuck": ITEM("mini-tummy-tuck"),
-  "body-contouring": ITEM("body-contouring"),
   "lower-body-sculpting": ITEM("lower-body-sculpting"),
   "upper-body-reduction": ITEM("upper-body-reduction"),
-  "upper-body-augmentation": ITEM("upper-body-augmentation"),
   "arm-lift": ITEM("arm-lift"),
   "thigh-lift": ITEM("thigh-lift"),
   "buttock-lift": ITEM("buttock-lift"),

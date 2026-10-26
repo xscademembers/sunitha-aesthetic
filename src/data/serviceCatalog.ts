@@ -273,12 +273,6 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
         description: "Restore pre-pregnancy contours with a personalised combination of procedures.",
       },
       {
-        slug: "body-contouring",
-        title: "Body Contouring",
-        icon: I.lower,
-        description: "Reshape multiple areas in a tailored plan for smoother, more balanced proportions.",
-      },
-      {
         slug: "lower-body-sculpting",
         title: "Lower Body Sculpting",
         icon: I.lower,
@@ -289,12 +283,6 @@ export const SERVICE_CATEGORIES: CatalogCategory[] = [
         title: "Upper Body Reduction",
         icon: I.lipo,
         description: "Reduce excess fat and tissue in the upper body for a slimmer, more balanced frame.",
-      },
-      {
-        slug: "upper-body-augmentation",
-        title: "Upper Body Augmentation",
-        icon: I.chest,
-        description: "Enhance upper-body shape and volume where more definition or fullness is desired.",
       },
       {
         slug: "arm-lift",
