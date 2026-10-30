@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ALL_TREATMENT_GROUPS } from "@/data/homeContent";
 import { cn } from "@/lib/utils";
 
@@ -13,12 +14,47 @@ export function BookForm({
   onSuccess?: () => void;
   variant?: "page" | "modal";
 }) {
+  const pathname = usePathname();
   const [sent, setSent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onSuccess?.();
-    if (!onSuccess) setSent(true);
+    setError("");
+    setSubmitting(true);
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: variant === "modal" ? "book_modal" : "contact",
+          page: pathname || "/contact",
+          name: data.get("name"),
+          phone: data.get("phone"),
+          email: data.get("email"),
+          date: data.get("date"),
+          treatment: data.get("treatment"),
+          notes: data.get("notes"),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save");
+      }
+
+      onSuccess?.();
+      if (!onSuccess) setSent(true);
+      form.reset();
+    } catch {
+      setError("Something went wrong. Please try again or call the clinic.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (sent) {
@@ -75,8 +111,11 @@ export function BookForm({
         placeholder="Anything you would like Dr. Sunita to know (optional)"
         className={cn(fieldClass, "mt-3 resize-none rounded-[26px] px-[22px] py-[18px]")}
       />
-      <button type="submit" className="neo-btn mt-[18px]">
-        Request appointment
+      {error ? (
+        <p className="mt-3 mb-0 text-center font-ui text-[12px] text-maroon">{error}</p>
+      ) : null}
+      <button type="submit" disabled={submitting} className="neo-btn mt-[18px] disabled:opacity-60">
+        {submitting ? "Sending…" : "Request appointment"}
       </button>
       <p className="mt-4 mb-0 text-center font-ui text-[11px] leading-[1.6] tracking-[0.04em] text-black">
         Your details are used only to arrange this appointment.

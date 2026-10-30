@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDownIcon } from "@/components/icons";
 import { TREATMENT_OPTIONS } from "@/types/content";
 
@@ -12,11 +13,45 @@ const LABEL_CLASSES = "mb-1.5 block font-sans text-[14px] text-black";
 const COUNTRY_CODES = ["+91", "+1", "+44", "+971"];
 
 export function AppointmentForm({ idPrefix = "appt" }: { idPrefix?: string }) {
+  const pathname = usePathname();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError("");
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          formType: "appointment_popup",
+          page: pathname || "/",
+          firstName: data.get("firstName"),
+          lastName: data.get("lastName"),
+          countryCode: data.get("countryCode"),
+          phone: data.get("phone"),
+          treatment: data.get("treatment"),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to save");
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch {
+      setError("Something went wrong. Please try again or call the clinic.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -56,6 +91,7 @@ export function AppointmentForm({ idPrefix = "appt" }: { idPrefix?: string }) {
         <div className="flex gap-2">
           <div className="relative w-[88px] shrink-0">
             <select
+              name="countryCode"
               aria-label="Select a country code"
               defaultValue="+91"
               className={`${FIELD_CLASSES} appearance-none pr-7`}
@@ -93,11 +129,15 @@ export function AppointmentForm({ idPrefix = "appt" }: { idPrefix?: string }) {
           <ChevronDownIcon className="pointer-events-none absolute right-4 top-1/2 size-3 -translate-y-1/2 text-black" />
         </div>
       </div>
+      {error ? (
+        <p className="mt-3 mb-0 text-center font-sans text-[13px] text-maroon">{error}</p>
+      ) : null}
       <button
         type="submit"
-        className="mt-6 h-[46px] w-full rounded-[14px] bg-maroon font-sans text-[16px] font-bold text-white shadow-[0_14px_28px_-12px_rgba(161,83,78,0.5)] transition-all hover:-translate-y-0.5 hover:bg-maroon-btn active:translate-y-0"
+        disabled={submitting}
+        className="mt-6 h-[46px] w-full rounded-[14px] bg-maroon font-sans text-[16px] font-bold text-white shadow-[0_14px_28px_-12px_rgba(161,83,78,0.5)] transition-all hover:-translate-y-0.5 hover:bg-maroon-btn active:translate-y-0 disabled:opacity-60"
       >
-        Submit
+        {submitting ? "Sending…" : "Submit"}
       </button>
     </form>
   );
