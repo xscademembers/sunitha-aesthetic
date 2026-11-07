@@ -127,7 +127,7 @@ function AboutInner() {
                   src={HOME_IMAGES.aboutHero}
                   alt="Dr. Sunita Ghanta, plastic and aesthetic surgeon"
                   priority
-                  className="object-[center_12%]"
+                  className="object-[center_70%]"
                 />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 z-[1] grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
@@ -162,7 +162,8 @@ function AboutInner() {
                 <FillImage
                   src={HOME_IMAGES.surgeon}
                   alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
-                  className="object-[center_12%]"
+                  className="object-[center_30%]"
+                  style={{ objectPosition: "center 30%" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">

@@ -228,10 +228,10 @@ export const CLINIC_PHOTOS = [
 export const HOME_IMAGES = {
   /** Home page first section — saree portrait (as provided) */
   hero: "/images/dr-sunita/portraits/saree-clinic-hero.jpg",
-  /** About page first section — third portrait */
-  aboutHero: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
-  /** Meet / approach sections */
-  surgeon: "/images/dr-sunita/portraits/white-coat-pockets.jpg",
+  /** About page first section */
+  aboutHero: "/images/dr-sunita/portraits/about-section-1.jpg",
+  /** About page approach / meet section */
+  surgeon: "/images/dr-sunita/portraits/about-section-2.jpg",
   surgeonPortrait: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
   surgeonSurgery: "/images/dr-sunita/surgery/surgeon-focus.webp",
   outdoor: "/images/clinic/clinic-outdoor.webp",
