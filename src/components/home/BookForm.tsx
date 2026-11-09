@@ -5,7 +5,8 @@ import { usePathname } from "next/navigation";
 import { ALL_TREATMENT_GROUPS } from "@/data/homeContent";
 import { cn } from "@/lib/utils";
 
-const fieldClass = "neo-inset w-full rounded-full px-5 py-[15px] font-ui text-[14px] text-black outline-none";
+const fieldClass =
+  "neo-inset w-full min-w-0 rounded-full px-5 py-[15px] font-ui text-[16px] text-black outline-none sm:text-[15px]";
 
 export function BookForm({
   onSuccess,
@@ -18,6 +19,7 @@ export function BookForm({
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const today = new Date().toISOString().slice(0, 10);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -90,21 +92,45 @@ export function BookForm({
         Share a few details and the clinic will confirm a time that suits you.
       </p>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        <input name="name" placeholder="Full name" required className={fieldClass} />
-        <input name="phone" type="tel" placeholder="Phone number" required className={fieldClass} />
-        <input name="email" type="email" placeholder="Email address" required className={fieldClass} />
-        <input name="date" type="date" required className={fieldClass} />
+        <input name="name" placeholder="Full name" required autoComplete="name" className={fieldClass} />
+        <input
+          name="phone"
+          type="tel"
+          placeholder="Phone number"
+          required
+          autoComplete="tel"
+          className={fieldClass}
+        />
+        <input
+          name="email"
+          type="email"
+          placeholder="Email address"
+          required
+          autoComplete="email"
+          className={fieldClass}
+        />
+        <label className="relative block min-w-0">
+          <span className="sr-only">Preferred date</span>
+          <input name="date" type="date" required min={today} className={fieldClass} />
+        </label>
       </div>
-      <select name="treatment" required defaultValue="" className={cn(fieldClass, "mt-3 appearance-none")}>
-        <option value="" disabled>
-          Interested in — select a category
-        </option>
-        {ALL_TREATMENT_GROUPS.map((group) => (
-          <option key={group.id} value={group.name}>
-            {group.name}
+      <label className="relative mt-3 block">
+        <span className="sr-only">Interested treatment</span>
+        <select name="treatment" required defaultValue="" className={cn(fieldClass, "appearance-none pr-12")}>
+          <option value="" disabled>
+            Interested in — select a category
           </option>
-        ))}
-      </select>
+          {ALL_TREATMENT_GROUPS.map((group) => (
+            <option key={group.id} value={group.name}>
+              {group.name}
+            </option>
+          ))}
+        </select>
+        <span
+          aria-hidden
+          className="pointer-events-none absolute top-1/2 right-5 -translate-y-1/2 border-x-[5px] border-t-[6px] border-x-transparent border-t-maroon"
+        />
+      </label>
       <textarea
         name="notes"
         rows={3}

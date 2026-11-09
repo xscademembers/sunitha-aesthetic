@@ -56,8 +56,8 @@ export function HomeNav() {
         Skip to content
       </a>
       <div className="home-wrap">
-        <div className="neo flex items-center gap-3 rounded-full py-2 pr-2 pl-4 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
-          <BrandLogo />
+        <div className="neo flex items-center gap-2 rounded-full py-2 pr-2 pl-3 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
+          <BrandLogo className="h-[40px] w-[118px] sm:h-[50px] sm:w-[152px]" />
 
           <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex" aria-label="Main">
             {NAV_LINKS.map((link) =>
@@ -82,15 +82,19 @@ export function HomeNav() {
             )}
           </nav>
 
-          <div className="ml-auto flex shrink-0 items-center gap-2">
-            <button type="button" onClick={openBook} className="neo-btn !w-auto px-4 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-[12px]">
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <button
+              type="button"
+              onClick={openBook}
+              className="neo-btn !w-auto min-h-11 px-3.5 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-[12px]"
+            >
               Book
             </button>
             <button
               type="button"
               aria-label="Open menu"
               onClick={() => setMobileOpen(true)}
-              className="neo flex size-9 items-center justify-center rounded-full text-maroon sm:size-10 lg:hidden"
+              className="neo flex size-11 items-center justify-center rounded-full text-maroon lg:hidden"
             >
               <span className="sr-only">Menu</span>
               <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -102,16 +106,16 @@ export function HomeNav() {
       </div>
 
       {mobileOpen && (
-        <div className="fixed inset-0 z-[70] lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div className="fixed inset-0 z-[70] overscroll-contain lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
           <button type="button" className="absolute inset-0 bg-black/30" aria-label="Close menu" onClick={closeMobile} />
-          <div className="neo absolute top-4 right-4 left-4 max-h-[min(88dvh,720px)] overflow-y-auto rounded-[28px] p-6">
+          <div className="neo absolute top-4 right-4 left-4 max-h-[min(88dvh,720px)] overflow-y-auto overscroll-contain rounded-[28px] p-4 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
               <span className="home-display text-[22px] text-maroon">Menu</span>
               <button
                 type="button"
                 aria-label="Close menu"
                 onClick={closeMobile}
-                className="neo flex size-9 items-center justify-center rounded-full text-maroon"
+                className="neo flex size-11 items-center justify-center rounded-full text-maroon"
               >
                 ×
               </button>

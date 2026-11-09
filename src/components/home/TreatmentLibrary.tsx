@@ -50,11 +50,11 @@ function LibraryBlock({
 }) {
   return (
     <>
-      <div className="mb-4 flex items-center justify-between gap-4 rounded-[22px] bg-maroon px-5 py-4 text-white sm:mb-5 sm:rounded-full sm:px-7">
-        <h3 className="home-display m-0 text-[clamp(22px,4vw,32px)] font-light leading-none tracking-[-0.02em]">
+      <div className="mb-4 flex flex-col items-start gap-1.5 rounded-[22px] bg-maroon px-5 py-4 text-white sm:mb-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:rounded-full sm:px-7">
+        <h3 className="home-display m-0 text-[clamp(22px,4vw,32px)] font-light leading-[1.1] tracking-[-0.02em]">
           {title}
         </h3>
-        <span className="shrink-0 font-ui text-[10px] uppercase tracking-[0.16em] text-white/80 sm:tracking-[0.2em]">
+        <span className="shrink-0 font-ui text-[11px] uppercase tracking-[0.14em] text-white/80 sm:tracking-[0.2em]">
           {count} treatments
         </span>
       </div>
@@ -71,7 +71,7 @@ function ServiceCard({ group }: { group: TreatmentGroup }) {
   return (
     <article id={group.id} className="neo overflow-hidden rounded-[24px] sm:rounded-[36px]">
       <div className="grid md:grid-cols-[minmax(240px,0.88fr)_minmax(0,1.12fr)] md:items-stretch">
-        <div className="neo-media relative aspect-[5/4] min-h-[220px] overflow-hidden bg-maroon sm:aspect-[4/5] sm:min-h-[280px] md:aspect-auto md:h-full md:min-h-[320px]">
+        <div className="neo-media relative aspect-[5/4] max-h-[420px] min-h-[200px] overflow-hidden bg-maroon sm:aspect-[16/10] sm:min-h-[240px] md:aspect-auto md:max-h-none md:h-full md:min-h-[320px]">
           <FillImage src={group.image} alt={group.imageAlt} className="object-[center_18%]" />
         </div>
 

@@ -65,7 +65,7 @@ export const HOME_COPY = {
   browseLibrary: "Browse treatments",
   surgeonKicker: "Meet the surgeon",
   surgeonName: "Dr. Sunita Ghanta",
-  surgeonTitle: "The surgeon patients trust with their face.",
+  surgeonTitle: "Careful surgery. Clear advice. Results that still look like you.",
   surgeonBody:
     "Board-certified plastic surgeon in Visakhapatnam for face, body, breast, hair and non-surgical aesthetics. You get a clear plan, realistic outcomes, and a clinic that never rushes you into a decision.",
   surgeonQuote: "Every transformation begins with understanding.",
@@ -234,8 +234,28 @@ export const HOME_IMAGES = {
   surgeon: "/images/dr-sunita/portraits/about-section-2.jpg",
   surgeonPortrait: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
   surgeonSurgery: "/images/dr-sunita/surgery/surgeon-focus.webp",
+  surgeonScrubsMaroon: "/images/dr-sunita/portraits/scrubs-maroon-portrait.jpg",
   outdoor: "/images/clinic/clinic-outdoor.webp",
 } as const;
+
+/** Shared second-section photo carousel (home + about) */
+export const SURGEON_SECTION_PHOTOS = [
+  {
+    src: HOME_IMAGES.surgeonSurgery,
+    alt: "Dr. Sunita Ghanta performing surgery in Visakhapatnam",
+    objectPosition: "center 35%",
+  },
+  {
+    src: HOME_IMAGES.surgeon,
+    alt: "Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam",
+    objectPosition: "center 30%",
+  },
+  {
+    src: HOME_IMAGES.surgeonScrubsMaroon,
+    alt: "Dr. Sunita Ghanta in clinic, plastic and aesthetic surgeon",
+    objectPosition: "center bottom",
+  },
+] as const;
 
 export const MAP_EMBED_SRC =
   "https://maps.google.com/maps?q=Dr%20Sunita%20Aesthetics%2C%20Seethammadara%2C%20Visakhapatnam&z=15&output=embed";

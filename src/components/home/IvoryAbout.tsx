@@ -6,11 +6,12 @@ import {
   CLINIC_PHOTOS,
   HOME_COPY,
   HOME_IMAGES,
-  HOME_STATS,
   SURGEON_CREDENTIALS,
 } from "@/data/homeContent";
 import { FillImage } from "./FillImage";
+import { HeroPhotoStats } from "./HeroPhotoStats";
 import { IvoryCta, IvoryShell } from "./IvoryShell";
+import { SurgeonPhotoCarousel } from "./SurgeonPhotoCarousel";
 import { useBook } from "./BookProvider";
 
 const EXPERTISE = [
@@ -100,7 +101,7 @@ function AboutInner() {
             <div className="grid items-stretch gap-5 lg:grid-cols-2 lg:gap-10">
               <div className="flex flex-col justify-center">
                 <div className="home-kicker mb-4 font-ui sm:mb-5">About Dr. Sunita Aesthetics</div>
-                <h1 className="home-display mb-4 text-[clamp(36px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
+                <h1 className="home-display mb-4 break-words text-[clamp(32px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
                   Precision in practice.
                   <br />
                   <em className="font-light italic text-maroon">Compassion in every conversation.</em>
@@ -122,33 +123,13 @@ function AboutInner() {
                   </a>
                 </div>
               </div>
-              <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
-                <FillImage
-                  src={HOME_IMAGES.aboutHero}
-                  alt="Dr. Sunita Ghanta, plastic and aesthetic surgeon"
-                  priority
-                  className="object-[center_70%]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 z-[1] grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
-                  {HOME_STATS.map((stat, index) => (
-                    <div
-                      key={stat.label}
-                      className={[
-                        "px-3 py-3 sm:px-4 sm:py-4",
-                        index % 2 === 1 ? "border-l border-white/20" : "",
-                        index >= 2 ? "border-t border-white/20 lg:border-t-0" : "",
-                        index > 0 ? "lg:border-l lg:border-white/20" : "",
-                      ].join(" ")}
-                    >
-                      <div className="home-display text-[22px] font-light leading-none sm:text-[28px]">{stat.value}</div>
-                      <div className="mt-1.5 font-ui text-[8px] uppercase leading-[1.35] tracking-[0.12em] text-white/80 sm:text-[9px] sm:tracking-[0.16em]">
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+              <HeroPhotoStats
+                src={HOME_IMAGES.aboutHero}
+                alt="Dr. Sunita Ghanta, plastic and aesthetic surgeon"
+                priority
+                imageClassName="object-[center_70%]"
+                className="lg:min-h-[460px]"
+              />
             </div>
           </section>
         </div>
@@ -158,26 +139,7 @@ function AboutInner() {
         <div className="home-wrap">
           <div className="neo overflow-hidden rounded-[24px] sm:rounded-[40px]">
             <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
-              <div className="neo-media relative aspect-[4/5] min-h-[320px] overflow-hidden bg-maroon sm:min-h-[400px] lg:aspect-auto lg:min-h-[560px]">
-                <FillImage
-                  src={HOME_IMAGES.surgeon}
-                  alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
-                  className="object-[center_30%]"
-                  style={{ objectPosition: "center 30%" }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
-                  <div className="font-ui text-[10px] uppercase tracking-[0.22em] text-white/75">
-                    Consultant plastic surgeon
-                  </div>
-                  <h2 className="home-display mt-1.5 mb-0 text-[28px] font-light leading-none text-white sm:text-[36px]">
-                    {HOME_COPY.surgeonName}
-                  </h2>
-                  <p className="mt-3 mb-0 font-ui text-[10px] uppercase tracking-[0.16em] text-white/80">
-                    Visakhapatnam · Board-certified · Since 2009
-                  </p>
-                </div>
-              </div>
+              <SurgeonPhotoCarousel />
 
               <div className="flex flex-col justify-center px-5 py-7 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
                 <div className="home-kicker font-ui">Her approach</div>

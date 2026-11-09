@@ -44,7 +44,7 @@ function AiDiagnosisLink({ className, onClick }: { className?: string; onClick?:
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2 font-ui text-[11px] font-medium uppercase tracking-[0.16em]">
           AI Diagnosis
-          <span className="rounded-full bg-white px-2 py-0.5 font-ui text-[9px] font-semibold tracking-[0.12em] text-maroon">
+          <span className="rounded-full bg-white px-2 py-0.5 font-ui text-[10px] font-semibold tracking-[0.12em] text-maroon">
             New
           </span>
         </span>
@@ -156,7 +156,7 @@ function InnerServices({
         </span>
       </div>
 
-      <ul className="m-0 grid list-none grid-cols-1 gap-x-5 gap-y-1 p-0 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="m-0 grid list-none grid-cols-1 gap-x-5 gap-y-1 p-0 sm:grid-cols-2 xl:grid-cols-3">
         {category.items.map((item, index) => (
           <li key={item.slug}>
             <Link
@@ -289,7 +289,7 @@ export function ServicesMegaMenu({ triggerClassName }: { triggerClassName?: stri
               ref={panelRef}
               role="dialog"
               aria-label="Our services"
-              className="home-rise font-ui neo fixed z-[70] overflow-hidden rounded-[28px]"
+              className="home-rise font-ui neo mega-scroll fixed z-[70] max-h-[calc(100dvh-5.5rem)] overflow-y-auto overscroll-contain rounded-[28px]"
               style={{
                 top: panelBox.top,
                 left: panelBox.left,
@@ -438,7 +438,7 @@ export function ServicesMobileMenu({ onNavigate }: { onNavigate: () => void }) {
               </button>
 
               {kindOpen && (
-                <div id={kindId} className="ml-[18px] border-l border-maroon/20 py-1 pl-[14px]">
+                <div id={kindId} className="ml-2 border-l border-maroon/20 py-1 pl-2.5 sm:ml-[18px] sm:pl-[14px]">
                   {categories.map((category) => {
                     const open = openCategories.has(category.id);
                     const panelId = `mobile-services-${category.id}`;
@@ -450,7 +450,7 @@ export function ServicesMobileMenu({ onNavigate }: { onNavigate: () => void }) {
                           aria-expanded={open}
                           aria-controls={panelId}
                           onClick={() => toggleCategory(category.id)}
-                          className="flex min-h-10 w-full items-center gap-2 rounded-[10px] px-2 text-left font-sans text-[14px] font-medium text-black/80 transition-colors hover:bg-maroon/10"
+                          className="flex min-h-11 w-full items-center gap-2 rounded-[10px] px-2 text-left font-sans text-[14px] font-medium text-black/80 transition-colors hover:bg-maroon/10"
                         >
                           <ChevronDownIcon
                             className={cn(
@@ -468,17 +468,17 @@ export function ServicesMobileMenu({ onNavigate }: { onNavigate: () => void }) {
                         {open && (
                           <ul
                             id={panelId}
-                            className="ml-[18px] border-l border-maroon/20 py-1 pl-[22px]"
+                            className="ml-2 border-l border-maroon/20 py-1 pl-3 sm:ml-[18px] sm:pl-[22px]"
                           >
                             {category.items.map((item) => (
                               <li
                                 key={item.slug}
-                                className="relative before:absolute before:-left-[22px] before:top-1/2 before:h-px before:w-4 before:bg-maroon/20"
+                                className="relative before:absolute before:-left-3 before:top-1/2 before:h-px before:w-2.5 before:bg-maroon/20 sm:before:-left-[22px] sm:before:w-4"
                               >
                                 <Link
                                   href={`/services/${item.slug}`}
                                   onClick={onNavigate}
-                                  className="flex min-h-10 items-center gap-2.5 rounded-[9px] px-2 font-sans text-[14px] leading-[19px] text-black/75 transition-colors hover:bg-maroon/10 hover:text-maroon"
+                                  className="flex min-h-11 items-center gap-2.5 rounded-[9px] px-2 font-sans text-[14px] leading-[19px] text-black/75 transition-colors hover:bg-maroon/10 hover:text-maroon"
                                 >
                                   <FileIcon className="size-4 shrink-0 text-maroon/60" />
                                   <span>{item.title}</span>

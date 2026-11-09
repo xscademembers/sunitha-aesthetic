@@ -47,7 +47,7 @@ function PricingSectionCard({
           <li key={item.slug} className="border-b border-black/[0.06] last:border-0">
             <Link
               href={`/services/${item.slug}`}
-              className="group flex items-center gap-3 py-3.5 transition-colors hover:text-maroon sm:gap-4"
+              className="group flex flex-wrap items-start gap-x-3 gap-y-2 py-3.5 transition-colors hover:text-maroon sm:flex-nowrap sm:items-center sm:gap-4"
             >
               <span className="neo-inset relative flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-[14px] sm:size-12">
                 <Image
@@ -58,7 +58,7 @@ function PricingSectionCard({
                   className="size-7 object-contain"
                 />
               </span>
-              <span className="min-w-0 flex-1">
+              <span className="min-w-0 flex-1 basis-[calc(100%-3.5rem)] sm:basis-auto">
                 <span className="home-display block text-[15px] font-light leading-snug text-black group-hover:text-maroon sm:text-[16px]">
                   {item.title}
                 </span>
@@ -68,7 +68,7 @@ function PricingSectionCard({
                   </span>
                 ) : null}
               </span>
-              <span className="shrink-0 text-right font-ui text-[12px] tracking-[0.04em] text-black sm:text-[13px]">
+              <span className="w-full pl-14 text-left font-ui text-[12px] tracking-[0.04em] text-black sm:w-auto sm:shrink-0 sm:pl-0 sm:text-right sm:text-[13px]">
                 {formatPriceRange(item, currency)}
               </span>
             </Link>
@@ -119,7 +119,7 @@ function SectionJumpNav({
         <a
           key={section.id}
           href={`#${section.id}`}
-          className="neo rounded-full px-3.5 py-2 font-ui text-[11px] uppercase tracking-[0.1em] text-black hover:text-maroon"
+          className="neo inline-flex min-h-11 items-center rounded-full px-3.5 py-2.5 font-ui text-[11px] uppercase tracking-[0.1em] text-black hover:text-maroon"
         >
           {shortLabel(section)}
         </a>
@@ -198,7 +198,7 @@ export function IvoryPricing() {
 
         <section className="home-band-white pb-4 sm:pb-6">
           <div className="home-wrap">
-            <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="mb-6 flex flex-col gap-3 sm:mb-8 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <div className="home-kicker mb-3 font-ui">Surgical</div>
                 <h2 className="home-display m-0 text-[clamp(28px,5vw,42px)] font-extralight leading-[1.08] tracking-[-0.025em] text-black">
@@ -224,7 +224,7 @@ export function IvoryPricing() {
 
         <section className="home-band-white py-10 sm:py-14 lg:py-16">
           <div className="home-wrap">
-            <div className="mb-6 flex flex-col gap-3 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+            <div className="mb-6 flex flex-col gap-3 sm:mb-8 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <div className="home-kicker mb-3 font-ui">Non-surgical</div>
                 <h2 className="home-display m-0 text-[clamp(28px,5vw,42px)] font-extralight leading-[1.08] tracking-[-0.025em] text-black">

@@ -7,7 +7,6 @@ import {
   HOME_CONTACT,
   HOME_COPY,
   HOME_IMAGES,
-  HOME_STATS,
   HOME_VIDEOS,
   SURGEON_CREDENTIALS,
   VIDEO_PLAYLIST_URL,
@@ -23,8 +22,10 @@ import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
 import { FaqAccordion } from "./FaqAccordion";
 import { FillImage } from "./FillImage";
+import { HeroPhotoStats } from "./HeroPhotoStats";
 import { HomeNav } from "./HomeNav";
 import { IvoryFooter } from "./IvoryFooter";
+import { SurgeonPhotoCarousel } from "./SurgeonPhotoCarousel";
 import { TreatmentLibrary } from "./TreatmentLibrary";
 import "./home.css";
 
@@ -58,7 +59,7 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
               <div className="home-kicker mb-4 font-ui sm:mb-5">
                 {HOME_COPY.heroKicker}
               </div>
-              <h1 className="home-display mb-4 text-[clamp(36px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
+              <h1 className="home-display mb-4 break-words text-[clamp(32px,8.4vw,82px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
                 {HOME_COPY.heroTitle}
                 <br />
                 <em className="font-light italic text-maroon">{HOME_COPY.heroAccent}</em>
@@ -75,36 +76,14 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
                 </a>
               </div>
             </div>
-            <div className="neo neo-media hero-photo relative isolate overflow-hidden rounded-[22px] bg-maroon aspect-[7/5] min-h-[280px] sm:min-h-[340px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[420px]">
-              <FillImage
-                src={HOME_IMAGES.hero}
-                alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
-                priority
-                quality={100}
-                unoptimized
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover object-center"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-black/5 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 z-[1] grid grid-cols-2 bg-maroon/95 text-white lg:grid-cols-4">
-                {HOME_STATS.map((stat, index) => (
-                  <div
-                    key={stat.label}
-                    className={[
-                      "px-3 py-3 sm:px-4 sm:py-4",
-                      index % 2 === 1 ? "border-l border-white/20" : "",
-                      index >= 2 ? "border-t border-white/20 lg:border-t-0" : "",
-                      index > 0 ? "lg:border-l lg:border-white/20" : "",
-                    ].join(" ")}
-                  >
-                    <div className="home-display text-[22px] font-light leading-none sm:text-[28px]">{stat.value}</div>
-                    <div className="mt-1.5 font-ui text-[8px] uppercase leading-[1.35] tracking-[0.12em] text-white/80 sm:text-[9px] sm:tracking-[0.16em]">
-                      {stat.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <HeroPhotoStats
+              src={HOME_IMAGES.hero}
+              alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"
+              priority
+              quality={100}
+              unoptimized
+              className="hero-photo"
+            />
           </div>
         </section>
       </div>
@@ -114,25 +93,7 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
         <div id="surgeon" className="home-wrap">
         <div className="neo overflow-hidden rounded-[24px] sm:rounded-[40px]">
           <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
-            <div className="neo-media relative aspect-[4/5] min-h-[360px] overflow-hidden bg-maroon sm:min-h-[440px] lg:aspect-auto lg:min-h-[620px]">
-              <FillImage
-                src={HOME_IMAGES.surgeonSurgery}
-                alt="Dr. Sunita Ghanta performing surgery in Visakhapatnam"
-                className="object-[center_35%]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 lg:p-8">
-                <div className="font-ui text-[10px] uppercase tracking-[0.22em] text-white/75">
-                  Consultant plastic surgeon
-                </div>
-                <h2 className="home-display mt-1.5 mb-0 text-[28px] font-light leading-none text-white sm:text-[36px]">
-                  {HOME_COPY.surgeonName}
-                </h2>
-                <p className="mt-3 mb-0 font-ui text-[10px] uppercase tracking-[0.16em] text-white/80">
-                  Visakhapatnam · Board-certified · Since 2009
-                </p>
-              </div>
-            </div>
+            <SurgeonPhotoCarousel />
 
             <div className="flex flex-col justify-center px-5 py-7 sm:px-8 sm:py-10 lg:px-12 lg:py-14">
               <div className="home-kicker font-ui">{HOME_COPY.surgeonKicker}</div>
@@ -245,15 +206,15 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
             rel="noreferrer"
             className="neo neo-press block overflow-hidden rounded-[28px] sm:rounded-[36px]"
           >
-            <div className="relative h-[min(72vw,380px)] lg:h-full lg:min-h-[380px]">
+            <div className="relative min-h-[320px] aspect-[4/5] sm:aspect-[16/10] sm:min-h-[300px] lg:aspect-auto lg:h-full lg:min-h-[380px]">
               <FillImage src={HOME_VIDEOS[0].poster} alt={HOME_VIDEOS[0].title} className="object-[center_18%]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
-              <span className="pointer-events-none absolute top-1/2 left-1/2 flex size-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] sm:size-[72px]">
-                <span className="ml-1 border-y-[11px] border-l-[18px] border-y-transparent border-l-maroon" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+              <span className="pointer-events-none absolute top-[32%] left-1/2 flex size-[56px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] sm:top-1/2 sm:size-[72px]">
+                <span className="ml-1 border-y-[10px] border-l-[16px] border-y-transparent border-l-maroon sm:border-y-[11px] sm:border-l-[18px]" />
               </span>
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8">
-                <div className="font-ui text-[10px] uppercase tracking-[0.2em] text-white/90">{HOME_VIDEOS[0].meta}</div>
-                <h3 className="home-display mt-2 mb-2 max-w-[420px] text-[clamp(24px,6vw,36px)] font-light leading-[1.15] text-pretty text-white">
+              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
+                <div className="font-ui text-[11px] uppercase tracking-[0.18em] text-white/90">{HOME_VIDEOS[0].meta}</div>
+                <h3 className="home-display mt-2 mb-2 max-w-[420px] text-[clamp(22px,5.5vw,36px)] font-light leading-[1.15] text-pretty text-white">
                   {HOME_VIDEOS[0].title}
                 </h3>
                 <p className="home-display mb-3 hidden max-w-[440px] text-[15px] font-light leading-[1.55] text-pretty text-white/90 sm:mb-4 sm:block">

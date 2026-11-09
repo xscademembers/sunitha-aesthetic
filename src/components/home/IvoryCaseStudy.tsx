@@ -41,8 +41,8 @@ export function IvoryCaseStudy({
                   <p className="home-display mb-6 max-w-[520px] text-[16px] font-light leading-[1.65] text-pretty text-black sm:text-[17px]">
                     {study.excerpt}
                   </p>
-                  <dl className="grid grid-cols-2 gap-x-5 gap-y-4 border-t border-black/10 pt-5 sm:grid-cols-3">
-                    <div>
+                  <dl className="grid grid-cols-1 gap-x-5 gap-y-4 border-t border-black/10 pt-5 min-[420px]:grid-cols-2 sm:grid-cols-3">
+                    <div className="min-[420px]:col-span-2 sm:col-span-1">
                       <dt className="font-ui text-[10px] uppercase tracking-[0.16em] text-maroon">Procedure</dt>
                       <dd className="home-display mt-1.5 text-[15px] font-light leading-[1.45] text-black">
                         {study.procedure}
@@ -62,7 +62,7 @@ export function IvoryCaseStudy({
                     </div>
                   </dl>
                 </div>
-                <div className="neo neo-media relative min-h-[280px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[360px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[420px]">
+                <div className="neo neo-media relative max-h-[560px] min-h-[260px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:aspect-[4/3] sm:min-h-[320px] sm:rounded-[32px] lg:aspect-auto lg:max-h-none lg:h-full lg:min-h-[420px]">
                   <FillImage
                     src={study.heroImage}
                     alt={`${study.procedure} patient journey`}
@@ -143,16 +143,16 @@ export function IvoryCaseStudy({
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 sm:gap-5">
-              <figure className="neo neo-media relative aspect-square overflow-hidden rounded-[24px] sm:rounded-[32px]">
+            <div className="grid grid-cols-2 gap-3 sm:gap-5">
+              <figure className="neo neo-media relative aspect-[3/4] overflow-hidden rounded-[20px] sm:aspect-square sm:rounded-[32px]">
                 <FillImage src={study.beforeImage} alt={`Before ${study.procedure}`} />
-                <span className="absolute left-4 top-4 rounded-full bg-white/95 px-3.5 py-1.5 font-ui text-[10px] uppercase tracking-[0.16em] text-black">
+                <span className="absolute left-2.5 top-2.5 rounded-full bg-white/95 px-2.5 py-1 font-ui text-[10px] uppercase tracking-[0.14em] text-black sm:left-4 sm:top-4 sm:px-3.5 sm:py-1.5 sm:tracking-[0.16em]">
                   Before
                 </span>
               </figure>
-              <figure className="neo neo-media relative aspect-square overflow-hidden rounded-[24px] sm:rounded-[32px]">
+              <figure className="neo neo-media relative aspect-[3/4] overflow-hidden rounded-[20px] sm:aspect-square sm:rounded-[32px]">
                 <FillImage src={study.afterImage} alt={`After ${study.procedure}`} />
-                <span className="absolute left-4 top-4 rounded-full bg-maroon px-3.5 py-1.5 font-ui text-[10px] uppercase tracking-[0.16em] text-white">
+                <span className="absolute left-2.5 top-2.5 rounded-full bg-maroon px-2.5 py-1 font-ui text-[10px] uppercase tracking-[0.14em] text-white sm:left-4 sm:top-4 sm:px-3.5 sm:py-1.5 sm:tracking-[0.16em]">
                   After
                 </span>
               </figure>

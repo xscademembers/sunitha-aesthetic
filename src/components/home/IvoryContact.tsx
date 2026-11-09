@@ -52,14 +52,14 @@ function ContactPageInner() {
                 <h1 className="home-display mt-0 mb-6 text-[clamp(32px,6vw,54px)] font-extralight leading-[1.04] tracking-[-0.025em] text-black">
                   How to <em className="italic text-maroon">reach us.</em>
                 </h1>
-                <div className="grid gap-4 sm:grid-cols-2">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                   {INFO_CARDS.map((card) => {
                     const content = (
                       <>
                         <div className="mb-3 font-ui text-[10px] uppercase tracking-[0.22em] text-maroon">
                           {card.label}
                         </div>
-                        <p className="home-display m-0 whitespace-pre-line text-[16px] font-light leading-[1.55] text-black">
+                        <p className="home-display m-0 break-words whitespace-pre-line text-[16px] font-light leading-[1.55] text-black [overflow-wrap:anywhere]">
                           {card.value}
                         </p>
                       </>
@@ -87,7 +87,7 @@ function ContactPageInner() {
                     WhatsApp
                   </a>
                   <SocialLinks
-                    itemClassName="neo neo-press flex size-[38px] items-center justify-center rounded-full text-maroon"
+                    itemClassName="neo neo-press flex size-11 items-center justify-center rounded-full text-maroon"
                   />
                 </div>
               </div>
@@ -118,15 +118,15 @@ function ContactPageInner() {
               </a>
             </div>
             <div className="neo overflow-hidden rounded-[28px] sm:rounded-[36px]">
-              <div className="relative h-[320px] lg:h-[460px]">
+              <div className="relative flex flex-col lg:block lg:h-[460px]">
                 <iframe
                   title="Dr Sunita Aesthetics location"
                   src={MAP_EMBED_SRC}
-                  className="h-full w-full border-0 grayscale"
+                  className="h-[260px] w-full border-0 grayscale sm:h-[320px] lg:h-full"
                   loading="lazy"
                 />
-                <div className="absolute bottom-0 left-0 max-w-full rounded-tr-[24px] bg-maroon p-5 sm:w-[340px] sm:p-6">
-                  <p className="font-ui text-[10px] uppercase tracking-[0.22em] text-white/75">Visit us</p>
+                <div className="bg-maroon p-5 sm:absolute sm:bottom-0 sm:left-0 sm:max-w-[340px] sm:rounded-tr-[24px] sm:p-6">
+                  <p className="font-ui text-[11px] uppercase tracking-[0.18em] text-white/80">Visit us</p>
                   <p className="home-display mt-2 mb-0 text-[16px] font-light leading-[1.55] text-white">
                     {CONTACT.address}
                   </p>

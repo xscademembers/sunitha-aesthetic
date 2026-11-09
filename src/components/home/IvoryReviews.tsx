@@ -100,15 +100,15 @@ export function IvoryReviews({ googleReviews }: { googleReviews: ReviewsPayload 
                 rel="noreferrer"
                 className="neo neo-press block overflow-hidden rounded-[28px] sm:rounded-[36px]"
               >
-                <div className="relative h-[min(72vw,380px)] lg:h-full lg:min-h-[380px]">
+                <div className="relative min-h-[320px] aspect-[4/5] sm:aspect-[16/10] sm:min-h-[300px] lg:aspect-auto lg:h-full lg:min-h-[380px]">
                   <FillImage src={HOME_VIDEOS[0].poster} alt={HOME_VIDEOS[0].title} className="object-[center_18%]" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10" />
-                  <span className="pointer-events-none absolute top-1/2 left-1/2 flex size-[64px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] sm:size-[72px]">
-                    <span className="ml-1 border-y-[11px] border-l-[18px] border-y-transparent border-l-maroon" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+                  <span className="pointer-events-none absolute top-[32%] left-1/2 flex size-[56px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.2)] sm:top-1/2 sm:size-[72px]">
+                    <span className="ml-1 border-y-[10px] border-l-[16px] border-y-transparent border-l-maroon sm:border-y-[11px] sm:border-l-[18px]" />
                   </span>
-                  <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8">
-                    <div className="font-ui text-[10px] uppercase tracking-[0.2em] text-white/90">{HOME_VIDEOS[0].meta}</div>
-                    <h3 className="home-display mt-2 mb-2 max-w-[420px] text-[clamp(24px,6vw,36px)] font-light leading-[1.15] text-pretty text-white">
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-8">
+                    <div className="font-ui text-[11px] uppercase tracking-[0.18em] text-white/90">{HOME_VIDEOS[0].meta}</div>
+                    <h3 className="home-display mt-2 mb-2 max-w-[420px] text-[clamp(22px,5.5vw,36px)] font-light leading-[1.15] text-pretty text-white">
                       {HOME_VIDEOS[0].title}
                     </h3>
                     <p className="home-display mb-3 hidden max-w-[440px] text-[15px] font-light leading-[1.55] text-pretty text-white/90 sm:mb-4 sm:block">

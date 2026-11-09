@@ -11,18 +11,18 @@ export function BookModal() {
 
   return createPortal(
     <div
-      className="home-ivory font-ui fixed inset-0 z-[1100] flex items-end justify-center overflow-auto bg-black/50 p-4 home-fade sm:items-center sm:p-8"
+      className="home-ivory font-ui fixed inset-0 z-[1100] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/50 p-4 home-fade sm:items-center sm:p-8"
       role="dialog"
       aria-modal="true"
       aria-label="Appointment request"
     >
-      <button type="button" className="absolute inset-0 cursor-default" onClick={closeBook} aria-label="Close" />
-      <div className="neo relative z-10 w-full max-w-[600px] rounded-[28px] p-6 home-rise sm:rounded-[40px] sm:p-10">
+      <button type="button" className="fixed inset-0 cursor-default" onClick={closeBook} aria-label="Close" />
+      <div className="neo relative z-10 my-auto w-full max-w-[600px] rounded-[28px] p-5 home-rise sm:rounded-[40px] sm:p-10 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
         <button
           type="button"
           onClick={closeBook}
           aria-label="Close appointment form"
-          className="neo neo-press absolute top-4 right-4 flex size-[38px] items-center justify-center rounded-full font-ui text-[16px] text-maroon sm:top-6 sm:right-6"
+          className="neo neo-press absolute top-3 right-3 flex size-11 items-center justify-center rounded-full font-ui text-[18px] text-maroon sm:top-6 sm:right-6"
         >
           ×
         </button>

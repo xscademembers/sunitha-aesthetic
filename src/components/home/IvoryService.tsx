@@ -60,7 +60,7 @@ function ServiceInner({
             <div className="grid items-stretch gap-5 lg:grid-cols-2 lg:gap-10">
               <div className="flex flex-col justify-center">
                 <div className="home-kicker mb-4 font-ui sm:mb-5">{service.category}</div>
-                <h1 className="home-display mb-4 text-[clamp(36px,7.4vw,72px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
+                <h1 className="home-display mb-4 break-words text-[clamp(30px,7.4vw,72px)] font-extralight leading-[0.96] tracking-[-0.03em] text-black sm:mb-5">
                   {service.title}
                   <br />
                   <em className="font-light italic text-maroon">in Visakhapatnam</em>
@@ -111,7 +111,7 @@ function ServiceInner({
                   </div>
                 </div>
               ) : (
-                <div className="neo neo-media relative isolate min-h-[340px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:min-h-[400px] sm:rounded-[32px] lg:aspect-auto lg:h-full lg:min-h-[460px]">
+                <div className="neo neo-media relative isolate max-h-[560px] min-h-[280px] overflow-hidden rounded-[22px] bg-maroon aspect-[4/5] sm:aspect-[4/3] sm:min-h-[360px] sm:rounded-[32px] lg:aspect-auto lg:max-h-none lg:h-full lg:min-h-[460px]">
                   <FillImage
                     src={heroImage}
                     alt={`${service.title} at Dr. Sunita Aesthetics, Visakhapatnam`}
@@ -212,7 +212,7 @@ function ServiceInner({
               What to expect.
             </h2>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {service.steps.map((step, index) => (
               <article key={step.title} className="neo flex flex-col rounded-[22px] p-5 sm:rounded-[26px] sm:p-6">
                 <span className="home-display text-[36px] font-extralight leading-none text-maroon/40">
@@ -361,7 +361,7 @@ function ServiceInner({
         <div className="home-wrap">
           <div className="neo overflow-hidden rounded-[24px] sm:rounded-[40px]">
             <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-stretch">
-              <div className="neo-media relative aspect-[4/5] min-h-[320px] overflow-hidden bg-maroon sm:min-h-[400px] lg:aspect-auto lg:min-h-[520px]">
+              <div className="neo-media relative aspect-[4/5] max-h-[560px] min-h-[280px] overflow-hidden bg-maroon sm:aspect-[4/3] sm:min-h-[360px] lg:aspect-auto lg:max-h-none lg:min-h-[520px]">
                 <FillImage
                   src={HOME_IMAGES.surgeonPortrait ?? HOME_IMAGES.surgeon}
                   alt="Dr. Sunita Ghanta, board-certified plastic surgeon in Visakhapatnam"

@@ -22,8 +22,8 @@ export function IvoryFooter() {
   return (
     <footer className="home-band-maroon pt-12 pb-[max(2rem,env(safe-area-inset-bottom))] lg:pt-[76px] lg:pb-[34px]">
       <div className="home-wrap">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-5 lg:gap-8">
-          <div className="sm:col-span-2 lg:col-span-1">
+        <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-4 xl:grid-cols-5 lg:gap-8">
+          <div className="col-span-2 lg:col-span-1">
             <div className="inline-flex rounded-[16px] bg-white px-3 py-2">
               <BrandLogo className="h-[52px] w-[158px]" />
             </div>
@@ -31,12 +31,12 @@ export function IvoryFooter() {
               {HOME_COPY.footerBlurb}
             </p>
             <SocialLinks
-              itemClassName="neo neo-press flex size-[38px] items-center justify-center rounded-full text-maroon"
+              itemClassName="neo neo-press flex size-11 items-center justify-center rounded-full text-maroon"
             />
           </div>
           <div>
-            <h2 className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Quick links</h2>
-            <div className="flex flex-col gap-3">
+            <h2 className="mb-4 font-ui text-[11px] uppercase tracking-[0.2em] text-white/70">Quick links</h2>
+            <div className="flex flex-col gap-1">
               {[
                 { label: "Home", href: "/" },
                 { label: "About the clinic", href: "/about" },
@@ -47,20 +47,20 @@ export function IvoryFooter() {
                 { label: "FAQs", href: "/#faqs" },
                 { label: "Contact us", href: "/contact" },
               ].map((link) => (
-                <a key={link.label} href={link.href} className="font-ui text-[14px] text-white hover:text-white/70">
+                <a key={link.label} href={link.href} className="py-1.5 font-ui text-[14px] text-white hover:text-white/70">
                   {link.label}
                 </a>
               ))}
             </div>
           </div>
           <div>
-            <h2 className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Surgical</h2>
-            <div className="flex flex-col gap-3">
+            <h2 className="mb-4 font-ui text-[11px] uppercase tracking-[0.2em] text-white/70">Surgical</h2>
+            <div className="flex flex-col gap-1">
               {SURGICAL_GROUPS.map((group) => (
                 <a
                   key={group.id}
                   href={homeHash(group.href)}
-                  className="font-ui text-[14px] leading-[1.3] text-white hover:text-white/70"
+                  className="py-1.5 font-ui text-[14px] leading-[1.3] text-white hover:text-white/70"
                 >
                   {group.name}
                 </a>
@@ -68,26 +68,26 @@ export function IvoryFooter() {
             </div>
           </div>
           <div>
-            <h2 className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Non-surgical</h2>
-            <div className="flex flex-col gap-3">
+            <h2 className="mb-4 font-ui text-[11px] uppercase tracking-[0.2em] text-white/70">Non-surgical</h2>
+            <div className="flex flex-col gap-1">
               {NONSURGICAL_GROUPS.map((group) => (
                 <a
                   key={group.id}
                   href={homeHash(group.href)}
-                  className="font-ui text-[14px] leading-[1.3] text-white hover:text-white/70"
+                  className="py-1.5 font-ui text-[14px] leading-[1.3] text-white hover:text-white/70"
                 >
                   {group.name}
                 </a>
               ))}
             </div>
           </div>
-          <div>
-            <h2 className="mb-5 font-ui text-[10px] uppercase tracking-[0.24em] text-white/70">Visit &amp; contact</h2>
+          <div className="col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+            <h2 className="mb-4 font-ui text-[11px] uppercase tracking-[0.2em] text-white/70">Visit &amp; contact</h2>
             <div className="flex flex-col gap-2.5 rounded-[24px] bg-white p-4 font-ui text-[14px] text-black">
-              <a href={HOME_CONTACT.phoneHref} className="hover:text-maroon">
+              <a href={HOME_CONTACT.phoneHref} className="py-1 hover:text-maroon">
                 {HOME_CONTACT.phone}
               </a>
-              <a href={`mailto:${HOME_CONTACT.email}`} className="hover:text-maroon">
+              <a href={`mailto:${HOME_CONTACT.email}`} className="break-all py-1 hover:text-maroon">
                 {HOME_CONTACT.email}
               </a>
               <span className="home-display text-[15px] font-light leading-[1.55]">
