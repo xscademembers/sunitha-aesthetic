@@ -234,7 +234,7 @@ export const HOME_IMAGES = {
   surgeon: "/images/dr-sunita/portraits/about-section-2.jpg",
   surgeonPortrait: "/images/dr-sunita/portraits/scrubs-stethoscope.jpg",
   surgeonSurgery: "/images/dr-sunita/surgery/surgeon-focus.webp",
-  surgeonScrubsMaroon: "/images/dr-sunita/portraits/scrubs-maroon-portrait.jpg",
+  surgeonScrubsMaroon: "/images/dr-sunita/portraits/scrubs-maroon-desk.jpg",
   outdoor: "/images/clinic/clinic-outdoor.webp",
 } as const;
 
