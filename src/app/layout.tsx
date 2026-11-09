@@ -17,18 +17,21 @@ const prata = Prata({
   variable: "--font-prata",
   weight: "400",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const roboto = Roboto({
   variable: "--font-roboto",
   weight: ["400", "500", "700"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 const marcellus = Marcellus({
   variable: "--font-marcellus",
   weight: "400",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const newsreader = Newsreader({
@@ -36,12 +39,14 @@ const newsreader = Newsreader({
   weight: ["200", "300", "400"],
   style: ["normal", "italic"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jost = Jost({
   variable: "--font-jost",
   weight: ["300", "400", "500", "600"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
