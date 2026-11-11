@@ -3,13 +3,11 @@ import { VIDEO_PLAYLIST_URL } from "@/data/homeContent";
 import { cn } from "@/lib/utils";
 import { CONTACT } from "@/types/content";
 
-const WHATSAPP_HREF = `https://wa.me/${CONTACT.phoneHref.replace(/\D/g, "")}`;
-
 const SOCIAL_LINKS = [
   { name: "Facebook", href: "https://www.facebook.com/SunitaAesthetics", Icon: FacebookIcon },
   { name: "Instagram", href: "https://www.instagram.com/drsunita_aesthetics/", Icon: InstagramIcon },
   { name: "YouTube", href: VIDEO_PLAYLIST_URL, Icon: YoutubeIcon },
-  { name: "WhatsApp", href: WHATSAPP_HREF, Icon: WhatsappIcon },
+  { name: "WhatsApp", href: CONTACT.whatsappHref, Icon: WhatsappIcon },
 ] as const;
 
 export function SocialLinks({

@@ -50,11 +50,11 @@ html:has(.home-ivory) body {
 }
 
 html:has(.home-ivory) {
-  scroll-padding-top: 100px;
+  scroll-padding-top: 148px;
 }
 
 .home-ivory [id] {
-  scroll-margin-top: 100px;
+  scroll-margin-top: 148px;
 }
 
 .home-wrap {

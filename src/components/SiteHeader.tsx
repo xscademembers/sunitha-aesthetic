@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { GetAppointmentButton } from "@/components/BrandButtons";
+import { CallNowButton, GetAppointmentButton } from "@/components/BrandButtons";
 import { BrandLogo } from "@/components/BrandLogo";
 import { ChevronDownIcon, CloseIcon, MenuIcon } from "@/components/icons";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
@@ -114,8 +114,9 @@ export function SiteHeader() {
             </nav>
 
             <div className="ml-auto flex shrink-0 items-center gap-2">
-              <div className="hidden lg:block">
+              <div className="hidden items-center gap-2 lg:flex">
                 <GetAppointmentButton size="nav" className="!rounded-full" />
+                <CallNowButton className="!h-[45px] !rounded-full px-5 text-[14px]" />
               </div>
               <button
                 type="button"
@@ -183,8 +184,9 @@ export function SiteHeader() {
                 ),
               )}
             </nav>
-            <div className="mt-5" onClick={closeMobileMenu}>
+            <div className="mt-5 flex flex-col gap-3" onClick={closeMobileMenu}>
               <GetAppointmentButton className="w-full !rounded-full" />
+              <CallNowButton className="w-full !rounded-full" />
             </div>
           </div>
         </div>

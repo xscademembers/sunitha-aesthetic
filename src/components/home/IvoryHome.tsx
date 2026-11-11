@@ -4,7 +4,6 @@ import Link from "next/link";
 import {
   BOOK_LABEL,
   CLINIC_PHOTOS,
-  HOME_CONTACT,
   HOME_COPY,
   HOME_IMAGES,
   HOME_VIDEOS,
@@ -20,6 +19,7 @@ import {
 } from "@/lib/reviews";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 import { FaqAccordion } from "./FaqAccordion";
 import { FillImage } from "./FillImage";
 import { HeroPhotoStats } from "./HeroPhotoStats";
@@ -71,6 +71,7 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
                 <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                   {BOOK_LABEL} <span className="text-[15px]">→</span>
                 </button>
+                <CallNowBtn />
                 <a href="#treatments" className="home-text-link self-center text-center font-ui text-[12px] uppercase tracking-[0.1em] text-black sm:self-auto sm:text-[13px]">
                   {HOME_COPY.viewTreatments}
                 </a>
@@ -130,6 +131,7 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
                 <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                   {HOME_COPY.bookWithSurgeon}
                 </button>
+                <CallNowBtn />
                 <Link href="/about" className="home-text-link self-center text-center font-ui text-[13px] uppercase tracking-[0.1em] text-black sm:self-auto">
                   {HOME_COPY.readStory}
                 </Link>
@@ -309,9 +311,12 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
             <p className="home-display mb-6 max-w-[330px] text-[16px] font-light leading-[1.65] text-pretty sm:mb-[26px]">
               {HOME_COPY.faqBody}
             </p>
-            <button type="button" onClick={openBook} className="neo-btn neo-btn-light sm:!w-auto">
-              {HOME_COPY.askConsult}
-            </button>
+            <div className="flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
+              <button type="button" onClick={openBook} className="neo-btn neo-btn-light sm:!w-auto">
+                {HOME_COPY.askConsult}
+              </button>
+              <CallNowBtn className="neo-btn-light" />
+            </div>
           </div>
           <FaqAccordion />
         </div>
@@ -331,9 +336,7 @@ function IvoryPage({ googleReviews }: { googleReviews: ReviewsPayload }) {
             <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
               {BOOK_LABEL} <span className="text-[15px]">→</span>
             </button>
-            <a href={HOME_CONTACT.phoneHref} className="home-text-link font-ui text-[13px] uppercase tracking-[0.1em] text-black">
-              {HOME_COPY.contactClinic}
-            </a>
+            <CallNowBtn />
           </div>
         </div>
       </section>

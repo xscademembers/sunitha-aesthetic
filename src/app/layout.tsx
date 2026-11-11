@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Prata, Roboto, Marcellus, Newsreader, Jost } from "next/font/google";
 import { AppointmentPopup } from "@/components/AppointmentPopup";
+import { FloatingContactButtons } from "@/components/FloatingContactButtons";
 import { JsonLd } from "@/components/JsonLd";
 import {
   clinicJsonLd,
@@ -133,6 +134,7 @@ export default function RootLayout({
       >
         <JsonLd data={clinicJsonLd()} />
         {children}
+        <FloatingContactButtons />
         <AppointmentPopup />
       </body>
     </html>

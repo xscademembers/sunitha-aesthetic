@@ -11,6 +11,7 @@ import {
   SURGICAL_GROUPS,
 } from "@/data/homeContent";
 import { useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 
 function homeHash(href: string) {
   return href.startsWith("#") ? `/${href}` : href;
@@ -103,6 +104,7 @@ export function IvoryFooter() {
               <button type="button" onClick={openBook} className="neo-btn mt-2 !h-auto !w-full px-4 py-3 text-[11px]">
                 {BOOK_LABEL}
               </button>
+              <CallNowBtn className="mt-2 !h-auto !w-full px-4 py-3 text-[11px] sm:!w-full" />
             </div>
             <div className="relative mt-5 h-[120px] overflow-hidden rounded-[22px] bg-white">
               <iframe

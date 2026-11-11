@@ -17,6 +17,7 @@ import {
 import { FillImage } from "./FillImage";
 import { FaqAccordion } from "./FaqAccordion";
 import { useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 import { IvoryCta, IvoryDisclaimer, IvoryShell } from "./IvoryShell";
 
 export function IvoryService({
@@ -72,6 +73,7 @@ function ServiceInner({
                   <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                     {BOOK_LABEL} <span className="text-[15px]">→</span>
                   </button>
+                  <CallNowBtn />
                   <a
                     href="#benefits"
                     className="home-text-link self-center text-center font-ui text-[12px] uppercase tracking-[0.1em] text-black sm:self-auto sm:text-[13px]"
@@ -176,6 +178,7 @@ function ServiceInner({
                   <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                     {BOOK_LABEL} <span className="text-[15px]">→</span>
                   </button>
+                  <CallNowBtn />
                   <a
                     href="#journey"
                     className="home-text-link self-center text-center font-ui text-[13px] uppercase tracking-[0.1em] text-black sm:self-auto"
@@ -303,9 +306,12 @@ function ServiceInner({
                 Clear answers before you decide. Anything more specific can be discussed in
                 consultation.
               </p>
-              <button type="button" onClick={openBook} className="neo-btn neo-btn-light sm:!w-auto">
-                Ask in consultation
-              </button>
+              <div className="flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
+                <button type="button" onClick={openBook} className="neo-btn neo-btn-light sm:!w-auto">
+                  Ask in consultation
+                </button>
+                <CallNowBtn className="neo-btn-light" />
+              </div>
             </div>
             <FaqAccordion
               items={service.faqs.map((faq) => ({ q: faq.question, a: faq.answer }))}
@@ -409,6 +415,7 @@ function ServiceInner({
                   <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                     {HOME_COPY.bookWithSurgeon}
                   </button>
+                  <CallNowBtn />
                   <Link
                     href="/about"
                     className="home-text-link self-center text-center font-ui text-[13px] uppercase tracking-[0.1em] text-black sm:self-auto"

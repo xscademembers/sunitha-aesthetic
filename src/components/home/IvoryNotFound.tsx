@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { BOOK_LABEL } from "@/data/homeContent";
 import { useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 import { IvoryShell } from "./IvoryShell";
 
 export function IvoryNotFound() {
@@ -36,6 +37,7 @@ function NotFoundInner() {
               <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                 {BOOK_LABEL} <span className="text-[15px]">→</span>
               </button>
+              <CallNowBtn />
             </div>
           </section>
         </div>

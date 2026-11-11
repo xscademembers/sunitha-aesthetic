@@ -1,9 +1,10 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { BOOK_LABEL, HOME_CONTACT } from "@/data/homeContent";
+import { BOOK_LABEL } from "@/data/homeContent";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 import { HomeNav } from "./HomeNav";
 import { IvoryFooter } from "./IvoryFooter";
 import "./home.css";
@@ -43,12 +44,10 @@ export function IvoryCta({
   kicker,
   title,
   body,
-  contactLabel = "Call the clinic",
 }: {
   kicker: string;
   title: ReactNode;
   body: string;
-  contactLabel?: string;
 }) {
   const { openBook } = useBook();
 
@@ -66,9 +65,7 @@ export function IvoryCta({
           <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
             {BOOK_LABEL} <span className="text-[15px]">→</span>
           </button>
-          <a href={HOME_CONTACT.phoneHref} className="home-text-link font-ui text-[13px] uppercase tracking-[0.1em] text-black">
-            {contactLabel}
-          </a>
+          <CallNowBtn />
         </div>
       </div>
     </section>

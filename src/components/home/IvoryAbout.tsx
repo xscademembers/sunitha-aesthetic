@@ -13,6 +13,7 @@ import { HeroPhotoStats } from "./HeroPhotoStats";
 import { IvoryCta, IvoryShell } from "./IvoryShell";
 import { SurgeonPhotoCarousel } from "./SurgeonPhotoCarousel";
 import { useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 
 const EXPERTISE = [
   {
@@ -115,6 +116,7 @@ function AboutInner() {
                   <button type="button" onClick={openBook} className="neo-btn neo-btn-solid sm:!w-auto">
                     {BOOK_LABEL} <span className="text-[15px]">→</span>
                   </button>
+                  <CallNowBtn />
                   <a
                     href="#approach"
                     className="home-text-link self-center text-center font-ui text-[12px] uppercase tracking-[0.1em] text-black sm:self-auto sm:text-[13px]"

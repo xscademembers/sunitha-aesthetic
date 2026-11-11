@@ -1,5 +1,5 @@
 import type { ComponentType, SVGProps } from "react";
-import { GetAppointmentButton } from "@/components/BrandButtons";
+import { CallNowButton, GetAppointmentButton } from "@/components/BrandButtons";
 import {
   AssessmentIcon,
   BloomIcon,
@@ -57,7 +57,10 @@ export function JourneySteps() {
         ))}
       </div>
       <div className="mt-14 flex justify-center lg:mt-16">
-        <GetAppointmentButton />
+        <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <GetAppointmentButton />
+          <CallNowButton />
+        </div>
       </div>
     </section>
   );

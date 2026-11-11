@@ -74,6 +74,9 @@ export const CONTACT = {
   email: "drsunitaghanta@gmail.com",
   phone: "+91 985633 7799",
   phoneHref: "tel:+919856337799",
+  /** WhatsApp booking line from drsunitaesthetics.com footer (differs from clinic phone). */
+  whatsappHref:
+    "https://wa.me/918688957445?text=Hello%2C%20Can%20i%20get%20an%20appointment%20with%20doctor%3F",
   address:
     "Sunita Nursing Home, TPT Colony, Balaya Sastri Layout, Seethammadara, Visakhapatnam, Andhra Pradesh 530013",
 } as const;

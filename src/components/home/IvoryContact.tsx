@@ -11,11 +11,11 @@ import { CONTACT } from "@/types/content";
 import { BookForm } from "./BookForm";
 import { BookModal } from "./BookModal";
 import { BookProvider, useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 import { HomeNav } from "./HomeNav";
 import { IvoryFooter } from "./IvoryFooter";
 import "./home.css";
 
-const WHATSAPP_HREF = `https://wa.me/${CONTACT.phoneHref.replace(/\D/g, "")}`;
 const MAPS_DIRECTIONS_HREF =
   "https://www.google.com/maps/search/?api=1&query=Dr+Sunita+Aesthetics+Seethammadara+Visakhapatnam";
 
@@ -78,7 +78,7 @@ function ContactPageInner() {
                 </div>
                 <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <a
-                    href={WHATSAPP_HREF}
+                    href={CONTACT.whatsappHref}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="neo-btn sm:!w-auto"
@@ -149,12 +149,7 @@ function ContactPageInner() {
               <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
                 {BOOK_LABEL} <span className="text-[15px]">→</span>
               </button>
-              <a
-                href={HOME_CONTACT.phoneHref}
-                className="home-text-link font-ui text-[13px] uppercase tracking-[0.1em] text-black"
-              >
-                Call the clinic
-              </a>
+              <CallNowBtn />
             </div>
           </div>
         </section>

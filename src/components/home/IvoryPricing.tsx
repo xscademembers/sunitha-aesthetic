@@ -13,6 +13,7 @@ import {
 import { FillImage } from "./FillImage";
 import { IvoryCta, IvoryDisclaimer, IvoryShell } from "./IvoryShell";
 import { useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
 
 type Currency = "INR" | "USD";
 
@@ -95,9 +96,12 @@ function QuoteCta() {
             a clear package for your case. We accept payments in Indian rupees via UPI, card and
             bank transfer at the clinic.
           </p>
-          <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
-            Book a consultation <span className="text-[15px]">→</span>
-          </button>
+          <div className="flex flex-col items-stretch gap-3.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-[22px]">
+            <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">
+              Book a consultation <span className="text-[15px]">→</span>
+            </button>
+            <CallNowBtn className="neo-btn-light" />
+          </div>
         </div>
       </div>
     </section>

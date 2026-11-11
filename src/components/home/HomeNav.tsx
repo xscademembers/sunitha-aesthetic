@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { BrandLogo } from "@/components/BrandLogo";
 import { ServicesMegaMenu, ServicesMobileMenu } from "@/components/ServicesMegaMenu";
 import { useBook } from "./BookProvider";
+import { CallNowBtn } from "./CallNowBtn";
+import { TopContactBar } from "./TopContactBar";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -48,59 +50,63 @@ export function HomeNav() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white py-3 lg:py-[18px]">
+    <header className="sticky top-0 z-50">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[80] focus:rounded-full focus:bg-maroon focus:px-4 focus:py-2 focus:text-white"
       >
         Skip to content
       </a>
-      <div className="home-wrap">
-        <div className="neo flex items-center gap-2 rounded-full py-2 pr-2 pl-3 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
-          <BrandLogo className="h-[40px] w-[118px] sm:h-[50px] sm:w-[152px]" />
+      <TopContactBar />
+      <div className="bg-white py-3 lg:py-[18px]">
+        <div className="home-wrap">
+          <div className="neo flex items-center gap-2 rounded-full py-2 pr-2 pl-3 sm:gap-4 sm:py-2.5 sm:pr-3 sm:pl-5">
+            <BrandLogo className="h-[40px] w-[118px] sm:h-[50px] sm:w-[152px]" />
 
-          <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex" aria-label="Main">
-            {NAV_LINKS.map((link) =>
-              link.label === "Our Services" ? (
-                <ServicesMegaMenu
-                  key={link.label}
-                  triggerClassName={`home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] hover:bg-transparent xl:px-3 xl:text-[13px] ${
-                    isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
-                  }`}
-                />
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className={`home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] xl:px-3 xl:text-[13px] ${
-                    isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
-                  }`}
-                >
-                  {link.label}
-                </a>
-              ),
-            )}
-          </nav>
+            <nav className="hidden min-w-0 flex-1 items-center justify-center gap-0 lg:flex" aria-label="Main">
+              {NAV_LINKS.map((link) =>
+                link.label === "Our Services" ? (
+                  <ServicesMegaMenu
+                    key={link.label}
+                    triggerClassName={`home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] hover:bg-transparent xl:px-3 xl:text-[13px] ${
+                      isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
+                    }`}
+                  />
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className={`home-nav-link px-2.5 py-2 font-ui text-[12px] uppercase tracking-[0.08em] xl:px-3 xl:text-[13px] ${
+                      isNavActive(pathname, link.href) ? "text-maroon" : "text-black"
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                ),
+              )}
+            </nav>
 
-          <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
-            <button
-              type="button"
-              onClick={openBook}
-              className="neo-btn !w-auto min-h-11 px-3.5 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-[12px]"
-            >
-              Book
-            </button>
-            <button
-              type="button"
-              aria-label="Open menu"
-              onClick={() => setMobileOpen(true)}
-              className="neo flex size-11 items-center justify-center rounded-full text-maroon lg:hidden"
-            >
-              <span className="sr-only">Menu</span>
-              <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.6">
-                <path d="M5 7h14M5 12h14M5 17h14" />
-              </svg>
-            </button>
+            <div className="ml-auto flex shrink-0 items-center gap-1.5 sm:gap-2">
+              <button
+                type="button"
+                onClick={openBook}
+                className="neo-btn !w-auto min-h-11 px-3.5 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-[12px]"
+              >
+                Book
+              </button>
+              <CallNowBtn className="!hidden !w-auto min-h-11 px-3.5 py-2.5 text-[10px] sm:px-6 sm:py-3 sm:text-[12px] lg:!inline-flex" />
+              <button
+                type="button"
+                aria-label="Open menu"
+                onClick={() => setMobileOpen(true)}
+                className="neo flex size-11 items-center justify-center rounded-full text-maroon lg:hidden"
+              >
+                <span className="sr-only">Menu</span>
+                <svg viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="1.6">
+                  <path d="M5 7h14M5 12h14M5 17h14" />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -154,16 +160,19 @@ export function HomeNav() {
                 ),
               )}
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                closeMobile();
-                openBook();
-              }}
-              className="neo-btn mt-5"
-            >
-              Book a consultation
-            </button>
+            <div className="mt-5 flex flex-col gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  closeMobile();
+                  openBook();
+                }}
+                className="neo-btn"
+              >
+                Book a consultation
+              </button>
+              <CallNowBtn className="!w-full" />
+            </div>
           </div>
         </div>
       )}

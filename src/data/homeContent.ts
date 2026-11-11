@@ -268,6 +268,7 @@ export const HOME_CONTACT = {
 } as const;
 
 export const BOOK_LABEL = "Book a Consultation";
+export const CALL_LABEL = "Call Now";
 export const REVIEW_COUNT_LABEL = "464+ Google reviews";
 export const GOOGLE_REVIEWS_HREF =
   "https://www.google.com/maps/search/?api=1&query=Dr%20Sunita%20Aesthetics%20Seethammadara%20Visakhapatnam";
