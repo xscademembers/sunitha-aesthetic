@@ -143,7 +143,7 @@ function ContactPageInner() {
               Prefer to book <em className="italic text-maroon">right now?</em>
             </h2>
             <p className="home-display mx-auto mb-8 max-w-[440px] text-[17px] font-light leading-[1.65] text-pretty text-black sm:mb-[34px]">
-              Use the form above, or open a quick appointment request and the clinic will confirm a time.
+              Use the contact form above, or open Book Appointment and the clinic will confirm a time.
             </p>
             <div className="flex flex-col items-center justify-center gap-5 sm:flex-row sm:flex-wrap sm:gap-6">
               <button type="button" onClick={openBook} className="neo-btn sm:!w-auto">

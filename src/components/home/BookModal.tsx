@@ -1,7 +1,7 @@
 "use client";
 
 import { createPortal } from "react-dom";
-import { BookForm } from "./BookForm";
+import { AppointmentForm } from "@/components/AppointmentForm";
 import { useBook } from "./BookProvider";
 
 export function BookModal() {
@@ -14,7 +14,7 @@ export function BookModal() {
       className="home-ivory font-ui fixed inset-0 z-[1100] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/50 p-4 home-fade sm:items-center sm:p-8"
       role="dialog"
       aria-modal="true"
-      aria-label="Appointment request"
+      aria-label="Book Appointment"
     >
       <button type="button" className="fixed inset-0 cursor-default" onClick={closeBook} aria-label="Close" />
       <div className="neo relative z-10 my-auto w-full max-w-[600px] rounded-[28px] p-5 home-rise sm:rounded-[40px] sm:p-10 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
@@ -37,7 +37,15 @@ export function BookModal() {
             </p>
           </div>
         ) : (
-          <BookForm variant="modal" onSuccess={markSent} />
+          <>
+            <div className="mb-3.5 font-ui text-[10px] uppercase tracking-[0.3em] text-maroon">
+              Book Appointment
+            </div>
+            <h2 className="home-display mb-6 pr-10 text-[clamp(26px,5vw,38px)] font-extralight leading-[1.08] tracking-[-0.02em] text-black">
+              Book a <em className="italic text-maroon">consultation.</em>
+            </h2>
+            <AppointmentForm idPrefix="book-modal" variant="ivory" onSuccess={markSent} />
+          </>
         )}
       </div>
     </div>,

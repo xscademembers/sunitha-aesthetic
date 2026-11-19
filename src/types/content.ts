@@ -56,18 +56,17 @@ export interface FooterLinkGroup {
   links: { label: string; href: string }[];
 }
 
+/** @deprecated Use WIX_TREATMENT_CATEGORIES from @/data/wixFormFields — kept for any legacy imports */
 export const TREATMENT_OPTIONS = [
-  "Face Surgery",
-  "Breast Surgery",
-  "Body Contouring Surgery",
-  "Men's Cosmetic Surgery",
-  "Hair Surgery",
-  "Reconstructive Surgery",
-  "Injectables",
-  "Skin Rejuvenation",
-  "Laser Treatments",
+  "Breast Surgeries",
+  "Face Surgeries",
+  "Body Procedures",
+  "Face Treatments",
   "Hair Treatments",
-  "Anti-Aging & Aesthetic Procedures",
+  "Laser Treatments",
+  "Anti-Aging",
+  "Reconstructive Surgeries",
+  "Genital Surgeries",
 ] as const;
 
 export const CONTACT = {

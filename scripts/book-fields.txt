@@ -1,0 +1,196 @@
+﻿NON-INPUT DISPLAY da3f742a-caa8-489c-1ca6-53f715df3e25
+
+==== first_name_e338 ====
+fieldType: INPUT
+inputType: STRING
+required: true
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== last_name_5cb2 ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== phone_0157 ====
+fieldType: INPUT
+inputType: STRING
+required: true
+validation: {
+  "format": "PHONE",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== select_treatment_option ====
+fieldType: INPUT
+inputType: STRING
+required: true
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Breast Surgeries",
+    "Face Surgeries",
+    "Body Procedures",
+    "Face Treatments",
+    "Hair Treatments",
+    "Laser Treatments",
+    "Anti-Aging",
+    "Reconstructive Surgeries",
+    "Genital Surgeries"
+  ]
+}
+enum: ["Breast Surgeries","Face Surgeries","Body Procedures","Face Treatments","Hair Treatments","Laser Treatments","Anti-Aging","Reconstructive Surgeries","Genital Surgeries"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== breast_surgeries ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Breast Augmentation",
+    "Breast Reduction",
+    "Breast Lift",
+    "Gynecomastia"
+  ]
+}
+enum: ["Breast Augmentation","Breast Reduction","Breast Lift","Gynecomastia"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== face_surgeries ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Nose Surgery",
+    "EyeLid Surgery",
+    "Ear Surgery",
+    "Lip Surgery",
+    "Face Lift",
+    "Double Chin Correction"
+  ]
+}
+enum: ["Nose Surgery","EyeLid Surgery","Ear Surgery","Lip Surgery","Face Lift","Double Chin Correction"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== body_procedures ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Liposuction",
+    "Tummy Tuck",
+    "Mommy Makeover",
+    "Buttock Augmentation"
+  ]
+}
+enum: ["Liposuction","Tummy Tuck","Mommy Makeover","Buttock Augmentation"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== face_treatment_surgeries ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Lip Enhancement",
+    "Rhinoplasty",
+    "Power Shots"
+  ]
+}
+enum: ["Lip Enhancement","Rhinoplasty","Power Shots"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== hair_treatments ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "HairTransplant",
+    "PRP Treatment",
+    "GFC Treatment",
+    "Mesotherapy"
+  ]
+}
+enum: ["HairTransplant","PRP Treatment","GFC Treatment","Mesotherapy"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== laser_treatment ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Laser Hair Reduction",
+    "LaserToning",
+    "Laser for Pigmentation"
+  ]
+}
+enum: ["Laser Hair Reduction","LaserToning","Laser for Pigmentation"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== anti_aging ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Vampire Facelift",
+    "Morpheus 8",
+    "Anti - Wrinkle Injection",
+    "Dermal Fillers"
+  ]
+}
+enum: ["Vampire Facelift","Morpheus 8","Anti - Wrinkle Injection","Dermal Fillers"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== reconstructive_surgeries ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Breast Reconstruction",
+    "Cleft Lip & Palete Surgery"
+  ]
+}
+enum: ["Breast Reconstruction","Cleft Lip & Palete Surgery"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== genital_surgeries ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": [
+    "Vaginal Rejuvenation",
+    "Labia Plasty"
+  ]
+}
+enum: ["Vaginal Rejuvenation","Labia Plasty"]
+topKeys: id, hidden, identifier, fieldType, inputOptions
+NON-INPUT DISPLAY 6bb5d4ab-531e-482e-fc8d-1ba262df4b19

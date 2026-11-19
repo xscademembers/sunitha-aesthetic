@@ -1,0 +1,510 @@
+{
+  "form": {
+    "id": "0291c7e1-ca25-4f8a-8f42-7efd3736424d",
+    "fields": [
+      {
+        "id": "82c0a6c4-2d3c-4711-2e9b-afd2f1207ac0",
+        "target": "first_name_abae",
+        "validation": {
+          "string": {
+            "format": "UNDEFINED",
+            "enum": []
+          },
+          "required": false
+        },
+        "pii": true,
+        "hidden": false,
+        "view": {
+          "label": "First name",
+          "fieldType": "CONTACTS_FIRST_NAME",
+          "hideLabel": false,
+          "placeholder": "First name"
+        },
+        "readOnly": false
+      },
+      {
+        "id": "e19f8b32-daae-4c52-6322-c2e7a77e94d7",
+        "target": "last_name_d97c",
+        "validation": {
+          "string": {
+            "format": "UNDEFINED",
+            "enum": []
+          },
+          "required": false
+        },
+        "pii": true,
+        "hidden": false,
+        "view": {
+          "label": "Last name",
+          "fieldType": "CONTACTS_LAST_NAME",
+          "hideLabel": false,
+          "placeholder": "Last name"
+        },
+        "readOnly": false
+      },
+      {
+        "id": "75e89bac-f416-4915-429e-180743359592",
+        "target": "email_5139",
+        "validation": {
+          "string": {
+            "format": "EMAIL",
+            "enum": []
+          },
+          "required": true
+        },
+        "pii": true,
+        "hidden": false,
+        "view": {
+          "label": "Email",
+          "fieldType": "CONTACTS_EMAIL",
+          "hideLabel": false,
+          "placeholder": "Email"
+        },
+        "readOnly": false
+      },
+      {
+        "id": "6c28e837-12c0-4789-db82-0e7e7b35acc5",
+        "target": "long_answer_3524",
+        "validation": {
+          "string": {
+            "format": "UNDEFINED",
+            "enum": []
+          },
+          "required": true
+        },
+        "pii": false,
+        "hidden": false,
+        "view": {
+          "label": "Consultation Purpose",
+          "fieldType": "TEXT_AREA",
+          "hideLabel": false,
+          "placeholder": "Example: Regarding Rhinoplasty"
+        },
+        "readOnly": false
+      },
+      {
+        "id": "520a88ad-6dbc-4d4c-b5ef-8971d034ca87",
+        "pii": false,
+        "hidden": false,
+        "view": {
+          "externalUrl": "https://drsunitaghanta.com/thank-you",
+          "submitText": "Submit",
+          "nextText": "Next",
+          "submitAction": "EXTERNAL_URL",
+          "fieldType": "SUBMIT_BUTTON",
+          "externalUrlTarget": "_self",
+          "previousText": "Back"
+        },
+        "readOnly": false
+      },
+      {
+        "id": "aababd9a-1098-4139-703f-617911d4e8c1",
+        "pii": false,
+        "hidden": false,
+        "view": {
+          "content": {
+            "nodes": [
+              {
+                "id": "4du9c29",
+                "type": "HEADING",
+                "nodes": [
+                  {
+                    "id": "",
+                    "type": "TEXT",
+                    "nodes": [],
+                    "textData": {
+                      "text": "Book Appointment",
+                      "decorations": []
+                    }
+                  }
+                ],
+                "headingData": {
+                  "level": 1,
+                  "textStyle": {
+                    "textAlignment": "AUTO"
+                  },
+                  "indentation": 0
+                }
+              }
+            ],
+            "metadata": {
+              "id": "5bcfaa0d-7ca4-4fb7-8e83-217fa1fc980b",
+              "version": 1,
+              "createdTimestamp": "2023-05-10T09:20:25.569Z",
+              "updatedTimestamp": "2023-05-10T09:20:25.569Z"
+            },
+            "documentStyle": {}
+          },
+          "fieldType": "HEADER"
+        },
+        "readOnly": false
+      },
+      {
+        "id": "47a75787-18d6-4d2d-4e8a-2a5cdab2c62b",
+        "target": "phone_4c77",
+        "validation": {
+          "string": {
+            "format": "PHONE",
+            "enum": []
+          },
+          "required": true
+        },
+        "pii": true,
+        "hidden": false,
+        "view": {
+          "label": "Phone",
+          "fieldType": "CONTACTS_PHONE",
+          "hideLabel": false,
+          "placeholder": "Phone"
+        },
+        "readOnly": false
+      }
+    ],
+    "formFields": [
+      {
+        "id": "82c0a6c4-2d3c-4711-2e9b-afd2f1207ac0",
+        "hidden": false,
+        "identifier": "CONTACTS_FIRST_NAME",
+        "fieldType": "INPUT",
+        "inputOptions": {
+          "target": "first_name_abae",
+          "pii": true,
+          "required": false,
+          "inputType": "STRING",
+          "contactMapping": {
+            "contactField": "FIRST_NAME"
+          },
+          "readOnly": false,
+          "stringOptions": {
+            "validation": {
+              "format": "UNKNOWN_FORMAT",
+              "enum": []
+            },
+            "componentType": "TEXT_INPUT",
+            "textInputOptions": {
+              "label": "First name",
+              "placeholder": "First name",
+              "showLabel": true,
+              "mediaSettings": {
+                "imagePosition": "ABOVE",
+                "imageAlignment": "CENTER",
+                "imageFit": "COVER"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "e19f8b32-daae-4c52-6322-c2e7a77e94d7",
+        "hidden": false,
+        "identifier": "CONTACTS_LAST_NAME",
+        "fieldType": "INPUT",
+        "inputOptions": {
+          "target": "last_name_d97c",
+          "pii": true,
+          "required": false,
+          "inputType": "STRING",
+          "contactMapping": {
+            "contactField": "LAST_NAME"
+          },
+          "readOnly": false,
+          "stringOptions": {
+            "validation": {
+              "format": "UNKNOWN_FORMAT",
+              "enum": []
+            },
+            "componentType": "TEXT_INPUT",
+            "textInputOptions": {
+              "label": "Last name",
+              "placeholder": "Last name",
+              "showLabel": true,
+              "mediaSettings": {
+                "imagePosition": "ABOVE",
+                "imageAlignment": "CENTER",
+                "imageFit": "COVER"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "75e89bac-f416-4915-429e-180743359592",
+        "hidden": false,
+        "identifier": "CONTACTS_EMAIL",
+        "fieldType": "INPUT",
+        "inputOptions": {
+          "target": "email_5139",
+          "pii": true,
+          "required": true,
+          "inputType": "STRING",
+          "contactMapping": {
+            "contactField": "EMAIL",
+            "emailInfo": {
+              "tag": "UNTAGGED"
+            }
+          },
+          "readOnly": false,
+          "stringOptions": {
+            "validation": {
+              "format": "EMAIL",
+              "enum": []
+            },
+            "componentType": "TEXT_INPUT",
+            "textInputOptions": {
+              "label": "Email",
+              "placeholder": "Email",
+              "showLabel": true,
+              "mediaSettings": {
+                "imagePosition": "ABOVE",
+                "imageAlignment": "CENTER",
+                "imageFit": "COVER"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "6c28e837-12c0-4789-db82-0e7e7b35acc5",
+        "hidden": false,
+        "identifier": "TEXT_AREA",
+        "fieldType": "INPUT",
+        "inputOptions": {
+          "target": "long_answer_3524",
+          "pii": false,
+          "required": true,
+          "inputType": "STRING",
+          "readOnly": false,
+          "stringOptions": {
+            "validation": {
+              "format": "UNKNOWN_FORMAT",
+              "enum": []
+            },
+            "componentType": "TEXT_INPUT",
+            "textInputOptions": {
+              "label": "Consultation Purpose",
+              "placeholder": "Example: Regarding Rhinoplasty",
+              "showLabel": true,
+              "mediaSettings": {
+                "imagePosition": "ABOVE",
+                "imageAlignment": "CENTER",
+                "imageFit": "COVER"
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "520a88ad-6dbc-4d4c-b5ef-8971d034ca87",
+        "hidden": false,
+        "identifier": "SUBMIT_BUTTON",
+        "fieldType": "DISPLAY",
+        "displayOptions": {
+          "displayFieldType": "PAGE_NAVIGATION",
+          "pageNavigationOptions": {
+            "nextPageText": "Next",
+            "previousPageText": "Back",
+            "submitText": "Submit"
+          }
+        }
+      },
+      {
+        "id": "aababd9a-1098-4139-703f-617911d4e8c1",
+        "hidden": false,
+        "identifier": "HEADER",
+        "fieldType": "DISPLAY",
+        "displayOptions": {
+          "displayFieldType": "RICH_CONTENT",
+          "richContentOptions": {
+            "richContent": {
+              "nodes": [
+                {
+                  "type": "HEADING",
+                  "id": "4du9c29",
+                  "nodes": [
+                    {
+                      "type": "TEXT",
+                      "id": "",
+                      "nodes": [],
+                      "textData": {
+                        "text": "Book Appointment",
+                        "decorations": []
+                      }
+                    }
+                  ],
+                  "headingData": {
+                    "level": 1,
+                    "textStyle": {
+                      "textAlignment": "AUTO"
+                    },
+                    "indentation": 0
+                  }
+                }
+              ],
+              "metadata": {
+                "version": 1,
+                "createdTimestamp": "2023-05-10T09:20:25.569Z",
+                "updatedTimestamp": "2023-05-10T09:20:25.569Z",
+                "id": "5bcfaa0d-7ca4-4fb7-8e83-217fa1fc980b"
+              },
+              "documentStyle": {}
+            }
+          }
+        }
+      },
+      {
+        "id": "47a75787-18d6-4d2d-4e8a-2a5cdab2c62b",
+        "hidden": false,
+        "identifier": "CONTACTS_PHONE",
+        "fieldType": "INPUT",
+        "inputOptions": {
+          "target": "phone_4c77",
+          "pii": true,
+          "required": true,
+          "inputType": "STRING",
+          "contactMapping": {
+            "contactField": "PHONE",
+            "phoneInfo": {
+              "tag": "UNTAGGED"
+            }
+          },
+          "readOnly": false,
+          "stringOptions": {
+            "validation": {
+              "format": "PHONE",
+              "enum": []
+            },
+            "componentType": "PHONE_INPUT",
+            "phoneInputOptions": {
+              "label": "Phone",
+              "placeholder": "Phone",
+              "showLabel": true,
+              "showCountryFlag": false
+            }
+          }
+        }
+      }
+    ],
+    "steps": [
+      {
+        "id": "a0e23456-5806-4237-eb2c-0f0916e317dc",
+        "name": "Page 1",
+        "hidden": false,
+        "layout": {
+          "large": {
+            "items": [
+              {
+                "fieldId": "82c0a6c4-2d3c-4711-2e9b-afd2f1207ac0",
+                "row": 1,
+                "column": 0,
+                "width": 6,
+                "height": 1
+              },
+              {
+                "fieldId": "e19f8b32-daae-4c52-6322-c2e7a77e94d7",
+                "row": 1,
+                "column": 6,
+                "width": 6,
+                "height": 1
+              },
+              {
+                "fieldId": "75e89bac-f416-4915-429e-180743359592",
+                "row": 2,
+                "column": 6,
+                "width": 6,
+                "height": 1
+              },
+              {
+                "fieldId": "6c28e837-12c0-4789-db82-0e7e7b35acc5",
+                "row": 3,
+                "column": 0,
+                "width": 12,
+                "height": 1
+              },
+              {
+                "fieldId": "520a88ad-6dbc-4d4c-b5ef-8971d034ca87",
+                "row": 4,
+                "column": 0,
+                "width": 6,
+                "height": 1
+              },
+              {
+                "fieldId": "aababd9a-1098-4139-703f-617911d4e8c1",
+                "row": 0,
+                "column": 0,
+                "width": 12,
+                "height": 1
+              },
+              {
+                "fieldId": "47a75787-18d6-4d2d-4e8a-2a5cdab2c62b",
+                "row": 2,
+                "column": 0,
+                "width": 6,
+                "height": 1
+              }
+            ],
+            "sections": []
+          }
+        }
+      }
+    ],
+    "rules": [],
+    "revision": "5",
+    "createdDate": "2024-05-29T08:22:22.063Z",
+    "updatedDate": "2024-09-18T18:52:47.491Z",
+    "properties": {
+      "name": "Contact us",
+      "disabled": false
+    },
+    "deletedFields": [],
+    "deletedFormFields": [],
+    "kind": "REGULAR",
+    "postSubmissionTriggers": {
+      "upsertContact": {
+        "fieldsMapping": {
+          "email_5139": {
+            "contactField": "EMAIL",
+            "emailInfo": {
+              "tag": "UNTAGGED"
+            }
+          },
+          "phone_4c77": {
+            "contactField": "PHONE",
+            "phoneInfo": {
+              "tag": "UNTAGGED"
+            }
+          },
+          "last_name_d97c": {
+            "contactField": "LAST_NAME"
+          },
+          "first_name_abae": {
+            "contactField": "FIRST_NAME"
+          }
+        },
+        "labels": []
+      }
+    },
+    "extendedFields": {
+      "namespaces": {
+        "@forms/form-app": {
+          "automationId": "aba82958-4cc7-40bd-85bd-4ffef30ba45f"
+        }
+      }
+    },
+    "namespace": "wix.form_app.form",
+    "nestedForms": [],
+    "spamFilterProtectionLevel": "ADVANCED",
+    "submitSettings": {
+      "submitSuccessAction": "REDIRECT",
+      "redirectOptions": {
+        "redirectUrl": "https://drsunitaghanta.com/thank-you",
+        "target": "SELF"
+      }
+    },
+    "fieldGroups": [],
+    "enabled": true,
+    "name": "Contact us",
+    "formRules": [],
+    "autoFillContact": "FORM_INPUT",
+    "submissionAccess": "OWNER_AND_COLLABORATORS"
+  }
+}

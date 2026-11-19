@@ -1,0 +1,57 @@
+﻿
+==== first_name_abae ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== last_name_d97c ====
+fieldType: INPUT
+inputType: STRING
+required: false
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== email_5139 ====
+fieldType: INPUT
+inputType: STRING
+required: true
+validation: {
+  "format": "EMAIL",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+
+==== long_answer_3524 ====
+fieldType: INPUT
+inputType: STRING
+required: true
+validation: {
+  "format": "UNKNOWN_FORMAT",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
+NON-INPUT DISPLAY 520a88ad-6dbc-4d4c-b5ef-8971d034ca87
+NON-INPUT DISPLAY aababd9a-1098-4139-703f-617911d4e8c1
+
+==== phone_4c77 ====
+fieldType: INPUT
+inputType: STRING
+required: true
+validation: {
+  "format": "PHONE",
+  "enum": []
+}
+enum: []
+topKeys: id, hidden, identifier, fieldType, inputOptions
