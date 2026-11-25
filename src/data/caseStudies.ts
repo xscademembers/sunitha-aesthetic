@@ -261,9 +261,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     age: "20 years",
     recovery: "Day-care surgery",
     tags: ["Chin implant", "Facial balance", "Profile enhancement"],
-    heroImage: imagePath("chin-implant-surgery", "hero.png"),
-    beforeImage: imagePath("chin-implant-surgery", "before.png"),
-    afterImage: imagePath("chin-implant-surgery", "after.png"),
+    heroImage: imagePath("chin-implant-surgery", "hero.jpg"),
+    beforeImage: imagePath("chin-implant-surgery", "before.jpg"),
+    afterImage: imagePath("chin-implant-surgery", "after.jpg"),
     intro:
       "He did not want to look different. He wanted the chin to feel proportionate to the features he already had. That distinction guided a subtle plan focused on projection, profile and harmony.",
     sections: [
